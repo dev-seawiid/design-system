@@ -4,6 +4,8 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  // 라이브러리 모드에서는 public 폴더를 복사하지 않음
+  publicDir: false,
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
