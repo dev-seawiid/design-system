@@ -1,0 +1,18 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.0.2 (2026-01-14)
+
+
+### Features
+
+* 개발 환경 설정 추가 ([333932b](https://github.com/dev-seawiid/design-system/commit/333932b4a2aa1aea58f44732b1149a6c2c132345))
+* 새로운 컴포넌트 추가 및 스토리 추가 ([36ccda9](https://github.com/dev-seawiid/design-system/commit/36ccda9dae2304578d07a348ae67c4a7b7cfa4a5))
+* 테마 시스템 구현 ([0880106](https://github.com/dev-seawiid/design-system/commit/088010609a017f984adee5c51c5dee2503cc07bc))
+* Storybook 및 테스트 환경 설정 ([3433d24](https://github.com/dev-seawiid/design-system/commit/3433d24d3028e85bffe89d64d521ba2ec5d3cf61))
+
+
+### Bug Fixes
+
+* npm 라이브러리 다운로드 시 디자인 컴포넌트의 스타일이 제공되지 않는 이슈 수정 ([5fb7586](https://github.com/dev-seawiid/design-system/commit/5fb7586ce59b6c482da6f4f537e8d4ac7c4375e9))

@@ -1,6 +1,6 @@
 {
   "name": "@wiid-get/design-system",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Next.js를 위한 디자인 시스템 컴포넌트 라이브러리",
   "type": "module",
   "main": "./dist/index.js",
@@ -32,7 +32,12 @@
     "test:coverage": "vitest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "size-limit": "size-limit"
+    "size-limit": "size-limit",
+    "release": "standard-version",
+    "release:dry": "standard-version --dry-run",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "keywords": [
     "design-system",
@@ -45,15 +50,17 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "three": "^0.182.0",
-    "@react-three/fiber": "^9.4.2",
-    "@react-three/drei": "^10.7.7",
-    "react-github-calendar": "^5.0.4"
+    "react-github-calendar": "^5.0.4",
+    "three": "^0.182.0"
   },
   "devDependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
     "@size-limit/preset-small-lib": "^11.0.0",
     "@storybook/addon-a11y": "^10.1.10",
     "@storybook/addon-docs": "^10.1.10",
@@ -66,6 +73,7 @@
     "@testing-library/user-event": "^14.5.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.182.0",
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/ui": "^4.0.16",
     "autoprefixer": "^10.4.16",
@@ -78,18 +86,16 @@
     "prettier": "^3.1.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-github-calendar": "^5.0.4",
     "simple-icons": "^16.2.0",
     "size-limit": "^11.0.0",
+    "standard-version": "^9.5.0",
     "storybook": "^10.1.10",
     "tailwindcss": "^3.3.6",
+    "three": "^0.182.0",
     "typescript": "^5.3.2",
     "vite": "^5.0.0",
-    "vitest": "^4.0.16",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
-    "@types/three": "^0.182.0",
-    "react-github-calendar": "^5.0.4",
-    "three": "^0.182.0"
+    "vitest": "^4.0.16"
   },
   "size-limit": [
     {
