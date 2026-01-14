@@ -1,6 +1,16 @@
-# @wiid-get/design-system
+# 🎨 @wiid-get/design-system
 
-Next.js를 위한 디자인 시스템 컴포넌트 라이브러리입니다.
+<div align="center">
+
+[![npm version](https://img.shields.io/npm/v/@wiid-get/design-system.svg)](https://www.npmjs.com/package/@wiid-get/design-system) [![npm downloads](https://img.shields.io/npm/dm/@wiid-get/design-system.svg)](https://www.npmjs.com/package/@wiid-get/design-system) [![GitHub stars](https://img.shields.io/github/stars/dev-seawiid/design-system.svg?style=social&label=Star)](https://github.com/dev-seawiid/design-system/stargazers) [![Storybook](https://img.shields.io/badge/Storybook-FF4785?logo=storybook&logoColor=white)](https://main--694bd12c77799d8f51b85e38.chromatic.com/)
+
+</div>
+
+<div align="center">
+
+Next.js 프로젝트를 위한 커스텀 디자인 시스템 컴포넌트 라이브러리입니다. 재사용 가능한 UI 컴포넌트와 테마 시스템을 제공합니다.
+
+</div>
 
 ## 📑 목차
 
@@ -54,12 +64,17 @@ yarn add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0
 
 `RotatingSphere` 컴포넌트를 사용하려면 다음 패키지들을 설치해야 합니다:
 
+**최소 버전 요구사항:**
+- `three`: `>=0.180.0`
+- `@react-three/fiber`: `>=9.0.0`
+- `@react-three/drei`: `>=10.0.0`
+
 ```bash
-pnpm add three@^0.182.0 @react-three/fiber@^9.4.2 @react-three/drei@^10.7.7
+pnpm add three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
 # 또는
-npm install three@^0.182.0 @react-three/fiber@^9.4.2 @react-three/drei@^10.7.7
+npm install three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
 # 또는
-yarn add three@^0.182.0 @react-three/fiber@^9.4.2 @react-three/drei@^10.7.7
+yarn add three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
 ```
 
 **사용 예시:**
@@ -74,12 +89,15 @@ import { RotatingSphere } from '@wiid-get/design-system'
 
 `GithubContributions` 컴포넌트를 사용하려면 다음 패키지를 설치해야 합니다:
 
+**최소 버전 요구사항:**
+- `react-github-calendar`: `^5.0.0`
+
 ```bash
-pnpm add react-github-calendar@^5.0.4
+pnpm add react-github-calendar@^5.0.0
 # 또는
-npm install react-github-calendar@^5.0.4
+npm install react-github-calendar@^5.0.0
 # 또는
-yarn add react-github-calendar@^5.0.4
+yarn add react-github-calendar@^5.0.0
 ```
 
 **사용 예시:**
@@ -90,7 +108,9 @@ import { GithubContributions } from '@wiid-get/design-system'
 // GithubContributions를 사용할 때만 react-github-calendar가 필요합니다
 ```
 
-> **💡 팁**: 필요한 컴포넌트만 사용한다면, 해당 컴포넌트에 필요한 peerDependencies만 선택적으로 설치하면 됩니다. 이렇게 하면 불필요한 의존성을 설치하지 않아 프로젝트 크기를 줄일 수 있습니다.
+> **💡 팁**: 
+> - 필요한 컴포넌트만 사용한다면, 해당 컴포넌트에 필요한 peerDependencies만 선택적으로 설치하면 됩니다. 이렇게 하면 불필요한 의존성을 설치하지 않아 프로젝트 크기를 줄일 수 있습니다.
+> - 선택적 의존성은 `peerDependenciesMeta`로 표시되어 있어, 설치하지 않아도 npm 경고가 표시되지 않습니다.
 
 ## 🚀 사용법
 
@@ -102,7 +122,7 @@ import { GithubContributions } from '@wiid-get/design-system'
 
 ```tsx
 // app/layout.tsx
-import '@wiid-get/design-system/dist/index.css'
+import '@wiid-get/design-system/style.css'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -117,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 // pages/_app.tsx
-import '@wiid-get/design-system/dist/index.css'
+import '@wiid-get/design-system/style.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -129,7 +149,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```tsx
 // src/main.tsx 또는 src/index.tsx
-import '@wiid-get/design-system/dist/index.css'
+import '@wiid-get/design-system/style.css'
 ```
 
 #### CSS @import 방식 (CSS 파일 내에서)

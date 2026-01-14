@@ -8,10 +8,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "./dist/index.css": "./dist/index.css",
     "./style.css": "./dist/index.css",
     "./tailwind.config": "./tailwind.config.js"
   },
@@ -47,16 +46,30 @@
     "ui",
     "tailwind"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "dev-seawiid",
+  "license": "MIT",
   "peerDependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
+    "@react-three/drei": ">=10.0.0",
+    "@react-three/fiber": ">=9.0.0",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-github-calendar": "^5.0.4",
-    "three": "^0.182.0"
+    "react-github-calendar": "^5.0.0",
+    "three": ">=0.180.0"
+  },
+  "peerDependenciesMeta": {
+    "@react-three/drei": {
+      "optional": true
+    },
+    "@react-three/fiber": {
+      "optional": true
+    },
+    "react-github-calendar": {
+      "optional": true
+    },
+    "three": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@react-three/drei": "^10.7.7",
@@ -106,5 +119,16 @@
   "dependencies": {
     "clsx": "^2.0.0",
     "tailwind-merge": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-seawiid/design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dev-seawiid/design-system/issues"
+  },
+  "homepage": "https://github.com/dev-seawiid/design-system#readme",
+  "publishConfig": {
+    "access": "public"
   }
 }

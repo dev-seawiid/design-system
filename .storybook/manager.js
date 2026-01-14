@@ -9,8 +9,8 @@ const theme = create({
     <span>@wiid-get/design-system</span>
   </div>
 `,
-  brandUrl: './',
-  brandTarget: '_self',
+  brandUrl: 'https://github.com/dev-seawiid/design-system',
+  brandTarget: '_blank',
 });
 
 addons.setConfig({
