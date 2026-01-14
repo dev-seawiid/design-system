@@ -33,4 +33,6 @@ export {
 } from './theme'
 
 // Styles
-import './styles/globals.css'
+// CSS는 별도로 import해야 합니다:
+// import '@wiid-get/design-system/dist/index.css'
+// 또는 CSS 파일에서: @import '@wiid-get/design-system/style.css'

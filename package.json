@@ -10,10 +10,14 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./dist/index.css": "./dist/index.css",
+    "./style.css": "./dist/index.css",
+    "./tailwind.config": "./tailwind.config.js"
   },
   "files": [
     "dist",
+    "tailwind.config.js",
     "README.md",
     "LICENSE"
   ],
@@ -65,7 +69,6 @@
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/ui": "^4.0.16",
     "autoprefixer": "^10.4.16",
-    "clsx": "^2.0.0",
     "eslint": "^8.54.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
@@ -78,11 +81,15 @@
     "simple-icons": "^16.2.0",
     "size-limit": "^11.0.0",
     "storybook": "^10.1.10",
-    "tailwind-merge": "^2.2.0",
     "tailwindcss": "^3.3.6",
     "typescript": "^5.3.2",
     "vite": "^5.0.0",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.16",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
+    "@types/three": "^0.182.0",
+    "react-github-calendar": "^5.0.4",
+    "three": "^0.182.0"
   },
   "size-limit": [
     {
@@ -91,10 +98,7 @@
     }
   ],
   "dependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
-    "@types/three": "^0.182.0",
-    "react-github-calendar": "^5.0.4",
-    "three": "^0.182.0"
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.2.0"
   }
 }

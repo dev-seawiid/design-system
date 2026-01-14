@@ -18,6 +18,7 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'index',
     },
+    cssCodeSplit: false,
     rollupOptions: {
       external: [
         'react',
@@ -32,6 +33,13 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+        },
+        assetFileNames: (assetInfo) => {
+          // CSS 파일을 index.css로 명명
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'index.css'
+          }
+          return assetInfo.name || 'assets/[name][extname]'
         },
       },
     },

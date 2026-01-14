@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+const config = {
+  // content는 preset으로 사용할 때 제외 (사용자가 자신의 content를 지정해야 함)
+  // 내부 개발 시에는 아래 주석을 해제하거나 별도 설정 사용
+  // content: ['./src/**/*.{js,ts,jsx,tsx}'],
   prefix: 'wg-', // @wiid-get/design-system의 약자
   theme: {
     extend: {
@@ -142,4 +144,11 @@ export default {
   },
   plugins: [],
 }
+
+// 내부 개발용 설정 (Storybook 등)
+if (process.env.NODE_ENV !== 'production') {
+  config.content = ['./src/**/*.{js,ts,jsx,tsx}']
+}
+
+export default config
 
