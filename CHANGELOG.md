@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/dev-seawiid/design-system/compare/v0.0.3...v0.0.4) (2026-01-15)
+
+
+### Bug Fixes
+
+* 다자인 컴포넌트의 global.css를 외부 라이브러리에서 접근할 수 없는 이슈 수정 ([3d19a39](https://github.com/dev-seawiid/design-system/commit/3d19a3987d7df00ff893fc1eeb889e61557d5599))
+* PostCard에서 좁은 width에서 날짜 줄바꿈 일어나지 않게 수정 ([d5c40c9](https://github.com/dev-seawiid/design-system/commit/d5c40c98075059451d55d9df18c2589fe713deef))
+
 ### [0.0.3](https://github.com/dev-seawiid/design-system/compare/v0.0.2...v0.0.3) (2026-01-14)
 
 ### 0.0.2 (2026-01-14)
