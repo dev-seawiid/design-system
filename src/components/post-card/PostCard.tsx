@@ -86,12 +86,14 @@ export function PostCard({
             </a>
           )}
           <div className="wg-w-full wg-space-y-3">
-            <div className="wg-flex wg-items-center wg-gap-x-1.5 wg-text-sm wg-text-neutral-600 dark:wg-text-neutral-400">
-              <time dateTime={date}>{formatDate(date)}</time>
+            <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-sm wg-text-neutral-600 dark:wg-text-neutral-400">
+              <time dateTime={date} className="wg-whitespace-nowrap">
+                {formatDate(date)}
+              </time>
               {readingTime && (
                 <>
-                  <span className="wg-mx-1 wg-text-neutral-400">/</span>
-                  <span>{Math.ceil(readingTime)} mins read</span>
+                  <span className="wg-text-neutral-400 wg-whitespace-nowrap">/</span>
+                  <span className="wg-whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
             </div>
@@ -144,12 +146,14 @@ export function PostCard({
             </a>
           )}
           <div className="wg-flex-1 wg-space-y-2">
-            <div className="wg-flex wg-items-center wg-gap-x-1.5 wg-text-xs wg-text-neutral-600 dark:wg-text-neutral-400">
-              <time dateTime={date}>{formatDate(date)}</time>
+            <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-xs wg-text-neutral-600 dark:wg-text-neutral-400">
+              <time dateTime={date} className="wg-whitespace-nowrap">
+                {formatDate(date)}
+              </time>
               {readingTime && (
                 <>
-                  <span className="wg-mx-1 wg-text-neutral-400">/</span>
-                  <span>{Math.ceil(readingTime)} mins read</span>
+                  <span className="wg-text-neutral-400 wg-whitespace-nowrap">/</span>
+                  <span className="wg-whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
             </div>

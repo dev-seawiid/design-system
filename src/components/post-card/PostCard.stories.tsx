@@ -45,7 +45,7 @@ export const ListView: Story = {
     summary: 'A comprehensive guide to creating and maintaining a design system for your team.',
     date: '2024-12-20',
     readingTime: 8,
-    image: 'https://images.unsplash.com/photo-1561070791-2526d94fc507?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=600&h=400&fit=crop',
     tags: ['Design', 'Storybook'],
     href: '/blog/building-design-system',
     variant: 'list',
