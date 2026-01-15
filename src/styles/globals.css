@@ -10,306 +10,310 @@
  * 
  * 다른 프로젝트에서 사용 시 이 패키지의 스타일이 덮어쓰이지 않도록
  * @layer를 사용하여 우선순위를 명확히 합니다.
+ * 
+ * 이 파일은 자동 생성됩니다. src/theme/light.ts와 dark.ts를 수정한 후
+ * pnpm generate:css를 실행하여 재생성하세요.
  */
 
 @layer base {
   :root {
-    /* Primary Colors - 청록색(Teal) 계열 (algae 테마에서 가져옴) */
-    --color-primary-50: #f0fdfa;
-    --color-primary-100: #ccfbf1;
-    --color-primary-200: #99f6e4;
-    --color-primary-300: #5eead4;
-    --color-primary-400: #2dd4bf;
-    --color-primary-500: #14b8a6;
-    --color-primary-600: #0d9488;
-    --color-primary-700: #0f766e;
-    --color-primary-800: #115e59;
-    --color-primary-900: #134e4a;
-
-    /* Secondary Colors - 에메랄드 그린 계열 (algae 테마에서 가져옴) */
-    --color-secondary-50: #ecfdf5;
-    --color-secondary-100: #d1fae5;
-    --color-secondary-200: #a7f3d0;
-    --color-secondary-300: #6ee7b7;
-    --color-secondary-400: #34d399;
-    --color-secondary-500: #10b981;
-    --color-secondary-600: #059669;
-    --color-secondary-700: #047857;
-    --color-secondary-800: #065f46;
-    --color-secondary-900: #064e3b;
-
-    /* Tertiary Colors - 바다 색상(Cyan) 계열 */
-    --color-tertiary-50: #ecfeff;
-    --color-tertiary-100: #cffafe;
-    --color-tertiary-200: #a5f3fc;
-    --color-tertiary-300: #67e8f9;
-    --color-tertiary-400: #22d3ee;
-    --color-tertiary-500: #06b6d4;
-    --color-tertiary-600: #0891b2;
-    --color-tertiary-700: #0e7490;
-    --color-tertiary-800: #155e75;
-    --color-tertiary-900: #164e63;
-
-    /* Accent Colors - 노을 색상(붉은 계열) - 액센트/강조 색상 */
-    --color-accent-50: #fef2f2;
-    --color-accent-100: #fee2e2;
-    --color-accent-200: #fecaca;
-    --color-accent-300: #fca5a5;
-    --color-accent-400: #f87171;
-    --color-accent-500: #ef4444;
-    --color-accent-600: #dc2626;
-    --color-accent-700: #b91c1c;
-    --color-accent-800: #991b1b;
-    --color-accent-900: #7f1d1d;
-
+    /* Primary Colors */
+    --wg-color-primary-50: 240 253 250;
+    --wg-color-primary-100: 204 251 241;
+    --wg-color-primary-200: 153 246 228;
+    --wg-color-primary-300: 94 234 212;
+    --wg-color-primary-400: 45 212 191;
+    --wg-color-primary-500: 20 184 166;
+    --wg-color-primary-600: 13 148 136;
+    --wg-color-primary-700: 15 118 110;
+    --wg-color-primary-800: 17 94 89;
+    --wg-color-primary-900: 19 78 74;
+    /* Secondary Colors */
+    --wg-color-secondary-50: 236 254 255;
+    --wg-color-secondary-100: 207 250 254;
+    --wg-color-secondary-200: 165 243 252;
+    --wg-color-secondary-300: 103 232 249;
+    --wg-color-secondary-400: 34 211 238;
+    --wg-color-secondary-500: 6 182 212;
+    --wg-color-secondary-600: 8 145 178;
+    --wg-color-secondary-700: 14 116 144;
+    --wg-color-secondary-800: 21 94 117;
+    --wg-color-secondary-900: 22 78 99;
+    /* Tertiary Colors */
+    --wg-color-tertiary-50: 254 250 248;
+    --wg-color-tertiary-100: 253 244 240;
+    --wg-color-tertiary-200: 250 229 211;
+    --wg-color-tertiary-300: 245 213 184;
+    --wg-color-tertiary-400: 237 196 154;
+    --wg-color-tertiary-500: 228 177 122;
+    --wg-color-tertiary-600: 212 158 95;
+    --wg-color-tertiary-700: 184 133 74;
+    --wg-color-tertiary-800: 154 109 58;
+    --wg-color-tertiary-900: 125 86 41;
+    /* Accent Colors */
+    --wg-color-accent-50: 254 242 242;
+    --wg-color-accent-100: 254 226 226;
+    --wg-color-accent-200: 254 202 202;
+    --wg-color-accent-300: 252 165 165;
+    --wg-color-accent-400: 248 113 113;
+    --wg-color-accent-500: 239 68 68;
+    --wg-color-accent-600: 220 38 38;
+    --wg-color-accent-700: 185 28 28;
+    --wg-color-accent-800: 153 27 27;
+    --wg-color-accent-900: 127 29 29;
     /* Success Colors */
-    --color-success-50: #f0fdf4;
-    --color-success-100: #dcfce7;
-    --color-success-500: #22c55e;
-    --color-success-600: #16a34a;
-    --color-success-700: #15803d;
-
+    --wg-color-success-50: 236 253 245;
+    --wg-color-success-100: 209 250 229;
+    --wg-color-success-500: 16 185 129;
+    --wg-color-success-600: 5 150 105;
+    --wg-color-success-700: 4 120 87;
     /* Warning Colors */
-    --color-warning-50: #fffbeb;
-    --color-warning-100: #fef3c7;
-    --color-warning-500: #f59e0b;
-    --color-warning-600: #d97706;
-    --color-warning-700: #b45309;
-
-    /* Error Colors - 따뜻한 로즈 레드 계열 (algae 테마와 조화) */
-    --color-error-50: #fff1f2;
-    --color-error-100: #ffe4e6;
-    --color-error-500: #f43f5e;
-    --color-error-600: #e11d48;
-    --color-error-700: #be123c;
-
-    /* Info Colors - 시안 계열 (tertiary와 동일, algae 테마와 조화) */
-    --color-info-50: #ecfeff;
-    --color-info-100: #cffafe;
-    --color-info-500: #06b6d4;
-    --color-info-600: #0891b2;
-    --color-info-700: #0e7490;
-
+    --wg-color-warning-50: 255 251 235;
+    --wg-color-warning-100: 254 243 199;
+    --wg-color-warning-500: 245 158 11;
+    --wg-color-warning-600: 217 119 6;
+    --wg-color-warning-700: 180 83 9;
+    /* Error Colors */
+    --wg-color-error-50: 254 242 242;
+    --wg-color-error-100: 254 226 226;
+    --wg-color-error-500: 239 68 68;
+    --wg-color-error-600: 220 38 38;
+    --wg-color-error-700: 185 28 28;
+    /* Info Colors */
+    --wg-color-info-50: 236 254 255;
+    --wg-color-info-100: 207 250 254;
+    --wg-color-info-500: 6 182 212;
+    --wg-color-info-600: 8 145 178;
+    --wg-color-info-700: 14 116 144;
     /* Neutral Colors */
-    --color-neutral-50: #fafafa;
-    --color-neutral-100: #f5f5f5;
-    --color-neutral-200: #e5e5e5;
-    --color-neutral-300: #d4d4d4;
-    --color-neutral-400: #a3a3a3;
-    --color-neutral-500: #737373;
-    --color-neutral-600: #525252;
-    --color-neutral-700: #404040;
-    --color-neutral-800: #262626;
-    --color-neutral-900: #171717;
-
-    /* Gradient Colors - Color Definitions 직접 조합 */
-    --gradient-shallow-beach-to-deep-sea: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
-    --gradient-shallow-beach-to-algae: linear-gradient(135deg, #14b8a6 0%, #10b981 100%);
-    --gradient-shallow-beach-to-sand: linear-gradient(135deg, #14b8a6 0%, #e4b17a 100%);
-    --gradient-shallow-beach-to-sunset: linear-gradient(135deg, #14b8a6 0%, #ef4444 100%);
-    --gradient-shallow-beach-to-golden-light: linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%);
-    --gradient-deep-sea-to-shallow-beach: linear-gradient(135deg, #06b6d4 0%, #14b8a6 100%);
-    --gradient-deep-sea-to-algae: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-    --gradient-deep-sea-to-sand: linear-gradient(135deg, #06b6d4 0%, #e4b17a 100%);
-    --gradient-deep-sea-to-sunset: linear-gradient(135deg, #06b6d4 0%, #ef4444 100%);
-    --gradient-deep-sea-to-golden-light: linear-gradient(135deg, #06b6d4 0%, #f59e0b 100%);
-    --gradient-algae-to-shallow-beach: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
-    --gradient-algae-to-deep-sea: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-    --gradient-algae-to-sand: linear-gradient(135deg, #10b981 0%, #e4b17a 100%);
-    --gradient-algae-to-sunset: linear-gradient(135deg, #10b981 0%, #ef4444 100%);
-    --gradient-algae-to-golden-light: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
-    --gradient-sand-to-shallow-beach: linear-gradient(135deg, #e4b17a 0%, #14b8a6 100%);
-    --gradient-sand-to-deep-sea: linear-gradient(135deg, #e4b17a 0%, #06b6d4 100%);
-    --gradient-sand-to-algae: linear-gradient(135deg, #e4b17a 0%, #10b981 100%);
-    --gradient-sand-to-sunset: linear-gradient(135deg, #e4b17a 0%, #ef4444 100%);
-    --gradient-sand-to-golden-light: linear-gradient(135deg, #e4b17a 0%, #f59e0b 100%);
-    --gradient-sunset-to-shallow-beach: linear-gradient(135deg, #ef4444 0%, #14b8a6 100%);
-    --gradient-sunset-to-deep-sea: linear-gradient(135deg, #ef4444 0%, #06b6d4 100%);
-    --gradient-sunset-to-algae: linear-gradient(135deg, #ef4444 0%, #10b981 100%);
-    --gradient-sunset-to-sand: linear-gradient(135deg, #ef4444 0%, #e4b17a 100%);
-    --gradient-sunset-to-golden-light: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
-    --gradient-golden-light-to-shallow-beach: linear-gradient(135deg, #f59e0b 0%, #14b8a6 100%);
-    --gradient-golden-light-to-deep-sea: linear-gradient(135deg, #f59e0b 0%, #06b6d4 100%);
-    --gradient-golden-light-to-algae: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
-    --gradient-golden-light-to-sand: linear-gradient(135deg, #f59e0b 0%, #e4b17a 100%);
-    --gradient-golden-light-to-sunset: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-
+    --wg-color-neutral-50: 250 250 250;
+    --wg-color-neutral-100: 245 245 245;
+    --wg-color-neutral-200: 229 229 229;
+    --wg-color-neutral-300: 212 212 212;
+    --wg-color-neutral-400: 163 163 163;
+    --wg-color-neutral-500: 115 115 115;
+    --wg-color-neutral-600: 82 82 82;
+    --wg-color-neutral-700: 64 64 64;
+    --wg-color-neutral-800: 38 38 38;
+    --wg-color-neutral-900: 23 23 23;
     /* Semantic Colors */
-    --color-background: #ffffff;
-    --color-foreground: #134e4a;
-    --color-muted: #f0fdfa;
-    --color-muted-foreground: #0f766e;
-    --color-border: #ccfbf1;
-    --color-ring: #14b8a6;
-
+    --wg-color-background: 255 255 255;
+    --wg-color-foreground: 19 78 74;
+    --wg-color-muted: 240 253 250;
+    --wg-color-muted-foreground: 15 118 110;
+    --wg-color-border: 204 251 241;
+    --wg-color-ring: 20 184 166;
+    /* Gradient Colors */
+    --wg-gradient-shallow-beach-to-deep-sea: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-shallow-beach-to-algae: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-shallow-beach-to-sand: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-shallow-beach-to-sunset: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-shallow-beach-to-golden-light: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-deep-sea-to-shallow-beach: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-deep-sea-to-algae: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-deep-sea-to-sand: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-deep-sea-to-sunset: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-deep-sea-to-golden-light: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-algae-to-shallow-beach: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-algae-to-deep-sea: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-algae-to-sand: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-algae-to-sunset: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-algae-to-golden-light: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-sand-to-shallow-beach: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-sand-to-deep-sea: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-sand-to-algae: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-sand-to-sunset: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-sand-to-golden-light: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-sunset-to-shallow-beach: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-sunset-to-deep-sea: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-sunset-to-algae: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-sunset-to-sand: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-sunset-to-golden-light: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-golden-light-to-shallow-beach: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-golden-light-to-deep-sea: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-golden-light-to-algae: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-golden-light-to-sand: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-golden-light-to-sunset: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(239 68 68) 100%);
     /* Spacing */
-    --spacing-0: 0px;
-    --spacing-1: 4px;
-    --spacing-2: 8px;
-    --spacing-3: 12px;
-    --spacing-4: 16px;
-    --spacing-5: 20px;
-    --spacing-6: 24px;
-    --spacing-8: 32px;
-    --spacing-10: 40px;
-    --spacing-12: 48px;
-    --spacing-16: 64px;
-    --spacing-20: 80px;
-    --spacing-24: 96px;
-    --spacing-32: 128px;
-    --spacing-40: 160px;
-    --spacing-48: 192px;
-    --spacing-64: 256px;
-
+    --wg-spacing-0: 0px;
+    --wg-spacing-1: 4px;
+    --wg-spacing-2: 8px;
+    --wg-spacing-3: 12px;
+    --wg-spacing-4: 16px;
+    --wg-spacing-5: 20px;
+    --wg-spacing-6: 24px;
+    --wg-spacing-8: 32px;
+    --wg-spacing-10: 40px;
+    --wg-spacing-12: 48px;
+    --wg-spacing-16: 64px;
+    --wg-spacing-20: 80px;
+    --wg-spacing-24: 96px;
+    --wg-spacing-32: 128px;
+    --wg-spacing-40: 160px;
+    --wg-spacing-48: 192px;
+    --wg-spacing-64: 256px;
     /* Border Radius */
-    --border-radius-none: 0px;
-    --border-radius-sm: 0.125rem;
-    --border-radius-md: 0.375rem;
-    --border-radius-lg: 0.5rem;
-    --border-radius-xl: 0.75rem;
-    --border-radius-full: 9999px;
-
+    --wg-border-radius-none: 0px;
+    --wg-border-radius-sm: 0.125rem;
+    --wg-border-radius-md: 0.375rem;
+    --wg-border-radius-lg: 0.5rem;
+    --wg-border-radius-xl: 0.75rem;
+    --wg-border-radius-full: 9999px;
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --wg-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --wg-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --wg-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --wg-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
   [data-theme='dark'] {
-    /* Primary Colors - 청록색(Teal) 계열 (algae 테마에서 가져옴, dark에 맞게 반전) */
-    --color-primary-50: #134e4a;
-    --color-primary-100: #115e59;
-    --color-primary-200: #0f766e;
-    --color-primary-300: #0d9488;
-    --color-primary-400: #14b8a6;
-    --color-primary-500: #2dd4bf;
-    --color-primary-600: #5eead4;
-    --color-primary-700: #99f6e4;
-    --color-primary-800: #ccfbf1;
-    --color-primary-900: #f0fdfa;
-
-    /* Secondary Colors - 에메랄드 그린 계열 (algae 테마에서 가져옴, dark에 맞게 반전) */
-    --color-secondary-50: #064e3b;
-    --color-secondary-100: #065f46;
-    --color-secondary-200: #047857;
-    --color-secondary-300: #059669;
-    --color-secondary-400: #10b981;
-    --color-secondary-500: #34d399;
-    --color-secondary-600: #6ee7b7;
-    --color-secondary-700: #a7f3d0;
-    --color-secondary-800: #d1fae5;
-    --color-secondary-900: #ecfdf5;
-
+    /* Primary Colors */
+    --wg-color-primary-50: 19 78 74;
+    --wg-color-primary-100: 17 94 89;
+    --wg-color-primary-200: 15 118 110;
+    --wg-color-primary-300: 13 148 136;
+    --wg-color-primary-400: 20 184 166;
+    --wg-color-primary-500: 45 212 191;
+    --wg-color-primary-600: 94 234 212;
+    --wg-color-primary-700: 153 246 228;
+    --wg-color-primary-800: 204 251 241;
+    --wg-color-primary-900: 240 253 250;
+    /* Secondary Colors */
+    --wg-color-secondary-50: 22 78 99;
+    --wg-color-secondary-100: 21 94 117;
+    --wg-color-secondary-200: 14 116 144;
+    --wg-color-secondary-300: 8 145 178;
+    --wg-color-secondary-400: 6 182 212;
+    --wg-color-secondary-500: 34 211 238;
+    --wg-color-secondary-600: 103 232 249;
+    --wg-color-secondary-700: 165 243 252;
+    --wg-color-secondary-800: 207 250 254;
+    --wg-color-secondary-900: 236 254 255;
+    /* Tertiary Colors */
+    --wg-color-tertiary-50: 125 86 41;
+    --wg-color-tertiary-100: 154 109 58;
+    --wg-color-tertiary-200: 184 133 74;
+    --wg-color-tertiary-300: 212 158 95;
+    --wg-color-tertiary-400: 228 177 122;
+    --wg-color-tertiary-500: 237 196 154;
+    --wg-color-tertiary-600: 245 213 184;
+    --wg-color-tertiary-700: 250 229 211;
+    --wg-color-tertiary-800: 253 244 240;
+    --wg-color-tertiary-900: 254 250 248;
+    /* Accent Colors */
+    --wg-color-accent-50: 127 29 29;
+    --wg-color-accent-100: 153 27 27;
+    --wg-color-accent-200: 185 28 28;
+    --wg-color-accent-300: 220 38 38;
+    --wg-color-accent-400: 239 68 68;
+    --wg-color-accent-500: 248 113 113;
+    --wg-color-accent-600: 252 165 165;
+    --wg-color-accent-700: 254 202 202;
+    --wg-color-accent-800: 254 226 226;
+    --wg-color-accent-900: 254 242 242;
     /* Success Colors */
-    --color-success-50: #15803d;
-    --color-success-100: #16a34a;
-    --color-success-500: #22c55e;
-    --color-success-600: #dcfce7;
-    --color-success-700: #f0fdf4;
-
+    --wg-color-success-50: 6 78 59;
+    --wg-color-success-100: 6 95 70;
+    --wg-color-success-500: 52 211 153;
+    --wg-color-success-600: 110 231 183;
+    --wg-color-success-700: 167 243 208;
     /* Warning Colors */
-    --color-warning-50: #b45309;
-    --color-warning-100: #d97706;
-    --color-warning-500: #f59e0b;
-    --color-warning-600: #fef3c7;
-    --color-warning-700: #fffbeb;
-
-    /* Error Colors - 따뜻한 로즈 레드 계열 (algae 테마와 조화, dark에 맞게 반전) */
-    --color-error-50: #7f1d1d;
-    --color-error-100: #991b1b;
-    --color-error-500: #f43f5e;
-    --color-error-600: #fb7185;
-    --color-error-700: #fda4af;
-
-    /* Info Colors - 시안 계열 (tertiary와 동일, dark에 맞게 반전) */
-    --color-info-50: #164e63;
-    --color-info-100: #155e75;
-    --color-info-500: #22d3ee;
-    --color-info-600: #67e8f9;
-    --color-info-700: #a5f3fc;
-
+    --wg-color-warning-50: 120 53 15;
+    --wg-color-warning-100: 146 64 14;
+    --wg-color-warning-500: 251 191 36;
+    --wg-color-warning-600: 252 211 77;
+    --wg-color-warning-700: 253 230 138;
+    /* Error Colors */
+    --wg-color-error-50: 127 29 29;
+    --wg-color-error-100: 153 27 27;
+    --wg-color-error-500: 248 113 113;
+    --wg-color-error-600: 252 165 165;
+    --wg-color-error-700: 254 202 202;
+    /* Info Colors */
+    --wg-color-info-50: 22 78 99;
+    --wg-color-info-100: 21 94 117;
+    --wg-color-info-500: 34 211 238;
+    --wg-color-info-600: 103 232 249;
+    --wg-color-info-700: 165 243 252;
     /* Neutral Colors */
-    --color-neutral-50: #171717;
-    --color-neutral-100: #262626;
-    --color-neutral-200: #404040;
-    --color-neutral-300: #525252;
-    --color-neutral-400: #737373;
-    --color-neutral-500: #a3a3a3;
-    --color-neutral-600: #d4d4d4;
-    --color-neutral-700: #e5e5e5;
-    --color-neutral-800: #f5f5f5;
-    --color-neutral-900: #fafafa;
-
-    /* Tertiary Colors - 바다 색상(Cyan) 계열 (dark에 맞게 반전) */
-    --color-tertiary-50: #164e63;
-    --color-tertiary-100: #155e75;
-    --color-tertiary-200: #0e7490;
-    --color-tertiary-300: #0891b2;
-    --color-tertiary-400: #06b6d4;
-    --color-tertiary-500: #22d3ee;
-    --color-tertiary-600: #67e8f9;
-    --color-tertiary-700: #a5f3fc;
-    --color-tertiary-800: #cffafe;
-    --color-tertiary-900: #ecfeff;
-
-    /* Accent Colors - 노을 색상(붉은 계열, dark에 맞게 반전) */
-    --color-accent-50: #7f1d1d;
-    --color-accent-100: #991b1b;
-    --color-accent-200: #b91c1c;
-    --color-accent-300: #dc2626;
-    --color-accent-400: #ef4444;
-    --color-accent-500: #f87171;
-    --color-accent-600: #fca5a5;
-    --color-accent-700: #fecaca;
-    --color-accent-800: #fee2e2;
-    --color-accent-900: #fef2f2;
-
-    /* Gradient Colors - Color Definitions 직접 조합 (dark mode) */
-    --gradient-shallow-beach-to-deep-sea: linear-gradient(135deg, #2dd4bf 0%, #22d3ee 100%);
-    --gradient-shallow-beach-to-algae: linear-gradient(135deg, #2dd4bf 0%, #34d399 100%);
-    --gradient-shallow-beach-to-sand: linear-gradient(135deg, #2dd4bf 0%, #edc49a 100%);
-    --gradient-shallow-beach-to-sunset: linear-gradient(135deg, #2dd4bf 0%, #ef4444 100%);
-    --gradient-shallow-beach-to-golden-light: linear-gradient(135deg, #2dd4bf 0%, #fbbf24 100%);
-    --gradient-deep-sea-to-shallow-beach: linear-gradient(135deg, #22d3ee 0%, #2dd4bf 100%);
-    --gradient-deep-sea-to-algae: linear-gradient(135deg, #22d3ee 0%, #34d399 100%);
-    --gradient-deep-sea-to-sand: linear-gradient(135deg, #22d3ee 0%, #edc49a 100%);
-    --gradient-deep-sea-to-sunset: linear-gradient(135deg, #22d3ee 0%, #ef4444 100%);
-    --gradient-deep-sea-to-golden-light: linear-gradient(135deg, #22d3ee 0%, #fbbf24 100%);
-    --gradient-algae-to-shallow-beach: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%);
-    --gradient-algae-to-deep-sea: linear-gradient(135deg, #34d399 0%, #22d3ee 100%);
-    --gradient-algae-to-sand: linear-gradient(135deg, #34d399 0%, #edc49a 100%);
-    --gradient-algae-to-sunset: linear-gradient(135deg, #34d399 0%, #ef4444 100%);
-    --gradient-algae-to-golden-light: linear-gradient(135deg, #34d399 0%, #fbbf24 100%);
-    --gradient-sand-to-shallow-beach: linear-gradient(135deg, #edc49a 0%, #2dd4bf 100%);
-    --gradient-sand-to-deep-sea: linear-gradient(135deg, #edc49a 0%, #22d3ee 100%);
-    --gradient-sand-to-algae: linear-gradient(135deg, #edc49a 0%, #34d399 100%);
-    --gradient-sand-to-sunset: linear-gradient(135deg, #edc49a 0%, #ef4444 100%);
-    --gradient-sand-to-golden-light: linear-gradient(135deg, #edc49a 0%, #fbbf24 100%);
-    --gradient-sunset-to-shallow-beach: linear-gradient(135deg, #ef4444 0%, #2dd4bf 100%);
-    --gradient-sunset-to-deep-sea: linear-gradient(135deg, #ef4444 0%, #22d3ee 100%);
-    --gradient-sunset-to-algae: linear-gradient(135deg, #ef4444 0%, #34d399 100%);
-    --gradient-sunset-to-sand: linear-gradient(135deg, #ef4444 0%, #edc49a 100%);
-    --gradient-sunset-to-golden-light: linear-gradient(135deg, #ef4444 0%, #fbbf24 100%);
-    --gradient-golden-light-to-shallow-beach: linear-gradient(135deg, #fbbf24 0%, #2dd4bf 100%);
-    --gradient-golden-light-to-deep-sea: linear-gradient(135deg, #fbbf24 0%, #22d3ee 100%);
-    --gradient-golden-light-to-algae: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
-    --gradient-golden-light-to-sand: linear-gradient(135deg, #fbbf24 0%, #edc49a 100%);
-    --gradient-golden-light-to-sunset: linear-gradient(135deg, #fbbf24 0%, #ef4444 100%);
-
+    --wg-color-neutral-50: 23 23 23;
+    --wg-color-neutral-100: 38 38 38;
+    --wg-color-neutral-200: 64 64 64;
+    --wg-color-neutral-300: 82 82 82;
+    --wg-color-neutral-400: 115 115 115;
+    --wg-color-neutral-500: 163 163 163;
+    --wg-color-neutral-600: 212 212 212;
+    --wg-color-neutral-700: 229 229 229;
+    --wg-color-neutral-800: 245 245 245;
+    --wg-color-neutral-900: 250 250 250;
     /* Semantic Colors */
-    --color-background: #171717;
-    --color-foreground: #f0fdfa;
-    --color-muted: #134e4a;
-    --color-muted-foreground: #99f6e4;
-    --color-border: #0f766e;
-    --color-ring: #2dd4bf;
-
-    /* Shadows (darker for dark theme) */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    --wg-color-background: 23 23 23;
+    --wg-color-foreground: 240 253 250;
+    --wg-color-muted: 19 78 74;
+    --wg-color-muted-foreground: 153 246 228;
+    --wg-color-border: 15 118 110;
+    --wg-color-ring: 45 212 191;
+    /* Gradient Colors */
+    --wg-gradient-shallow-beach-to-deep-sea: linear-gradient(135deg, rgb(45 212 191) 0%, rgb(34 211 238) 100%);
+    --wg-gradient-shallow-beach-to-algae: linear-gradient(135deg, rgb(45 212 191) 0%, rgb(52 211 153) 100%);
+    --wg-gradient-shallow-beach-to-sand: linear-gradient(135deg, rgb(45 212 191) 0%, rgb(237 196 154) 100%);
+    --wg-gradient-shallow-beach-to-sunset: linear-gradient(135deg, rgb(45 212 191) 0%, rgb(248 113 113) 100%);
+    --wg-gradient-shallow-beach-to-golden-light: linear-gradient(135deg, rgb(45 212 191) 0%, rgb(251 191 36) 100%);
+    --wg-gradient-deep-sea-to-shallow-beach: linear-gradient(135deg, rgb(34 211 238) 0%, rgb(45 212 191) 100%);
+    --wg-gradient-deep-sea-to-algae: linear-gradient(135deg, rgb(34 211 238) 0%, rgb(52 211 153) 100%);
+    --wg-gradient-deep-sea-to-sand: linear-gradient(135deg, rgb(34 211 238) 0%, rgb(237 196 154) 100%);
+    --wg-gradient-deep-sea-to-sunset: linear-gradient(135deg, rgb(34 211 238) 0%, rgb(248 113 113) 100%);
+    --wg-gradient-deep-sea-to-golden-light: linear-gradient(135deg, rgb(34 211 238) 0%, rgb(251 191 36) 100%);
+    --wg-gradient-algae-to-shallow-beach: linear-gradient(135deg, rgb(52 211 153) 0%, rgb(45 212 191) 100%);
+    --wg-gradient-algae-to-deep-sea: linear-gradient(135deg, rgb(52 211 153) 0%, rgb(34 211 238) 100%);
+    --wg-gradient-algae-to-sand: linear-gradient(135deg, rgb(52 211 153) 0%, rgb(237 196 154) 100%);
+    --wg-gradient-algae-to-sunset: linear-gradient(135deg, rgb(52 211 153) 0%, rgb(248 113 113) 100%);
+    --wg-gradient-algae-to-golden-light: linear-gradient(135deg, rgb(52 211 153) 0%, rgb(251 191 36) 100%);
+    --wg-gradient-sand-to-shallow-beach: linear-gradient(135deg, rgb(237 196 154) 0%, rgb(45 212 191) 100%);
+    --wg-gradient-sand-to-deep-sea: linear-gradient(135deg, rgb(237 196 154) 0%, rgb(34 211 238) 100%);
+    --wg-gradient-sand-to-algae: linear-gradient(135deg, rgb(237 196 154) 0%, rgb(52 211 153) 100%);
+    --wg-gradient-sand-to-sunset: linear-gradient(135deg, rgb(237 196 154) 0%, rgb(248 113 113) 100%);
+    --wg-gradient-sand-to-golden-light: linear-gradient(135deg, rgb(237 196 154) 0%, rgb(251 191 36) 100%);
+    --wg-gradient-sunset-to-shallow-beach: linear-gradient(135deg, rgb(248 113 113) 0%, rgb(45 212 191) 100%);
+    --wg-gradient-sunset-to-deep-sea: linear-gradient(135deg, rgb(248 113 113) 0%, rgb(34 211 238) 100%);
+    --wg-gradient-sunset-to-algae: linear-gradient(135deg, rgb(248 113 113) 0%, rgb(52 211 153) 100%);
+    --wg-gradient-sunset-to-sand: linear-gradient(135deg, rgb(248 113 113) 0%, rgb(237 196 154) 100%);
+    --wg-gradient-sunset-to-golden-light: linear-gradient(135deg, rgb(248 113 113) 0%, rgb(251 191 36) 100%);
+    --wg-gradient-golden-light-to-shallow-beach: linear-gradient(135deg, rgb(251 191 36) 0%, rgb(45 212 191) 100%);
+    --wg-gradient-golden-light-to-deep-sea: linear-gradient(135deg, rgb(251 191 36) 0%, rgb(34 211 238) 100%);
+    --wg-gradient-golden-light-to-algae: linear-gradient(135deg, rgb(251 191 36) 0%, rgb(52 211 153) 100%);
+    --wg-gradient-golden-light-to-sand: linear-gradient(135deg, rgb(251 191 36) 0%, rgb(237 196 154) 100%);
+    --wg-gradient-golden-light-to-sunset: linear-gradient(135deg, rgb(251 191 36) 0%, rgb(248 113 113) 100%);
+    /* Spacing */
+    --wg-spacing-0: 0px;
+    --wg-spacing-1: 4px;
+    --wg-spacing-2: 8px;
+    --wg-spacing-3: 12px;
+    --wg-spacing-4: 16px;
+    --wg-spacing-5: 20px;
+    --wg-spacing-6: 24px;
+    --wg-spacing-8: 32px;
+    --wg-spacing-10: 40px;
+    --wg-spacing-12: 48px;
+    --wg-spacing-16: 64px;
+    --wg-spacing-20: 80px;
+    --wg-spacing-24: 96px;
+    --wg-spacing-32: 128px;
+    --wg-spacing-40: 160px;
+    --wg-spacing-48: 192px;
+    --wg-spacing-64: 256px;
+    /* Border Radius */
+    --wg-border-radius-none: 0px;
+    --wg-border-radius-sm: 0.125rem;
+    --wg-border-radius-md: 0.375rem;
+    --wg-border-radius-lg: 0.5rem;
+    --wg-border-radius-xl: 0.75rem;
+    --wg-border-radius-full: 9999px;
+    /* Shadows */
+    --wg-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --wg-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --wg-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --wg-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
   }
 }
 
@@ -328,25 +332,24 @@
 @layer utilities {
   /* 그라데이션 유틸리티 클래스 */
   .wg-gradient-primary-to-secondary {
-    background: var(--gradient-primary-to-secondary);
+    background: var(--wg-gradient-primary-to-secondary);
   }
   .wg-gradient-primary-to-tertiary {
-    background: var(--gradient-primary-to-tertiary);
+    background: var(--wg-gradient-primary-to-tertiary);
   }
   .wg-gradient-secondary-to-tertiary {
-    background: var(--gradient-secondary-to-tertiary);
+    background: var(--wg-gradient-secondary-to-tertiary);
   }
   .wg-gradient-primary-to-accent {
-    background: var(--gradient-primary-to-accent);
+    background: var(--wg-gradient-primary-to-accent);
   }
   .wg-gradient-secondary-to-accent {
-    background: var(--gradient-secondary-to-accent);
+    background: var(--wg-gradient-secondary-to-accent);
   }
   .wg-gradient-tertiary-to-accent {
-    background: var(--gradient-tertiary-to-accent);
+    background: var(--wg-gradient-tertiary-to-accent);
   }
   .wg-gradient-accent-to-primary {
-    background: var(--gradient-accent-to-primary);
+    background: var(--wg-gradient-accent-to-primary);
   }
 }
-

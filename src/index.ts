@@ -1,3 +1,6 @@
+// css를 dist에 포함시키기 위해 추가
+import './styles/globals.css' // 이 한 줄이 있으면 Vite가 빌드 시 dist에 CSS를 뱉습니다.
+
 // Components
 export { Avatar, type AvatarProps } from './components/avatar'
 export { Badge, type BadgeProps } from './components/badge'
@@ -31,8 +34,3 @@ export {
   type Theme,
   type TypographyTokens,
 } from './theme'
-
-// Styles
-// CSS는 별도로 import해야 합니다:
-// import '@wiid-get/design-system/dist/index.css'
-// 또는 CSS 파일에서: @import '@wiid-get/design-system/style.css'

@@ -65,6 +65,7 @@ yarn add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0
 `RotatingSphere` 컴포넌트를 사용하려면 다음 패키지들을 설치해야 합니다:
 
 **최소 버전 요구사항:**
+
 - `three`: `>=0.180.0`
 - `@react-three/fiber`: `>=9.0.0`
 - `@react-three/drei`: `>=10.0.0`
@@ -90,6 +91,7 @@ import { RotatingSphere } from '@wiid-get/design-system'
 `GithubContributions` 컴포넌트를 사용하려면 다음 패키지를 설치해야 합니다:
 
 **최소 버전 요구사항:**
+
 - `react-github-calendar`: `^5.0.0`
 
 ```bash
@@ -108,7 +110,8 @@ import { GithubContributions } from '@wiid-get/design-system'
 // GithubContributions를 사용할 때만 react-github-calendar가 필요합니다
 ```
 
-> **💡 팁**: 
+> **💡 팁**:
+>
 > - 필요한 컴포넌트만 사용한다면, 해당 컴포넌트에 필요한 peerDependencies만 선택적으로 설치하면 됩니다. 이렇게 하면 불필요한 의존성을 설치하지 않아 프로젝트 크기를 줄일 수 있습니다.
 > - 선택적 의존성은 `peerDependenciesMeta`로 표시되어 있어, 설치하지 않아도 npm 경고가 표시되지 않습니다.
 
@@ -116,13 +119,13 @@ import { GithubContributions } from '@wiid-get/design-system'
 
 ### 1. CSS 스타일 import (필수)
 
-프리빌드된 CSS 파일을 import해야 합니다.
+프리빌드된 CSS 파일을 최상단 layout에 import해야 합니다.
 
 #### Next.js App Router
 
 ```tsx
 // app/layout.tsx
-import '@wiid-get/design-system/style.css'
+import '@wiid-get/design-system/index.css'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -137,7 +140,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 // pages/_app.tsx
-import '@wiid-get/design-system/style.css'
+import '@wiid-get/design-system/index.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -149,7 +152,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```tsx
 // src/main.tsx 또는 src/index.tsx
-import '@wiid-get/design-system/style.css'
+import '@wiid-get/design-system/index.css'
 ```
 
 #### CSS @import 방식 (CSS 파일 내에서)
@@ -158,7 +161,7 @@ CSS 파일 내에서 `@import`를 사용하여 스타일을 import할 수 있습
 
 ```css
 /* src/index.css 또는 src/globals.css */
-@import '@wiid-get/design-system/style.css';
+@import '@wiid-get/design-system/index.css';
 
 @tailwind base;
 @tailwind components;
@@ -167,11 +170,16 @@ CSS 파일 내에서 `@import`를 사용하여 스타일을 import할 수 있습
 /* 나머지 스타일... */
 ```
 
-> **참고**: `@import`는 CSS 파일의 최상단에 위치해야 하며, `@tailwind` 지시어보다 앞에 와야 합니다.
+> **참고**:
+>
+> - `@import`는 CSS 파일의 최상단에 위치해야 하며, `@tailwind` 지시어보다 앞에 와야 합니다.
+> - CSS는 반드시 최상단 layout 파일에 import해야 디자인 시스템의 스타일이 올바르게 적용됩니다.
 
 ### 2. Tailwind CSS 설정 (선택사항)
 
 Tailwind CSS preset을 사용하여 디자인 시스템의 테마 토큰을 확장할 수 있습니다.
+
+> **참고**: `tailwind.preset.js` 파일은 자동 생성됩니다. `src/theme/light.ts`를 수정한 후 `pnpm generate:preset`을 실행하여 재생성할 수 있습니다.
 
 #### Next.js App Router
 
@@ -179,7 +187,7 @@ Tailwind CSS preset을 사용하여 디자인 시스템의 테마 토큰을 확�
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('@wiid-get/design-system/tailwind.config')],
+  presets: [require('@wiid-get/design-system/tailwind.preset')],
   content: [
     // 디자인 시스템의 컴포넌트 경로도 포함해야 스타일이 추출됩니다
     './node_modules/@wiid-get/design-system/**/*.{js,ts,jsx,tsx}',
@@ -196,7 +204,7 @@ module.exports = {
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('@wiid-get/design-system/tailwind.config')],
+  presets: [require('@wiid-get/design-system/tailwind.preset')],
   content: [
     './node_modules/@wiid-get/design-system/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -210,11 +218,11 @@ module.exports = {
 
 ```js
 // tailwind.config.js
-import designSystemConfig from '@wiid-get/design-system/tailwind.config.js'
+import designSystemPreset from '@wiid-get/design-system/tailwind.preset.js'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  presets: [designSystemConfig],
+  presets: [designSystemPreset],
   content: [
     './node_modules/@wiid-get/design-system/**/*.{js,ts,jsx,tsx}',
     './src/**/*.{js,ts,jsx,tsx}',
@@ -381,21 +389,32 @@ pnpm test:coverage
 pnpm build
 ```
 
+빌드 프로세스는 다음을 수행합니다:
+
+1. CSS 변수 생성 (`pnpm generate:css`)
+2. Tailwind preset 생성 (`pnpm generate:preset`)
+3. TypeScript 컴파일
+4. Vite 빌드
+
 빌드된 파일은 `dist/` 디렉토리에 생성됩니다:
 
-- `dist/index.js` - 컴포넌트 번들
-- `dist/index.d.ts` - TypeScript 타입 정의
-- `dist/index.css` - 프리빌드된 CSS 스타일
+- `dist/index.js` - ESM 형식의 컴포넌트 번들
+- `dist/index.d.ts` - TypeScript 타입 정의 파일
+- `dist/index.css` - 프리빌드된 CSS 스타일 파일
+- `tailwind.preset.js` - Tailwind CSS preset 파일 (자동 생성)
 
 ## 📤 npm 배포
 
 이 라이브러리는 `package.json`의 `files` 필드를 사용하여 배포할 파일만 명시적으로 선언합니다 (whitelist 방식):
 
 - `dist/` - 빌드된 파일들
+- `tailwind.preset.js` - Tailwind CSS preset 파일 (자동 생성)
 - `README.md` - 문서
 - `LICENSE` - 라이선스
 
 npm 배포 시 위 파일들만 포함되며, 소스 코드, 테스트 파일, 설정 파일 등은 제외됩니다.
+
+> **참고**: `tailwind.preset.js`는 빌드 시 자동으로 생성되며, `src/theme/light.ts`의 테마 설정을 기반으로 생성됩니다.
 
 ## 📝 라이선스
 
