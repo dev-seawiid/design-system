@@ -1,0 +1,4 @@
+/* Storybook 전용: Tailwind 기본 스타일 포함 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

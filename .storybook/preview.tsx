@@ -1,5 +1,7 @@
 import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react'
+// Storybook에서는 Tailwind base 스타일이 필요하므로 추가
+import './storybook.css'
 import '../src/styles/globals.css'
 
 const preview: Preview = {

@@ -49,12 +49,14 @@ yarn add @wiid-get/design-system
 다음 패키지들은 라이브러리 사용을 위해 **반드시 설치**해야 합니다:
 
 ```bash
-pnpm add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0
+pnpm add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0 tailwindcss@>=3.3.0
 # 또는
-npm install next@^16.0.0 react@^19.0.0 react-dom@^19.0.0
+npm install next@^16.0.0 react@^19.0.0 react-dom@^19.0.0 tailwindcss@>=3.3.0
 # 또는
-yarn add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0
+yarn add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0 tailwindcss@>=3.3.0
 ```
+
+> **참고**: `tailwindcss`는 Tailwind preset을 사용하거나 컴포넌트 스타일을 제대로 표시하기 위해 필요합니다.
 
 ### 🔧 선택적 설치 (특정 컴포넌트 사용 시만 필요)
 
