@@ -62,60 +62,30 @@ yarn add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0 tailwindcss@>=3.3.0
 
 특정 컴포넌트를 사용할 때만 필요한 의존성입니다. 해당 컴포넌트를 사용하지 않는다면 설치할 필요가 없습니다.
 
-#### 🎯 RotatingSphere 컴포넌트 사용 시
+#### Optional Dependency를 사용하는 컴포넌트
 
-`RotatingSphere` 컴포넌트를 사용하려면 다음 패키지들을 설치해야 합니다:
+일부 컴포넌트는 optional dependency를 사용합니다. 해당 컴포넌트를 사용하려면 필요한 패키지를 설치하고, 별도 export 경로에서 import해야 합니다.
 
-**최소 버전 요구사항:**
+**사용 방법:**
 
-- `three`: `>=0.180.0`
-- `@react-three/fiber`: `>=9.0.0`
-- `@react-three/drei`: `>=10.0.0`
+1. 필요한 패키지 설치 (각 컴포넌트의 문서에서 확인)
+2. 별도 export 경로에서 import: `@wiid-get/design-system/{컴포넌트명}`
 
-```bash
-pnpm add three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
-# 또는
-npm install three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
-# 또는
-yarn add three@>=0.180.0 @react-three/fiber@>=9.0.0 @react-three/drei@>=10.0.0
-```
-
-**사용 예시:**
+**예시:**
 
 ```tsx
-import { RotatingSphere } from '@wiid-get/design-system'
-
-// RotatingSphere를 사용할 때만 three.js 관련 패키지가 필요합니다
+// 형식: @wiid-get/design-system/{컴포넌트명}
+import { ComponentName } from '@wiid-get/design-system/{컴포넌트명}'
+// 해당 컴포넌트에 필요한 optional dependency 패키지를 설치해야 합니다
 ```
 
-#### 📊 GithubContributions 컴포넌트 사용 시
-
-`GithubContributions` 컴포넌트를 사용하려면 다음 패키지를 설치해야 합니다:
-
-**최소 버전 요구사항:**
-
-- `react-github-calendar`: `^5.0.0`
-
-```bash
-pnpm add react-github-calendar@^5.0.0
-# 또는
-npm install react-github-calendar@^5.0.0
-# 또는
-yarn add react-github-calendar@^5.0.0
-```
-
-**사용 예시:**
-
-```tsx
-import { GithubContributions } from '@wiid-get/design-system'
-
-// GithubContributions를 사용할 때만 react-github-calendar가 필요합니다
-```
+> **참고**: 각 컴포넌트의 정확한 패키지 요구사항은 `package.json`의 `peerDependencies` 섹션을 참조하거나 Storybook 문서를 확인하세요.
 
 > **💡 팁**:
 >
 > - 필요한 컴포넌트만 사용한다면, 해당 컴포넌트에 필요한 peerDependencies만 선택적으로 설치하면 됩니다. 이렇게 하면 불필요한 의존성을 설치하지 않아 프로젝트 크기를 줄일 수 있습니다.
 > - 선택적 의존성은 `peerDependenciesMeta`로 표시되어 있어, 설치하지 않아도 npm 경고가 표시되지 않습니다.
+> - Optional dependency를 사용하는 컴포넌트는 별도 export 경로(`@wiid-get/design-system/{컴포넌트명}`)에서 import해야 합니다. 이렇게 하면 해당 컴포넌트를 사용하지 않을 때 optional dependency가 번들에 포함되지 않아 에러가 발생하지 않습니다.
 
 ## 🚀 사용법
 
@@ -237,38 +207,66 @@ export default {
 
 ### 3. 컴포넌트 사용
 
+#### 기본 컴포넌트 (메인 export)
+
 ```tsx
-import { Avatar, Badge, PostCard, ProfileCard } from '@wiid-get/design-system'
+import { Component1, Component2, Component3 } from '@wiid-get/design-system'
 
 export default function Page() {
   return (
     <div>
-      <Avatar src="/profile.jpg" alt="Profile" size="lg" />
-      <Badge variant="primary">New</Badge>
-      <PostCard
-        title="게시글 제목"
-        summary="게시글 요약 내용입니다."
-        date="2024-01-01"
-        href="/post/1"
-      />
+      <Component1 {...props} />
+      <Component2 {...props} />
+      <Component3 {...props} />
     </div>
   )
 }
 ```
 
+> **참고**: 사용 가능한 모든 컴포넌트 목록은 [Storybook 문서](https://main--694bd12c77799d8f51b85e38.chromatic.com/)를 참조하세요.
+
+#### Optional Dependency를 사용하는 컴포넌트
+
+일부 컴포넌트는 optional dependency를 사용하므로 별도 export 경로에서 import해야 합니다. 이렇게 하면 해당 컴포넌트를 사용하지 않을 때 optional dependency가 번들에 포함되지 않습니다.
+
+**사용 방법:**
+
+```tsx
+// 별도 export 경로에서 import
+// 형식: @wiid-get/design-system/{컴포넌트명}
+import { ComponentName } from '@wiid-get/design-system/{컴포넌트명}'
+```
+
+**타입은 메인 export에서도 사용 가능합니다:**
+
+```tsx
+// 타입은 번들에 포함되지 않으므로 메인 export에서도 사용 가능
+// 형식: import type { {ComponentName}Props } from '@wiid-get/design-system'
+import type { ComponentProps } from '@wiid-get/design-system'
+```
+
 ### 제공되는 컴포넌트
 
-- `Avatar` - 프로필 이미지 아바타
-- `Badge` - 뱃지 컴포넌트
-- `GithubContributions` - GitHub 기여도 그래프
-- `ParallaxTags` - 패럴랙스 효과 태그
-- `PostCard` - 포스트 카드
-- `ProfileCard` - 프로필 카드
-- `ProjectCard` - 프로젝트 카드
-- `RotatingSphere` - 3D 회전 구체
-- `SpotifyLastPlayed` - Spotify 최근 재생 트랙
-- `SpotifyNowPlaying` - Spotify 현재 재생 중
-- `TypingText` - 타이핑 애니메이션 텍스트
+모든 컴포넌트 목록과 상세한 사용법은 [Storybook 문서](https://main--694bd12c77799d8f51b85e38.chromatic.com/)를 참조하세요.
+
+#### 메인 export에서 제공되는 컴포넌트
+
+대부분의 컴포넌트는 메인 export 경로에서 사용할 수 있습니다:
+
+```tsx
+import { Component1, Component2, ... } from '@wiid-get/design-system'
+```
+
+#### 별도 export 경로에서 제공되는 컴포넌트
+
+Optional dependency를 사용하는 컴포넌트는 별도 export 경로에서 import해야 합니다:
+
+```tsx
+// 형식: @wiid-get/design-system/{컴포넌트명}
+import { ComponentName } from '@wiid-get/design-system/{컴포넌트명}'
+```
+
+> **참고**: 어떤 컴포넌트가 별도 export 경로를 사용하는지는 각 컴포넌트의 Storybook 문서나 `package.json`의 `peerDependenciesMeta`를 확인하세요.
 
 ## 🎨 테마
 
@@ -278,13 +276,13 @@ export default function Page() {
 // 전체 페이지에 테마 적용
 <html data-theme="dark">
   <body>
-    <Avatar src="/profile.jpg" alt="Profile" />
+    <YourComponent />
   </body>
 </html>
 
 // 특정 영역에만 테마 적용
 <div data-theme="dark">
-  <ProfileCard info={profileInfo} />
+  <YourComponent />
 </div>
 ```
 
@@ -400,10 +398,19 @@ pnpm build
 
 빌드된 파일은 `dist/` 디렉토리에 생성됩니다:
 
-- `dist/index.js` - ESM 형식의 컴포넌트 번들
+**메인 번들:**
+- `dist/index.js` - ESM 형식의 메인 컴포넌트 번들
 - `dist/index.d.ts` - TypeScript 타입 정의 파일
 - `dist/index.css` - 프리빌드된 CSS 스타일 파일
+
+**별도 번들 (Optional Dependency 사용 컴포넌트):**
+- `dist/{컴포넌트명}.js` - 각 optional dependency 컴포넌트의 별도 번들
+- `dist/{컴포넌트명}.d.ts` - 각 컴포넌트의 타입 정의 파일
+
+**기타:**
 - `tailwind.preset.js` - Tailwind CSS preset 파일 (자동 생성)
+
+> **참고**: Optional dependency를 사용하는 컴포넌트는 별도 번들로 분리되어 있습니다. 이렇게 하면 해당 컴포넌트를 사용하지 않을 때 optional dependency가 메인 번들에 포함되지 않습니다. 어떤 컴포넌트가 별도 번들로 분리되어 있는지는 `package.json`의 `exports` 필드를 확인하세요.
 
 ## 📤 npm 배포
 
