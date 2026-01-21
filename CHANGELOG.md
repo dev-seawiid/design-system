@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/dev-seawiid/design-system/compare/v0.0.5...v0.0.6) (2026-01-21)
+
+
+### Bug Fixes
+
+* 사용하지 않는 옵셔널 의존성 모듈을 찾지 못하는 이슈 수정 ([de5ffef](https://github.com/dev-seawiid/design-system/commit/de5ffef18e068cb7258c122194566b4fe4c8ec31))
+
 ### [0.0.5](https://github.com/dev-seawiid/design-system/compare/v0.0.4...v0.0.5) (2026-01-21)
 
 
