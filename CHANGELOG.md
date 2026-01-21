@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/dev-seawiid/design-system/compare/v0.0.4...v0.0.5) (2026-01-21)
+
+
+### Bug Fixes
+
+* Tailwind CSS 통합 및 관련 설정 추가 ([0b7bae1](https://github.com/dev-seawiid/design-system/commit/0b7bae12fe3f020b4ba165fc05b7823a1e7fbf67))
+
 ### [0.0.4](https://github.com/dev-seawiid/design-system/compare/v0.0.3...v0.0.4) (2026-01-15)
 
 
