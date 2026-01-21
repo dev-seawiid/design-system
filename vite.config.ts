@@ -9,8 +9,11 @@ export default defineConfig({
   build: {
     cssCodeSplit: true, // CSS를 별도 파일로 추출하도록 강제
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      fileName: 'index', // 이 설정을 넣으면 design-system.js 대신 index.js가 생깁니다.
+      entry: {
+        index: path.resolve(__dirname, 'src/index.ts'),
+        'github-contributions': path.resolve(__dirname, 'src/github-contributions.ts'),
+        'rotating-sphere': path.resolve(__dirname, 'src/rotating-sphere.ts'),
+      },
       formats: ['es'],
     },
     rollupOptions: {

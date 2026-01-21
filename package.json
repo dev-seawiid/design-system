@@ -11,6 +11,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./github-contributions": {
+      "types": "./dist/github-contributions.d.ts",
+      "import": "./dist/github-contributions.js"
+    },
+    "./rotating-sphere": {
+      "types": "./dist/rotating-sphere.d.ts",
+      "import": "./dist/rotating-sphere.js"
+    },
     "./tailwind.preset": "./tailwind.preset.js",
     "./index.css": "./dist/index.css"
   },
