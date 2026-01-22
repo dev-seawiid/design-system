@@ -73,7 +73,8 @@ export function PostCard({
                   'wg-absolute wg-top-3 wg-right-0 wg-bottom-0 wg-left-3',
                   'wg-rounded-xl wg-border-2 wg-border-neutral-800 dark:wg-border-neutral-400',
                   'wg-bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,.1)_25%,rgba(0,0,0,.1)_50%,transparent_50%,transparent_75%,rgba(0,0,0,.1)_75%,rgba(0,0,0,.1))]',
-                  'wg-bg-[length:20px_20px] wg-opacity-20'
+                  'wg-bg-[length:20px_20px] wg-opacity-20',
+                  'wg-pointer-events-none'
                 )}
               />
             </div>
