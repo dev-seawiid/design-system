@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/dev-seawiid/design-system/compare/v0.0.7...v0.0.8) (2026-01-22)
+
+
+### Bug Fixes
+
+*  storybook 실행시 버전 불일치 이슈 해결 ([4e00dfc](https://github.com/dev-seawiid/design-system/commit/4e00dfc52e1408cc88b1180bd8d50e8f53e4ec58))
+* 이미지 및 제목 링크에 Radix UI 슬롯을 사용하도록 PostCard 구성 요소 업데이트 ([5f73399](https://github.com/dev-seawiid/design-system/commit/5f7339938702615937f36ad34b2111be2f004515))
+
 ### [0.0.7](https://github.com/dev-seawiid/design-system/compare/v0.0.6...v0.0.7) (2026-01-21)
 
 ### [0.0.6](https://github.com/dev-seawiid/design-system/compare/v0.0.5...v0.0.6) (2026-01-21)
