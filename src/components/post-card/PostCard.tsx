@@ -1,4 +1,5 @@
 import { cn } from '@/utils/cn'
+import { Slot } from '@radix-ui/react-slot'
 import React from 'react'
 import { Badge } from '../badge/Badge'
 
@@ -7,10 +8,10 @@ export interface PostCardProps extends React.HTMLAttributes<HTMLElement> {
   summary?: string
   date: string
   readingTime?: number
-  image?: string
   tags?: string[]
-  href?: string
   variant?: 'grid' | 'list'
+  imageSlot?: React.ReactNode
+  titleLinkSlot?: React.ReactNode
   ref?: React.Ref<HTMLElement>
 }
 
@@ -25,10 +26,10 @@ export function PostCard({
   summary,
   date,
   readingTime,
-  image,
   tags,
-  href,
   variant = 'grid',
+  imageSlot,
+  titleLinkSlot,
   className,
   ref,
   ...props
@@ -54,9 +55,8 @@ export function PostCard({
     >
       {variant === 'grid' && (
         <div className="wg-flex wg-flex-col wg-items-start wg-justify-between wg-gap-4 md:wg-gap-6">
-          {image && (
-            <a
-              href={href}
+          {imageSlot && (
+            <div
               className={cn(
                 'wg-relative wg-block wg-shrink-0 wg-w-full',
                 'wg-aspect-[3/2]',
@@ -65,16 +65,9 @@ export function PostCard({
                 'hover:wg-pt-1 hover:wg-pr-2 hover:wg-pb-2 hover:wg-pl-1'
               )}
             >
-              <img
-                src={image}
-                alt={title}
-                className="wg-absolute wg-inset-0 wg-w-full wg-h-full wg-rounded-xl wg-shadow-2xl wg-object-cover"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                }}
-              />
+              <Slot className="wg-absolute wg-inset-0 wg-w-full wg-h-full">
+                {imageSlot}
+              </Slot>
               <div
                 className={cn(
                   'wg-absolute wg-top-3 wg-right-0 wg-bottom-0 wg-left-3',
@@ -83,7 +76,7 @@ export function PostCard({
                   'wg-bg-[length:20px_20px] wg-opacity-20'
                 )}
               />
-            </a>
+            </div>
           )}
           <div className="wg-w-full wg-space-y-3">
             <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-sm wg-text-neutral-600 dark:wg-text-neutral-400">
@@ -99,14 +92,13 @@ export function PostCard({
             </div>
             <div className="wg-group wg-relative">
               <h3 className="wg-text-xl wg-leading-6 wg-font-semibold">
-                {href ? (
-                  <a
-                    href={href}
-                    className="wg-relative wg-inline-block wg-transition-colors hover:wg-text-primary-500"
-                  >
-                    {title}
+                {titleLinkSlot ? (
+                  <div className="wg-relative wg-inline-block">
+                    <Slot className="wg-transition-colors hover:wg-text-primary-500">
+                      {titleLinkSlot}
+                    </Slot>
                     <span className="wg-absolute wg-bottom-0 wg-left-0 wg-h-0.5 wg-w-0 wg-bg-primary-500 wg-transition-all group-hover:wg-w-full" />
-                  </a>
+                  </div>
                 ) : (
                   title
                 )}
@@ -132,18 +124,12 @@ export function PostCard({
 
       {variant === 'list' && (
         <div className="wg-flex wg-gap-4 wg-w-full">
-          {image && (
-            <a
-              href={href}
-              className="wg-shrink-0 wg-w-32 wg-h-24 wg-rounded-lg wg-overflow-hidden wg-relative wg-block"
-            >
-              <img
-                src={image}
-                alt={title}
-                className="wg-absolute wg-inset-0 wg-w-full wg-h-full wg-object-cover"
-                loading="lazy"
-              />
-            </a>
+          {imageSlot && (
+            <div className="wg-shrink-0 wg-w-32 wg-h-24 wg-rounded-lg wg-overflow-hidden wg-relative">
+              <Slot className="wg-w-full wg-h-full">
+                {imageSlot}
+              </Slot>
+            </div>
           )}
           <div className="wg-flex-1 wg-space-y-2">
             <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-xs wg-text-neutral-600 dark:wg-text-neutral-400">
@@ -158,10 +144,10 @@ export function PostCard({
               )}
             </div>
             <h3 className="wg-text-lg wg-font-semibold">
-              {href ? (
-                <a href={href} className="wg-hover:wg-text-primary-500 wg-transition-colors">
-                  {title}
-                </a>
+              {titleLinkSlot ? (
+                <Slot className="wg-hover:wg-text-primary-500 wg-transition-colors">
+                  {titleLinkSlot}
+                </Slot>
               ) : (
                 title
               )}
