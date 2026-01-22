@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/dev-seawiid/design-system/compare/v0.0.9...v0.0.10) (2026-01-22)
+
+
+### Bug Fixes
+
+* PostCard 컴포넌트 이미지 클릭시 a 태그가 동작하지 않는 이슈 수정 ([6e96f36](https://github.com/dev-seawiid/design-system/commit/6e96f36b1d03c3c0006c4e46d4df30cb36ae8369))
+
 ### [0.0.9](https://github.com/dev-seawiid/design-system/compare/v0.0.8...v0.0.9) (2026-01-22)
 
 ### [0.0.8](https://github.com/dev-seawiid/design-system/compare/v0.0.7...v0.0.8) (2026-01-22)
