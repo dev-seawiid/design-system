@@ -30,6 +30,7 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "pnpm generate:css && pnpm generate:preset && tsc -p tsconfig.build.json && vite build",
+    "prepublishOnly": "pnpm run build",
     "generate:css": "tsx scripts/generate-css.ts",
     "generate:preset": "tsx scripts/generate-tailwind-preset.ts",
     "type-check": "tsc --noEmit",
