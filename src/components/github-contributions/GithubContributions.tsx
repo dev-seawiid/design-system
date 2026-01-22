@@ -60,7 +60,6 @@ export function GithubContributions({
   errorMessage,
   throwOnError = false,
   transformData,
-  colorScheme = 'auto',
   calendarProps,
   className,
   ref,

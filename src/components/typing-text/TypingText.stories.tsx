@@ -127,7 +127,7 @@ export const InContext: Story = {
       <div className="wg-text-base wg-leading-7 wg-text-neutral-600 dark:wg-text-neutral-400">
         <p>Howdy, fellow!</p>
         <h1 className="wg-text-3xl wg-font-bold wg-mt-4 wg-mb-2">
-          I'm Tuan Anh Huynh - a passionate Software Engineer in Viet Nam
+          {`I'm Tuan Anh Huynh - a passionate Software Engineer in Viet Nam`}
         </h1>
         <ul className="wg-list-disc wg-list-inside wg-space-y-1 wg-mt-4">
           <li>

@@ -46,7 +46,7 @@ writeFileSync(outputPath, presetContent, 'utf-8')
 // Prettier로 포맷팅
 try {
   execSync(`pnpm prettier --write ${outputPath}`, { stdio: 'inherit' })
-} catch (error) {
+} catch {
   console.warn('⚠️  Prettier formatting failed, but file was generated:', outputPath)
 }
 
