@@ -275,7 +275,7 @@ export function ParallaxTags({
           'wg-py-4',
           className
         )}
-        style={{ background: 'var(--gradient-sand-to-sunset)' }}
+        style={{ background: 'var(--wg-gradient-algae-to-shallow-beach)' }}
         {...props}
       >
         {rows.map((rowTags, index) => {
