@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/dev-seawiid/design-system/compare/v0.0.10...v0.0.11) (2026-01-26)
+
+
+### Bug Fixes
+
+* 수정된 앨범 이미지 URL로 SpotifyNowPlaying 스토리 업데이트 ([be6acfe](https://github.com/dev-seawiid/design-system/commit/be6acfefee456e44c3a2170d1e349a234d117093))
+* ParallaxTags 구성 요소에서 배경 그라디언트 색상이 나오지 않는 이슈 수정 ([01d9810](https://github.com/dev-seawiid/design-system/commit/01d9810cabcc35894633f35bd7d67095d7dc8f76))
+* RotatingSphere 스토리에서 텍스트 그라디언트 배경이 노출되지 않는 이슈 수정 ([c1c59ec](https://github.com/dev-seawiid/design-system/commit/c1c59ecb38d2b003236796cbbeb7e2d929451f9c))
+
 ### [0.0.10](https://github.com/dev-seawiid/design-system/compare/v0.0.9...v0.0.10) (2026-01-22)
 
 
