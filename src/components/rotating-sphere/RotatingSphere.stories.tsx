@@ -106,7 +106,7 @@ export const WithText: Story = {
       content: (
         <div
           className="wg-rounded-lg wg-px-4 wg-py-2 wg-text-white"
-          style={{ background: 'var(--gradient-shallow-beach-to-deep-sea)' }}
+          style={{ background: 'var(--wg-gradient-shallow-beach-to-deep-sea)' }}
         >
           <span className="wg-text-sm wg-font-semibold">Tag {index + 1}</span>
         </div>
