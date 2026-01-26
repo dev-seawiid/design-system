@@ -8,7 +8,8 @@ const meta: Meta<typeof SpotifyNowPlaying> = {
     layout: 'padded',
     docs: {
       description: {
-        component: '현재 재생 중인 Spotify 트랙을 표시하는 컴포넌트입니다. leohuynh.dev의 Spotify 통합을 참고했습니다.',
+        component:
+          '현재 재생 중인 Spotify 트랙을 표시하는 컴포넌트입니다. leohuynh.dev의 Spotify 통합을 참고했습니다.',
       },
     },
   },
@@ -44,8 +45,7 @@ export const WithCover: Story = {
       title: 'As It Was',
       artist: 'Harry Styles',
       songUrl: 'https://open.spotify.com/track/4LRPiXqCikLlN15c3yImP7',
-      albumImageUrl: 'https://i.scdn.co/image/ab67616d0000b2732e8c3b3c4b5e6f7a8b9c0d1e',
+      albumImageUrl: 'https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0',
     },
   },
 }
-
