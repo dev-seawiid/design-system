@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/dev-seawiid/design-system/compare/v0.0.11...v0.0.12) (2026-01-28)
+
+
+### Bug Fixes
+
+* 서버 컴포넌트 지원을 위한 번들 구조 개선 ([96b1262](https://github.com/dev-seawiid/design-system/commit/96b126272c5d9c7a54d1495c991d83358d109969))
+* 외부 패키지에서 디자인시스템 스타일이 적용되지 않는 이슈 수정 ([0b05a26](https://github.com/dev-seawiid/design-system/commit/0b05a262f45375a0c59a68f3226864f73b845bf0))
+
 ### [0.0.11](https://github.com/dev-seawiid/design-system/compare/v0.0.10...v0.0.11) (2026-01-26)
 
 
