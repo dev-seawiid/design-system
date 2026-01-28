@@ -1,0 +1,423 @@
+/* CSS Variables - Defined in :root for @theme to reference */
+/* Note: This file does NOT import Tailwind CSS. External projects should import Tailwind CSS separately. */
+:root {
+    /* Primary Colors */
+    --wg-color-primary-50: 240 253 250;
+    --wg-color-primary-100: 204 251 241;
+    --wg-color-primary-200: 153 246 228;
+    --wg-color-primary-300: 94 234 212;
+    --wg-color-primary-400: 45 212 191;
+    --wg-color-primary-500: 20 184 166;
+    --wg-color-primary-600: 13 148 136;
+    --wg-color-primary-700: 15 118 110;
+    --wg-color-primary-800: 17 94 89;
+    --wg-color-primary-900: 19 78 74;
+
+    /* Secondary Colors */
+    --wg-color-secondary-50: 236 254 255;
+    --wg-color-secondary-100: 207 250 254;
+    --wg-color-secondary-200: 165 243 252;
+    --wg-color-secondary-300: 103 232 249;
+    --wg-color-secondary-400: 34 211 238;
+    --wg-color-secondary-500: 6 182 212;
+    --wg-color-secondary-600: 8 145 178;
+    --wg-color-secondary-700: 14 116 144;
+    --wg-color-secondary-800: 21 94 117;
+    --wg-color-secondary-900: 22 78 99;
+
+    /* Tertiary Colors */
+    --wg-color-tertiary-50: 254 250 248;
+    --wg-color-tertiary-100: 253 244 240;
+    --wg-color-tertiary-200: 250 229 211;
+    --wg-color-tertiary-300: 245 213 184;
+    --wg-color-tertiary-400: 237 196 154;
+    --wg-color-tertiary-500: 228 177 122;
+    --wg-color-tertiary-600: 212 158 95;
+    --wg-color-tertiary-700: 184 133 74;
+    --wg-color-tertiary-800: 154 109 58;
+    --wg-color-tertiary-900: 125 86 41;
+
+    /* Accent Colors */
+    --wg-color-accent-50: 254 242 242;
+    --wg-color-accent-100: 254 226 226;
+    --wg-color-accent-200: 254 202 202;
+    --wg-color-accent-300: 252 165 165;
+    --wg-color-accent-400: 248 113 113;
+    --wg-color-accent-500: 239 68 68;
+    --wg-color-accent-600: 220 38 38;
+    --wg-color-accent-700: 185 28 28;
+    --wg-color-accent-800: 153 27 27;
+    --wg-color-accent-900: 127 29 29;
+
+    /* Success Colors */
+    --wg-color-success-50: 236 253 245;
+    --wg-color-success-100: 209 250 229;
+    --wg-color-success-200: 167 243 208;
+    --wg-color-success-300: 110 231 183;
+    --wg-color-success-400: 52 211 153;
+    --wg-color-success-500: 16 185 129;
+    --wg-color-success-600: 5 150 105;
+    --wg-color-success-700: 4 120 87;
+
+    /* Warning Colors */
+    --wg-color-warning-50: 255 251 235;
+    --wg-color-warning-100: 254 243 199;
+    --wg-color-warning-200: 253 230 138;
+    --wg-color-warning-300: 252 211 77;
+    --wg-color-warning-400: 251 191 36;
+    --wg-color-warning-500: 245 158 11;
+    --wg-color-warning-600: 217 119 6;
+    --wg-color-warning-700: 180 83 9;
+
+    /* Error Colors */
+    --wg-color-error-50: 254 242 242;
+    --wg-color-error-100: 254 226 226;
+    --wg-color-error-200: 254 202 202;
+    --wg-color-error-300: 252 165 165;
+    --wg-color-error-400: 248 113 113;
+    --wg-color-error-500: 239 68 68;
+    --wg-color-error-600: 220 38 38;
+    --wg-color-error-700: 185 28 28;
+
+    /* Info Colors */
+    --wg-color-info-50: 236 254 255;
+    --wg-color-info-100: 207 250 254;
+    --wg-color-info-200: 165 243 252;
+    --wg-color-info-300: 103 232 249;
+    --wg-color-info-400: 34 211 238;
+    --wg-color-info-500: 6 182 212;
+    --wg-color-info-600: 8 145 178;
+    --wg-color-info-700: 14 116 144;
+
+    /* Neutral Colors */
+    --wg-color-neutral-50: 250 250 250;
+    --wg-color-neutral-100: 245 245 245;
+    --wg-color-neutral-200: 229 229 229;
+    --wg-color-neutral-300: 212 212 212;
+    --wg-color-neutral-400: 163 163 163;
+    --wg-color-neutral-500: 115 115 115;
+    --wg-color-neutral-600: 82 82 82;
+    --wg-color-neutral-700: 64 64 64;
+    --wg-color-neutral-800: 38 38 38;
+    --wg-color-neutral-900: 23 23 23;
+
+    /* Semantic Colors */
+    --wg-color-background: 255 255 255;
+    --wg-color-foreground: 19 78 74;
+    --wg-color-muted: 250 250 250;
+    --wg-color-muted-foreground: 115 115 115;
+    --wg-color-border: 229 229 229;
+    --wg-color-ring: 20 184 166;
+
+    /* Gradient Colors */
+    --wg-gradient-shallow-beach-to-deep-sea: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-shallow-beach-to-algae: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-shallow-beach-to-sand: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-shallow-beach-to-sunset: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-shallow-beach-to-golden-light: linear-gradient(135deg, rgb(20 184 166) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-deep-sea-to-shallow-beach: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-deep-sea-to-algae: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-deep-sea-to-sand: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-deep-sea-to-sunset: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-deep-sea-to-golden-light: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-algae-to-shallow-beach: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-algae-to-deep-sea: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-algae-to-sand: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-algae-to-sunset: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-algae-to-golden-light: linear-gradient(135deg, rgb(16 185 129) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-sand-to-shallow-beach: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-sand-to-deep-sea: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-sand-to-algae: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-sand-to-sunset: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(239 68 68) 100%);
+    --wg-gradient-sand-to-golden-light: linear-gradient(135deg, rgb(228 177 122) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-sunset-to-shallow-beach: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-sunset-to-deep-sea: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-sunset-to-algae: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-sunset-to-sand: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-sunset-to-golden-light: linear-gradient(135deg, rgb(239 68 68) 0%, rgb(245 158 11) 100%);
+    --wg-gradient-golden-light-to-shallow-beach: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(20 184 166) 100%);
+    --wg-gradient-golden-light-to-deep-sea: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(6 182 212) 100%);
+    --wg-gradient-golden-light-to-algae: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(16 185 129) 100%);
+    --wg-gradient-golden-light-to-sand: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(228 177 122) 100%);
+    --wg-gradient-golden-light-to-sunset: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(239 68 68) 100%);
+}
+
+/* Tailwind 4 @theme directive - Define utility classes */
+@theme {
+  /* Colors - Reference CSS variables defined in :root */
+  --color-primary-50: rgb(var(--wg-color-primary-50));
+  --color-primary-100: rgb(var(--wg-color-primary-100));
+  --color-primary-200: rgb(var(--wg-color-primary-200));
+  --color-primary-300: rgb(var(--wg-color-primary-300));
+  --color-primary-400: rgb(var(--wg-color-primary-400));
+  --color-primary-500: rgb(var(--wg-color-primary-500));
+  --color-primary-600: rgb(var(--wg-color-primary-600));
+  --color-primary-700: rgb(var(--wg-color-primary-700));
+  --color-primary-800: rgb(var(--wg-color-primary-800));
+  --color-primary-900: rgb(var(--wg-color-primary-900));
+
+  --color-secondary-50: rgb(var(--wg-color-secondary-50));
+  --color-secondary-100: rgb(var(--wg-color-secondary-100));
+  --color-secondary-200: rgb(var(--wg-color-secondary-200));
+  --color-secondary-300: rgb(var(--wg-color-secondary-300));
+  --color-secondary-400: rgb(var(--wg-color-secondary-400));
+  --color-secondary-500: rgb(var(--wg-color-secondary-500));
+  --color-secondary-600: rgb(var(--wg-color-secondary-600));
+  --color-secondary-700: rgb(var(--wg-color-secondary-700));
+  --color-secondary-800: rgb(var(--wg-color-secondary-800));
+  --color-secondary-900: rgb(var(--wg-color-secondary-900));
+
+  --color-tertiary-50: rgb(var(--wg-color-tertiary-50));
+  --color-tertiary-100: rgb(var(--wg-color-tertiary-100));
+  --color-tertiary-200: rgb(var(--wg-color-tertiary-200));
+  --color-tertiary-300: rgb(var(--wg-color-tertiary-300));
+  --color-tertiary-400: rgb(var(--wg-color-tertiary-400));
+  --color-tertiary-500: rgb(var(--wg-color-tertiary-500));
+  --color-tertiary-600: rgb(var(--wg-color-tertiary-600));
+  --color-tertiary-700: rgb(var(--wg-color-tertiary-700));
+  --color-tertiary-800: rgb(var(--wg-color-tertiary-800));
+  --color-tertiary-900: rgb(var(--wg-color-tertiary-900));
+
+  --color-accent-50: rgb(var(--wg-color-accent-50));
+  --color-accent-100: rgb(var(--wg-color-accent-100));
+  --color-accent-200: rgb(var(--wg-color-accent-200));
+  --color-accent-300: rgb(var(--wg-color-accent-300));
+  --color-accent-400: rgb(var(--wg-color-accent-400));
+  --color-accent-500: rgb(var(--wg-color-accent-500));
+  --color-accent-600: rgb(var(--wg-color-accent-600));
+  --color-accent-700: rgb(var(--wg-color-accent-700));
+  --color-accent-800: rgb(var(--wg-color-accent-800));
+  --color-accent-900: rgb(var(--wg-color-accent-900));
+
+  --color-success-50: rgb(var(--wg-color-success-50));
+  --color-success-100: rgb(var(--wg-color-success-100));
+  --color-success-200: rgb(var(--wg-color-success-200));
+  --color-success-300: rgb(var(--wg-color-success-300));
+  --color-success-400: rgb(var(--wg-color-success-400));
+  --color-success-500: rgb(var(--wg-color-success-500));
+  --color-success-600: rgb(var(--wg-color-success-600));
+  --color-success-700: rgb(var(--wg-color-success-700));
+
+  --color-warning-50: rgb(var(--wg-color-warning-50));
+  --color-warning-100: rgb(var(--wg-color-warning-100));
+  --color-warning-200: rgb(var(--wg-color-warning-200));
+  --color-warning-300: rgb(var(--wg-color-warning-300));
+  --color-warning-400: rgb(var(--wg-color-warning-400));
+  --color-warning-500: rgb(var(--wg-color-warning-500));
+  --color-warning-600: rgb(var(--wg-color-warning-600));
+  --color-warning-700: rgb(var(--wg-color-warning-700));
+
+  --color-error-50: rgb(var(--wg-color-error-50));
+  --color-error-100: rgb(var(--wg-color-error-100));
+  --color-error-200: rgb(var(--wg-color-error-200));
+  --color-error-300: rgb(var(--wg-color-error-300));
+  --color-error-400: rgb(var(--wg-color-error-400));
+  --color-error-500: rgb(var(--wg-color-error-500));
+  --color-error-600: rgb(var(--wg-color-error-600));
+  --color-error-700: rgb(var(--wg-color-error-700));
+
+  --color-info-50: rgb(var(--wg-color-info-50));
+  --color-info-100: rgb(var(--wg-color-info-100));
+  --color-info-200: rgb(var(--wg-color-info-200));
+  --color-info-300: rgb(var(--wg-color-info-300));
+  --color-info-400: rgb(var(--wg-color-info-400));
+  --color-info-500: rgb(var(--wg-color-info-500));
+  --color-info-600: rgb(var(--wg-color-info-600));
+  --color-info-700: rgb(var(--wg-color-info-700));
+
+  --color-neutral-50: rgb(var(--wg-color-neutral-50));
+  --color-neutral-100: rgb(var(--wg-color-neutral-100));
+  --color-neutral-200: rgb(var(--wg-color-neutral-200));
+  --color-neutral-300: rgb(var(--wg-color-neutral-300));
+  --color-neutral-400: rgb(var(--wg-color-neutral-400));
+  --color-neutral-500: rgb(var(--wg-color-neutral-500));
+  --color-neutral-600: rgb(var(--wg-color-neutral-600));
+  --color-neutral-700: rgb(var(--wg-color-neutral-700));
+  --color-neutral-800: rgb(var(--wg-color-neutral-800));
+  --color-neutral-900: rgb(var(--wg-color-neutral-900));
+
+  --color-background: rgb(var(--wg-color-background));
+  --color-foreground: rgb(var(--wg-color-foreground));
+  --color-muted: rgb(var(--wg-color-muted));
+  --color-muted-foreground: rgb(var(--wg-color-muted-foreground));
+  --color-border: rgb(var(--wg-color-border));
+  --color-ring: rgb(var(--wg-color-ring));
+
+  /* Role Colors (역할/브랜드 색상) */
+  --color-role-primary-50: rgb(var(--wg-color-primary-50));
+  --color-role-primary-100: rgb(var(--wg-color-primary-100));
+  --color-role-primary-200: rgb(var(--wg-color-primary-200));
+  --color-role-primary-300: rgb(var(--wg-color-primary-300));
+  --color-role-primary-400: rgb(var(--wg-color-primary-400));
+  --color-role-primary-500: rgb(var(--wg-color-primary-500));
+  --color-role-primary-600: rgb(var(--wg-color-primary-600));
+  --color-role-primary-700: rgb(var(--wg-color-primary-700));
+  --color-role-primary-800: rgb(var(--wg-color-primary-800));
+  --color-role-primary-900: rgb(var(--wg-color-primary-900));
+
+  --color-role-secondary-50: rgb(var(--wg-color-secondary-50));
+  --color-role-secondary-100: rgb(var(--wg-color-secondary-100));
+  --color-role-secondary-200: rgb(var(--wg-color-secondary-200));
+  --color-role-secondary-300: rgb(var(--wg-color-secondary-300));
+  --color-role-secondary-400: rgb(var(--wg-color-secondary-400));
+  --color-role-secondary-500: rgb(var(--wg-color-secondary-500));
+  --color-role-secondary-600: rgb(var(--wg-color-secondary-600));
+  --color-role-secondary-700: rgb(var(--wg-color-secondary-700));
+  --color-role-secondary-800: rgb(var(--wg-color-secondary-800));
+  --color-role-secondary-900: rgb(var(--wg-color-secondary-900));
+
+  --color-role-tertiary-50: rgb(var(--wg-color-tertiary-50));
+  --color-role-tertiary-100: rgb(var(--wg-color-tertiary-100));
+  --color-role-tertiary-200: rgb(var(--wg-color-tertiary-200));
+  --color-role-tertiary-300: rgb(var(--wg-color-tertiary-300));
+  --color-role-tertiary-400: rgb(var(--wg-color-tertiary-400));
+  --color-role-tertiary-500: rgb(var(--wg-color-tertiary-500));
+  --color-role-tertiary-600: rgb(var(--wg-color-tertiary-600));
+  --color-role-tertiary-700: rgb(var(--wg-color-tertiary-700));
+  --color-role-tertiary-800: rgb(var(--wg-color-tertiary-800));
+  --color-role-tertiary-900: rgb(var(--wg-color-tertiary-900));
+
+  --color-role-accent-50: rgb(var(--wg-color-accent-50));
+  --color-role-accent-100: rgb(var(--wg-color-accent-100));
+  --color-role-accent-200: rgb(var(--wg-color-accent-200));
+  --color-role-accent-300: rgb(var(--wg-color-accent-300));
+  --color-role-accent-400: rgb(var(--wg-color-accent-400));
+  --color-role-accent-500: rgb(var(--wg-color-accent-500));
+  --color-role-accent-600: rgb(var(--wg-color-accent-600));
+  --color-role-accent-700: rgb(var(--wg-color-accent-700));
+  --color-role-accent-800: rgb(var(--wg-color-accent-800));
+  --color-role-accent-900: rgb(var(--wg-color-accent-900));
+
+  /* Status Colors (상태 색상) */
+  --color-status-success-50: rgb(var(--wg-color-success-50));
+  --color-status-success-100: rgb(var(--wg-color-success-100));
+  --color-status-success-200: rgb(var(--wg-color-success-200));
+  --color-status-success-300: rgb(var(--wg-color-success-300));
+  --color-status-success-400: rgb(var(--wg-color-success-400));
+  --color-status-success-500: rgb(var(--wg-color-success-500));
+  --color-status-success-600: rgb(var(--wg-color-success-600));
+  --color-status-success-700: rgb(var(--wg-color-success-700));
+
+  --color-status-warning-50: rgb(var(--wg-color-warning-50));
+  --color-status-warning-100: rgb(var(--wg-color-warning-100));
+  --color-status-warning-200: rgb(var(--wg-color-warning-200));
+  --color-status-warning-300: rgb(var(--wg-color-warning-300));
+  --color-status-warning-400: rgb(var(--wg-color-warning-400));
+  --color-status-warning-500: rgb(var(--wg-color-warning-500));
+  --color-status-warning-600: rgb(var(--wg-color-warning-600));
+  --color-status-warning-700: rgb(var(--wg-color-warning-700));
+
+  --color-status-error-50: rgb(var(--wg-color-error-50));
+  --color-status-error-100: rgb(var(--wg-color-error-100));
+  --color-status-error-200: rgb(var(--wg-color-error-200));
+  --color-status-error-300: rgb(var(--wg-color-error-300));
+  --color-status-error-400: rgb(var(--wg-color-error-400));
+  --color-status-error-500: rgb(var(--wg-color-error-500));
+  --color-status-error-600: rgb(var(--wg-color-error-600));
+  --color-status-error-700: rgb(var(--wg-color-error-700));
+
+  --color-status-info-50: rgb(var(--wg-color-info-50));
+  --color-status-info-100: rgb(var(--wg-color-info-100));
+  --color-status-info-200: rgb(var(--wg-color-info-200));
+  --color-status-info-300: rgb(var(--wg-color-info-300));
+  --color-status-info-400: rgb(var(--wg-color-info-400));
+  --color-status-info-500: rgb(var(--wg-color-info-500));
+  --color-status-info-600: rgb(var(--wg-color-info-600));
+  --color-status-info-700: rgb(var(--wg-color-info-700));
+
+  /* Semantic Colors (시맨틱 색상) */
+  --color-semantic-background: rgb(255 255 255);
+  --color-semantic-foreground: rgb(19 78 74);
+  --color-semantic-muted: rgb(250 250 250);
+  --color-semantic-muted-foreground: rgb(115 115 115);
+  --color-semantic-border: rgb(229 229 229);
+  --color-semantic-ring: rgb(20 184 166);
+
+  /* Definition Colors (팔레트 원본 색상) */
+  --color-definition-shallow-beach-50: rgb(var(--wg-color-primary-50));
+  --color-definition-shallow-beach-100: rgb(var(--wg-color-primary-100));
+  --color-definition-shallow-beach-200: rgb(var(--wg-color-primary-200));
+  --color-definition-shallow-beach-300: rgb(var(--wg-color-primary-300));
+  --color-definition-shallow-beach-400: rgb(var(--wg-color-primary-400));
+  --color-definition-shallow-beach-500: rgb(var(--wg-color-primary-500));
+  --color-definition-shallow-beach-600: rgb(var(--wg-color-primary-600));
+  --color-definition-shallow-beach-700: rgb(var(--wg-color-primary-700));
+  --color-definition-shallow-beach-800: rgb(var(--wg-color-primary-800));
+  --color-definition-shallow-beach-900: rgb(var(--wg-color-primary-900));
+
+  --color-definition-deep-sea-50: rgb(var(--wg-color-secondary-50));
+  --color-definition-deep-sea-100: rgb(var(--wg-color-secondary-100));
+  --color-definition-deep-sea-200: rgb(var(--wg-color-secondary-200));
+  --color-definition-deep-sea-300: rgb(var(--wg-color-secondary-300));
+  --color-definition-deep-sea-400: rgb(var(--wg-color-secondary-400));
+  --color-definition-deep-sea-500: rgb(var(--wg-color-secondary-500));
+  --color-definition-deep-sea-600: rgb(var(--wg-color-secondary-600));
+  --color-definition-deep-sea-700: rgb(var(--wg-color-secondary-700));
+  --color-definition-deep-sea-800: rgb(var(--wg-color-secondary-800));
+  --color-definition-deep-sea-900: rgb(var(--wg-color-secondary-900));
+
+  --color-definition-sand-50: rgb(var(--wg-color-tertiary-50));
+  --color-definition-sand-100: rgb(var(--wg-color-tertiary-100));
+  --color-definition-sand-200: rgb(var(--wg-color-tertiary-200));
+  --color-definition-sand-300: rgb(var(--wg-color-tertiary-300));
+  --color-definition-sand-400: rgb(var(--wg-color-tertiary-400));
+  --color-definition-sand-500: rgb(var(--wg-color-tertiary-500));
+  --color-definition-sand-600: rgb(var(--wg-color-tertiary-600));
+  --color-definition-sand-700: rgb(var(--wg-color-tertiary-700));
+  --color-definition-sand-800: rgb(var(--wg-color-tertiary-800));
+  --color-definition-sand-900: rgb(var(--wg-color-tertiary-900));
+
+  --color-definition-sunset-50: rgb(var(--wg-color-accent-50));
+  --color-definition-sunset-100: rgb(var(--wg-color-accent-100));
+  --color-definition-sunset-200: rgb(var(--wg-color-accent-200));
+  --color-definition-sunset-300: rgb(var(--wg-color-accent-300));
+  --color-definition-sunset-400: rgb(var(--wg-color-accent-400));
+  --color-definition-sunset-500: rgb(var(--wg-color-accent-500));
+  --color-definition-sunset-600: rgb(var(--wg-color-accent-600));
+  --color-definition-sunset-700: rgb(var(--wg-color-accent-700));
+  --color-definition-sunset-800: rgb(var(--wg-color-accent-800));
+  --color-definition-sunset-900: rgb(var(--wg-color-accent-900));
+
+  --color-definition-fog-50: rgb(var(--wg-color-neutral-50));
+  --color-definition-fog-100: rgb(var(--wg-color-neutral-100));
+  --color-definition-fog-200: rgb(var(--wg-color-neutral-200));
+  --color-definition-fog-300: rgb(var(--wg-color-neutral-300));
+  --color-definition-fog-400: rgb(var(--wg-color-neutral-400));
+  --color-definition-fog-500: rgb(var(--wg-color-neutral-500));
+  --color-definition-fog-600: rgb(var(--wg-color-neutral-600));
+  --color-definition-fog-700: rgb(var(--wg-color-neutral-700));
+  --color-definition-fog-800: rgb(var(--wg-color-neutral-800));
+  --color-definition-fog-900: rgb(var(--wg-color-neutral-900));
+
+  /* Background Images (Gradients) */
+  --background-image-shallow-beach-to-deep-sea: var(--wg-gradient-shallow-beach-to-deep-sea);
+  --background-image-shallow-beach-to-algae: var(--wg-gradient-shallow-beach-to-algae);
+  --background-image-shallow-beach-to-sand: var(--wg-gradient-shallow-beach-to-sand);
+  --background-image-shallow-beach-to-sunset: var(--wg-gradient-shallow-beach-to-sunset);
+  --background-image-shallow-beach-to-golden-light: var(--wg-gradient-shallow-beach-to-golden-light);
+  --background-image-deep-sea-to-shallow-beach: var(--wg-gradient-deep-sea-to-shallow-beach);
+  --background-image-deep-sea-to-algae: var(--wg-gradient-deep-sea-to-algae);
+  --background-image-deep-sea-to-sand: var(--wg-gradient-deep-sea-to-sand);
+  --background-image-deep-sea-to-sunset: var(--wg-gradient-deep-sea-to-sunset);
+  --background-image-deep-sea-to-golden-light: var(--wg-gradient-deep-sea-to-golden-light);
+  --background-image-algae-to-shallow-beach: var(--wg-gradient-algae-to-shallow-beach);
+  --background-image-algae-to-deep-sea: var(--wg-gradient-algae-to-deep-sea);
+  --background-image-algae-to-sand: var(--wg-gradient-algae-to-sand);
+  --background-image-algae-to-sunset: var(--wg-gradient-algae-to-sunset);
+  --background-image-algae-to-golden-light: var(--wg-gradient-algae-to-golden-light);
+  --background-image-sand-to-shallow-beach: var(--wg-gradient-sand-to-shallow-beach);
+  --background-image-sand-to-deep-sea: var(--wg-gradient-sand-to-deep-sea);
+  --background-image-sand-to-algae: var(--wg-gradient-sand-to-algae);
+  --background-image-sand-to-sunset: var(--wg-gradient-sand-to-sunset);
+  --background-image-sand-to-golden-light: var(--wg-gradient-sand-to-golden-light);
+  --background-image-sunset-to-shallow-beach: var(--wg-gradient-sunset-to-shallow-beach);
+  --background-image-sunset-to-deep-sea: var(--wg-gradient-sunset-to-deep-sea);
+  --background-image-sunset-to-algae: var(--wg-gradient-sunset-to-algae);
+  --background-image-sunset-to-sand: var(--wg-gradient-sunset-to-sand);
+  --background-image-sunset-to-golden-light: var(--wg-gradient-sunset-to-golden-light);
+  --background-image-golden-light-to-shallow-beach: var(--wg-gradient-golden-light-to-shallow-beach);
+  --background-image-golden-light-to-deep-sea: var(--wg-gradient-golden-light-to-deep-sea);
+  --background-image-golden-light-to-algae: var(--wg-gradient-golden-light-to-algae);
+  --background-image-golden-light-to-sand: var(--wg-gradient-golden-light-to-sand);
+  --background-image-golden-light-to-sunset: var(--wg-gradient-golden-light-to-sunset);
+}

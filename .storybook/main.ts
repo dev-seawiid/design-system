@@ -1,7 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-import autoprefixer from 'autoprefixer'
 import path from 'path'
-import tailwindcss from 'tailwindcss'
 import { fileURLToPath } from 'url'
 import { mergeConfig } from 'vite'
 
@@ -23,16 +21,8 @@ const config: StorybookConfig = {
   docs: {},
   async viteFinal(config) {
     return mergeConfig(config, {
-      css: {
-        postcss: {
-          plugins: [
-            tailwindcss({
-              config: path.resolve(__dirname, '../tailwind.config.ts'),
-            }),
-            autoprefixer,
-          ],
-        },
-      },
+      // Tailwind 4는 PostCSS 설정을 postcss.config.js에서 처리
+      // Storybook은 postcss.config.js를 자동으로 읽음
     })
   },
 }

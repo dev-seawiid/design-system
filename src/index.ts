@@ -1,5 +1,5 @@
-// css를 dist에 포함시키기 위해 추가
-// CSS 변수는 Tailwind plugin으로 제공되므로 별도의 CSS 파일 import 불필요
+// CSS 파일 import (Tailwind 4 형식)
+import './index.css'
 
 // Components
 export { Avatar, type AvatarProps } from './components/avatar'
