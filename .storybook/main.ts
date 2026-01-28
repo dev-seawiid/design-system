@@ -1,9 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-import { mergeConfig } from 'vite'
-import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
+import tailwindcss from 'tailwindcss'
 import { fileURLToPath } from 'url'
+import { mergeConfig } from 'vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -27,7 +27,7 @@ const config: StorybookConfig = {
         postcss: {
           plugins: [
             tailwindcss({
-              config: path.resolve(__dirname, '../tailwind.config.js'),
+              config: path.resolve(__dirname, '../tailwind.config.ts'),
             }),
             autoprefixer,
           ],

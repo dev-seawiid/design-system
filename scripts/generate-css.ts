@@ -1,8 +1,8 @@
 import { writeFileSync } from 'fs'
 import { join } from 'path'
-import { darkTheme } from '../src/theme/dark.js'
-import { generateCssVars } from '../src/theme/generate-css-vars.js'
-import { lightTheme } from '../src/theme/light.js'
+import { darkTheme } from '../src/theme/dark'
+import { generateCssVars } from '../src/theme/generate-css-vars'
+import { lightTheme } from '../src/theme/light'
 
 const cssContent = `/* 
  * 디자인 시스템 CSS 변수 및 유틸리티 클래스
