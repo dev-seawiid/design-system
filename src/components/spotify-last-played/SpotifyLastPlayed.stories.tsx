@@ -64,14 +64,14 @@ export const CustomExternalLink: Story = {
 
 export const InActivitiesSection: Story = {
   render: () => (
-    <div className="wg-space-y-4 md:wg-space-y-8 wg-pt-8">
-      <div className="wg-space-y-2">
-        <h3 className="wg-text-2xl wg-font-bold sm:wg-text-2xl sm:wg-leading-10 md:wg-text-4xl">
+    <div className="space-y-4 md:space-y-8 pt-8">
+      <div className="space-y-2">
+        <h3 className="text-2xl font-bold sm:text-2xl sm:leading-10 md:text-4xl">
           Side quests and activities
         </h3>
       </div>
-      <div className="wg-border-t wg-border-neutral-200 dark:wg-border-neutral-700" />
-      <div className="wg-pt-2 md:wg-pt-0 wg-space-y-6">
+      <div className="border-t border-neutral-200 dark:border-neutral-700" />
+      <div className="pt-2 md:pt-0 space-y-6">
         <SpotifyLastPlayed
           track={{
             title: 'As It Was',

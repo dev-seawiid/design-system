@@ -71,7 +71,7 @@ export const BiosExample: Story = {
     backDelay: 1000,
   },
   render: (args) => (
-    <div className="wg-flex wg-min-h-8 wg-items-center wg-gap-0.5">
+    <div className="flex min-h-8 items-center gap-0.5">
       <TypingText {...args} />
     </div>
   ),
@@ -123,13 +123,13 @@ export const WithCustomCursor: Story = {
 
 export const InContext: Story = {
   render: () => (
-    <div className="wg-space-y-4">
-      <div className="wg-text-base wg-leading-7 wg-text-neutral-600 dark:wg-text-neutral-400">
+    <div className="space-y-4">
+      <div className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
         <p>Howdy, fellow!</p>
-        <h1 className="wg-text-3xl wg-font-bold wg-mt-4 wg-mb-2">
+        <h1 className="text-3xl font-bold mt-4 mb-2">
           {`I'm Tuan Anh Huynh - a passionate Software Engineer in Viet Nam`}
         </h1>
-        <ul className="wg-list-disc wg-list-inside wg-space-y-1 wg-mt-4">
+        <ul className="list-disc list-inside space-y-1 mt-4">
           <li>
             <TypingText
               strings={[

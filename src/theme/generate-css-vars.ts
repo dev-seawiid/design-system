@@ -27,7 +27,7 @@ function generateColorScaleVars(
  * 테마에서 CSS 변수 문자열 생성
  */
 export function generateCssVars(theme: Theme): string {
-  const { colors, spacing, border, shadow, gradients } = theme
+  const { colors, gradients } = theme
   const lines: string[] = []
 
   // Primary Colors
@@ -108,26 +108,6 @@ export function generateCssVars(theme: Theme): string {
     // 그라데이션 내부의 HEX 색상을 RGB로 변환
     const gradientWithRgb = convertGradientHexToRgb(value)
     lines.push(`    ${cssVarName(`gradient-${key}`)}: ${gradientWithRgb};`)
-  })
-
-  // Spacing
-  lines.push('    /* Spacing */')
-  Object.entries(spacing).forEach(([key, value]) => {
-    lines.push(`    ${cssVarName(`spacing-${key}`)}: ${value};`)
-  })
-
-  // Border Radius
-  lines.push('    /* Border Radius */')
-  Object.entries(border.radius).forEach(([key, value]) => {
-    const varKey = key === 'DEFAULT' ? 'md' : key
-    lines.push(`    ${cssVarName(`border-radius-${varKey}`)}: ${value};`)
-  })
-
-  // Shadows
-  lines.push('    /* Shadows */')
-  Object.entries(shadow).forEach(([key, value]) => {
-    const varKey = key === 'DEFAULT' ? 'md' : key
-    lines.push(`    ${cssVarName(`shadow-${varKey}`)}: ${value};`)
   })
 
   return lines.join('\n')

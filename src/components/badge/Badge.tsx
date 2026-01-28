@@ -25,26 +25,26 @@ export function Badge({
     <span
       ref={ref}
       className={cn(
-        'wg-inline-flex wg-items-center wg-font-medium wg-rounded-full',
+        'inline-flex items-center font-medium rounded-full',
         // Variant styles
         variant === 'default' &&
-          'wg-bg-neutral-100 wg-text-neutral-800 dark:wg-bg-neutral-800 dark:wg-text-neutral-200',
+          'bg-semantic-muted text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200',
         variant === 'primary' &&
-          'wg-bg-primary-100 wg-text-primary-700 dark:wg-bg-primary-900 dark:wg-text-primary-300',
+          'bg-role-primary-100 text-role-primary-700 dark:bg-role-primary-900 dark:text-role-primary-300',
         variant === 'secondary' &&
-          'wg-bg-secondary-100 wg-text-secondary-700 dark:wg-bg-secondary-900 dark:wg-text-secondary-300',
+          'bg-role-secondary-100 text-role-secondary-700 dark:bg-role-secondary-900 dark:text-role-secondary-300',
         variant === 'success' &&
-          'wg-bg-green-100 wg-text-green-700 dark:wg-bg-green-900 dark:wg-text-green-300',
+          'bg-status-success-100 text-status-success-700 dark:bg-status-success-900 dark:text-status-success-300',
         variant === 'warning' &&
-          'wg-bg-yellow-100 wg-text-yellow-700 dark:wg-bg-yellow-900 dark:wg-text-yellow-300',
+          'bg-status-warning-100 text-status-warning-700 dark:bg-status-warning-900 dark:text-status-warning-300',
         variant === 'error' &&
-          'wg-bg-error-100 wg-text-error-700 dark:wg-bg-error-900 dark:wg-text-error-300',
+          'bg-status-error-100 text-status-error-700 dark:bg-status-error-900 dark:text-status-error-300',
         variant === 'outline' &&
-          'wg-border wg-border-neutral-300 wg-bg-transparent wg-text-foreground dark:wg-border-neutral-700',
+          'border border-neutral-300 bg-transparent text-semantic-foreground dark:border-neutral-700',
         // Size styles
-        size === 'sm' && 'wg-px-2 wg-py-0.5 wg-text-xs',
-        size === 'md' && 'wg-px-2.5 wg-py-1 wg-text-xs',
-        size === 'lg' && 'wg-px-3 wg-py-1.5 wg-text-sm',
+        size === 'sm' && 'px-2 py-0.5 text-xs',
+        size === 'md' && 'px-2.5 py-1 text-xs',
+        size === 'lg' && 'px-3 py-1.5 text-sm',
         className
       )}
       {...props}

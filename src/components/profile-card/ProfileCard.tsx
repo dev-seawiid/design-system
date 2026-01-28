@@ -95,8 +95,8 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
     <div
       ref={cardRef}
       className={cn(
-        'wg-z-10 wg-mb-8 wg-scale-100 wg-transition-all wg-duration-200 wg-ease-out',
-        'hover:wg-z-50 md:wg-mb-0 md:hover:wg-scale-[1.15]',
+        'z-10 mb-8 scale-100 transition-all duration-200 ease-out',
+        'hover:z-50 md:mb-0 md:hover:scale-[1.15]',
         className
       )}
       style={{ perspective: '600px' }}
@@ -105,24 +105,21 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
       <div
         style={style}
         className={cn(
-          'wg-flex wg-flex-col wg-overflow-hidden wg-transition-all wg-duration-200 wg-ease-out',
-          'md:wg-rounded-lg',
-          'wg-shadow-lg wg-bg-white',
-          'dark:wg-bg-neutral-900',
-          'wg-outline wg-outline-1 wg-outline-neutral-200',
-          'dark:wg-outline-neutral-700'
+          'flex flex-col overflow-hidden transition-all duration-200 ease-out',
+          'md:rounded-lg',
+          'shadow-lg bg-white',
+          'dark:bg-neutral-900',
+          'outline outline-1 outline-neutral-200',
+          'dark:outline-neutral-700'
         )}
       >
         {/* Header Image */}
         {image && (
-          <div
-            className="wg-relative wg-w-full wg-overflow-hidden"
-            style={{ aspectRatio: '383/240' }}
-          >
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '383/240' }}>
             <img
               src={image.src}
               alt={image.alt}
-              className="wg-h-full wg-w-full wg-object-cover"
+              className="h-full w-full object-cover"
               style={{ objectPosition: '50% 15%' }}
             />
           </div>
@@ -134,7 +131,7 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
             isPlaying={spotify.isPlaying}
             song={spotify.song}
             className={cn(
-              'wg-bg-neutral-900 wg-px-3 wg-py-1.5 xl:wg-px-5',
+              'bg-neutral-900 px-3 py-1.5 xl:px-5',
               '[--song-color:var(--color-neutral-200)]',
               '[--artist-color:var(--color-neutral-400)]'
             )}
@@ -142,30 +139,26 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
         )}
 
         {/* Profile Info */}
-        <div className="wg-p-6">
-          <div className="wg-flex wg-items-center wg-gap-4 wg-mb-4">
+        <div className="p-6">
+          <div className="flex items-center gap-4 mb-4">
             <Avatar size="lg" src={info.avatar} fallback={info.name.charAt(0)} alt={info.name} />
             <div>
-              <h2 className="wg-text-xl wg-font-bold">{info.name}</h2>
-              <p className="wg-text-sm wg-text-muted-foreground">{info.title}</p>
+              <h2 className="text-xl font-bold">{info.name}</h2>
+              <p className="text-sm text-muted-foreground">{info.title}</p>
             </div>
           </div>
-          {info.bio && (
-            <p className="wg-text-sm wg-mb-4" style={{ color: 'var(--color-muted-foreground)' }}>
-              {info.bio}
-            </p>
-          )}
+          {info.bio && <p className="text-sm mb-4 text-semantic-muted-foreground">{info.bio}</p>}
           {info.socialLinks && info.socialLinks.length > 0 && (
-            <div className="wg-flex wg-gap-3 wg-flex-wrap">
+            <div className="flex gap-3 flex-wrap">
               {info.socialLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="wg-text-sm wg-text-primary-500 hover:wg-underline"
+                  className="text-sm text-role-primary-500 hover:underline"
                 >
-                  {link.icon && <span className="wg-mr-1">{link.icon}</span>}
+                  {link.icon && <span className="mr-1">{link.icon}</span>}
                   {link.label}
                 </a>
               ))}
@@ -174,7 +167,7 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
         </div>
 
         {/* Gradient Border */}
-        <span className="wg-h-1.5" style={{ background: 'var(--gradient-deep-sea-to-sand)' }} />
+        <span className="h-1.5 bg-deep-sea-to-sand" />
       </div>
     </div>
   )

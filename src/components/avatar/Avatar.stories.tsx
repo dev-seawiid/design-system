@@ -44,7 +44,7 @@ export const WithImage: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="wg-flex wg-items-center wg-gap-4">
+    <div className="flex items-center gap-4">
       <Avatar size="sm" fallback="S" />
       <Avatar size="md" fallback="M" />
       <Avatar size="lg" fallback="L" />
@@ -55,7 +55,7 @@ export const Sizes: Story = {
 
 export const Shapes: Story = {
   render: () => (
-    <div className="wg-flex wg-items-center wg-gap-4">
+    <div className="flex items-center gap-4">
       <Avatar shape="circle" fallback="C" />
       <Avatar shape="square" fallback="S" />
     </div>
@@ -64,7 +64,7 @@ export const Shapes: Story = {
 
 export const WithFallback: Story = {
   render: () => (
-    <div className="wg-flex wg-items-center wg-gap-4">
+    <div className="flex items-center gap-4">
       <Avatar fallback="JD" />
       <Avatar fallback="AB" />
       <Avatar fallback="CD" />

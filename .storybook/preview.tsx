@@ -2,7 +2,7 @@ import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react'
 // Storybook에서는 Tailwind base 스타일이 필요하므로 추가
 import './storybook.css'
-import '../src/styles/globals.css'
+// CSS 변수는 Tailwind plugin으로 제공되므로 별도의 CSS 파일 import 불필요
 
 const preview: Preview = {
   parameters: {

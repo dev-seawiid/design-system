@@ -47,71 +47,69 @@ export function PostCard({
     <article
       ref={ref}
       className={cn(
-        variant === 'grid' && 'wg-flex wg-flex-col',
-        variant === 'list' && 'wg-flex wg-flex-row wg-gap-4',
+        variant === 'grid' && 'flex flex-col',
+        variant === 'list' && 'flex flex-row gap-4',
         className
       )}
       {...props}
     >
       {variant === 'grid' && (
-        <div className="wg-flex wg-flex-col wg-items-start wg-justify-between wg-gap-4 md:wg-gap-6">
+        <div className="flex flex-col items-start justify-between gap-4 md:gap-6">
           {imageSlot && (
             <div
               className={cn(
-                'wg-relative wg-block wg-shrink-0 wg-w-full',
-                'wg-aspect-[3/2]',
-                'wg-pt-0 wg-pr-3 wg-pb-3 wg-pl-0',
-                'wg-transition-all wg-ease-in-out',
-                'hover:wg-pt-1 hover:wg-pr-2 hover:wg-pb-2 hover:wg-pl-1'
+                'relative block shrink-0 w-full',
+                'aspect-[3/2]',
+                'pt-0 pr-3 pb-3 pl-0',
+                'transition-all ease-in-out',
+                'hover:pt-1 hover:pr-2 hover:pb-2 hover:pl-1'
               )}
             >
-              <Slot className="wg-absolute wg-inset-0 wg-w-full wg-h-full">
-                {imageSlot}
-              </Slot>
+              <Slot className="absolute inset-0 w-full h-full">{imageSlot}</Slot>
               <div
                 className={cn(
-                  'wg-absolute wg-top-3 wg-right-0 wg-bottom-0 wg-left-3',
-                  'wg-rounded-xl wg-border-2 wg-border-neutral-800 dark:wg-border-neutral-400',
-                  'wg-bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,.1)_25%,rgba(0,0,0,.1)_50%,transparent_50%,transparent_75%,rgba(0,0,0,.1)_75%,rgba(0,0,0,.1))]',
-                  'wg-bg-[length:20px_20px] wg-opacity-20',
-                  'wg-pointer-events-none'
+                  'absolute top-3 right-0 bottom-0 left-3',
+                  'rounded-xl border-2 border-neutral-800 dark:border-neutral-400',
+                  'bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,.1)_25%,rgba(0,0,0,.1)_50%,transparent_50%,transparent_75%,rgba(0,0,0,.1)_75%,rgba(0,0,0,.1))]',
+                  'bg-[length:20px_20px] opacity-20',
+                  'pointer-events-none'
                 )}
               />
             </div>
           )}
-          <div className="wg-w-full wg-space-y-3">
-            <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-sm wg-text-neutral-600 dark:wg-text-neutral-400">
-              <time dateTime={date} className="wg-whitespace-nowrap">
+          <div className="w-full space-y-3">
+            <div className="flex flex-wrap items-center gap-x-1.5 text-sm text-neutral-600 dark:text-neutral-400">
+              <time dateTime={date} className="whitespace-nowrap">
                 {formatDate(date)}
               </time>
               {readingTime && (
                 <>
-                  <span className="wg-text-neutral-400 wg-whitespace-nowrap">/</span>
-                  <span className="wg-whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
+                  <span className="text-neutral-400 whitespace-nowrap">/</span>
+                  <span className="whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
             </div>
-            <div className="wg-group wg-relative">
-              <h3 className="wg-text-xl wg-leading-6 wg-font-semibold">
+            <div className="group relative">
+              <h3 className="text-xl leading-6 font-semibold">
                 {titleLinkSlot ? (
-                  <div className="wg-relative wg-inline-block">
-                    <Slot className="wg-transition-colors hover:wg-text-primary-500">
+                  <div className="relative inline-block">
+                    <Slot className="transition-colors hover:text-role-primary-500">
                       {titleLinkSlot}
                     </Slot>
-                    <span className="wg-absolute wg-bottom-0 wg-left-0 wg-h-0.5 wg-w-0 wg-bg-primary-500 wg-transition-all group-hover:wg-w-full" />
+                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-role-primary-500 transition-all group-hover:w-full" />
                   </div>
                 ) : (
                   title
                 )}
               </h3>
               {summary && (
-                <p className="wg-mt-2 wg-line-clamp-2 wg-text-sm wg-leading-6 wg-text-neutral-600 dark:wg-text-neutral-500 md:wg-mt-3">
+                <p className="mt-2 line-clamp-2 text-sm leading-6 text-neutral-600 dark:text-neutral-500 md:mt-3">
                   {summary}
                 </p>
               )}
             </div>
             {tags && tags.length > 0 && (
-              <div className="wg-flex wg-gap-2 wg-flex-wrap">
+              <div className="flex gap-2 flex-wrap">
                 {tags.map((tag) => (
                   <Badge key={tag} variant="primary" size="sm">
                     {tag}
@@ -124,29 +122,27 @@ export function PostCard({
       )}
 
       {variant === 'list' && (
-        <div className="wg-flex wg-gap-4 wg-w-full">
+        <div className="flex gap-4 w-full">
           {imageSlot && (
-            <div className="wg-shrink-0 wg-w-32 wg-h-24 wg-rounded-lg wg-overflow-hidden wg-relative">
-              <Slot className="wg-w-full wg-h-full">
-                {imageSlot}
-              </Slot>
+            <div className="shrink-0 w-32 h-24 rounded-lg overflow-hidden relative">
+              <Slot className="w-full h-full">{imageSlot}</Slot>
             </div>
           )}
-          <div className="wg-flex-1 wg-space-y-2">
-            <div className="wg-flex wg-flex-wrap wg-items-center wg-gap-x-1.5 wg-text-xs wg-text-neutral-600 dark:wg-text-neutral-400">
-              <time dateTime={date} className="wg-whitespace-nowrap">
+          <div className="flex-1 space-y-2">
+            <div className="flex flex-wrap items-center gap-x-1.5 text-xs text-neutral-600 dark:text-neutral-400">
+              <time dateTime={date} className="whitespace-nowrap">
                 {formatDate(date)}
               </time>
               {readingTime && (
                 <>
-                  <span className="wg-text-neutral-400 wg-whitespace-nowrap">/</span>
-                  <span className="wg-whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
+                  <span className="text-neutral-400 whitespace-nowrap">/</span>
+                  <span className="whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
             </div>
-            <h3 className="wg-text-lg wg-font-semibold">
+            <h3 className="text-lg font-semibold">
               {titleLinkSlot ? (
-                <Slot className="wg-hover:wg-text-primary-500 wg-transition-colors">
+                <Slot className="hover:text-role-primary-500 transition-colors">
                   {titleLinkSlot}
                 </Slot>
               ) : (
@@ -154,12 +150,12 @@ export function PostCard({
               )}
             </h3>
             {summary && (
-              <p className="wg-text-sm wg-text-neutral-600 dark:wg-text-neutral-500 wg-line-clamp-2">
+              <p className="text-sm text-neutral-600 dark:text-neutral-500 line-clamp-2">
                 {summary}
               </p>
             )}
             {tags && tags.length > 0 && (
-              <div className="wg-flex wg-gap-2 wg-flex-wrap">
+              <div className="flex gap-2 flex-wrap">
                 {tags.map((tag) => (
                   <Badge key={tag} variant="primary" size="sm">
                     {tag}

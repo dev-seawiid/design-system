@@ -29,9 +29,8 @@
   "packageManager": "pnpm@9.15.3",
   "scripts": {
     "dev": "vite build --watch",
-    "build": "pnpm generate:css && tsc -p tsconfig.build.json && vite build",
+    "build": "tsc -p tsconfig.build.json && vite build",
     "prepublishOnly": "pnpm run build",
-    "generate:css": "tsx scripts/generate-css.ts",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

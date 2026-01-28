@@ -93,8 +93,8 @@ export const WithIconTags: Story = {
     logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
     href: 'https://joyflix.ai',
     tags: [
-      { label: 'AI', icon: <HashIcon className="wg-h-3 wg-w-3" /> },
-      { label: 'Video', icon: <HashIcon className="wg-h-3 wg-w-3" /> },
+      { label: 'AI', icon: <HashIcon className="h-3 w-3" /> },
+      { label: 'Video', icon: <HashIcon className="h-3 w-3" /> },
     ],
   },
 }
@@ -129,7 +129,7 @@ export const LongDescription: Story = {
 
 export const GridLayout: Story = {
   render: () => (
-    <div className="wg-grid wg-grid-cols-1 wg-gap-4 md:wg-grid-cols-2 lg:wg-grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       <ProjectCard
         title="MakeBanner.ai"
         description="The #1 AI Banner Generator. Professional Visuals, Zero Design Skills."

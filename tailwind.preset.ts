@@ -4,26 +4,20 @@
 import type { Config } from 'tailwindcss'
 import {
   generateTailwindBackgroundImage,
-  generateTailwindBorderRadius,
-  generateTailwindBoxShadow,
   generateTailwindColors,
-  generateTailwindSpacing,
 } from './src/theme/generate-tailwind-config'
 import { lightTheme } from './src/theme/light'
+import tailwindPlugin from './tailwind-plugin'
 
 const config: Config = {
-  prefix: 'wg-', // @wiid-get/design-system의 약자
   // content: [], // 배포용이므로 content는 비워둠 (사용자가 직접 정함)
   theme: {
     extend: {
       colors: generateTailwindColors(lightTheme),
-      spacing: generateTailwindSpacing(lightTheme),
-      borderRadius: generateTailwindBorderRadius(lightTheme),
-      boxShadow: generateTailwindBoxShadow(lightTheme),
       backgroundImage: generateTailwindBackgroundImage(lightTheme),
     },
   },
-  plugins: [],
+  plugins: [tailwindPlugin],
 }
 
 export default config

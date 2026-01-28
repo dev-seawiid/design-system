@@ -1,5 +1,5 @@
 // css를 dist에 포함시키기 위해 추가
-import './styles/globals.css' // 이 한 줄이 있으면 Vite가 빌드 시 dist에 CSS를 뱉습니다.
+// CSS 변수는 Tailwind plugin으로 제공되므로 별도의 CSS 파일 import 불필요
 
 // Components
 export { Avatar, type AvatarProps } from './components/avatar'

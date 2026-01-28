@@ -114,33 +114,28 @@ export const WithLinks: Story = {
 
 export const WithScrollableContent: Story = {
   render: () => (
-    <div className="wg-min-h-[200vh]">
-      <div className="wg-py-20 wg-px-4">
-        <h1 className="wg-text-4xl wg-font-bold wg-mb-8 wg-text-center">
-          Scroll down to see parallax tags
-        </h1>
-        <p className="wg-text-center wg-text-muted-foreground wg-mb-12">
+    <div className="min-h-[200vh]">
+      <div className="py-20 px-4">
+        <h1 className="text-4xl font-bold mb-8 text-center">Scroll down to see parallax tags</h1>
+        <p className="text-center text-muted-foreground mb-12">
           The tags will move based on your scroll speed. Each row moves in opposite directions.
         </p>
       </div>
 
       <ParallaxTags tags={sampleTags} baseVelocity={1} tagsPerRow={3} pauseOnHover={true} />
 
-      <div className="wg-py-20 wg-px-4">
-        <div className="wg-max-w-4xl wg-mx-auto wg-space-y-8">
-          <h2 className="wg-text-3xl wg-font-bold">Content Section</h2>
-          <p className="wg-text-lg wg-text-muted-foreground">
+      <div className="py-20 px-4">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-3xl font-bold">Content Section</h2>
+          <p className="text-lg text-muted-foreground">
             Scroll up and down to see the parallax effect. Each row of tags moves in opposite
             directions based on your scroll velocity.
           </p>
-          <div className="wg-space-y-4">
+          <div className="space-y-4">
             {Array.from({ length: 10 }).map((_, i) => (
-              <div
-                key={i}
-                className="wg-p-6 wg-bg-neutral-100 dark:wg-bg-neutral-800 wg-rounded-lg"
-              >
-                <h3 className="wg-text-xl wg-font-semibold wg-mb-2">Section {i + 1}</h3>
-                <p className="wg-text-muted-foreground">
+              <div key={i} className="p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+                <h3 className="text-xl font-semibold mb-2">Section {i + 1}</h3>
+                <p className="text-muted-foreground">
                   This is some content to create scrollable space. Keep scrolling to see the
                   parallax tags animation in action.
                 </p>

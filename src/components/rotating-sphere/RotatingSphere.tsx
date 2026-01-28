@@ -116,13 +116,13 @@ export function RotatingSphere({
       <div
         ref={ref}
         className={cn(
-          'wg-relative wg-flex wg-items-center wg-justify-center',
-          'wg-min-h-[400px] wg-w-full',
+          'relative flex items-center justify-center',
+          'min-h-[400px] w-full',
           className
         )}
         {...props}
       >
-        <div className="wg-text-center wg-text-sm wg-text-gray-500">No items to display</div>
+        <div className="text-center text-sm text-definition-fog-500">No items to display</div>
       </div>
     )
   }
@@ -131,8 +131,8 @@ export function RotatingSphere({
     <div
       ref={ref}
       className={cn(
-        'wg-relative wg-flex wg-items-center wg-justify-center',
-        'wg-cursor-grab active:wg-cursor-grabbing',
+        'relative flex items-center justify-center',
+        'cursor-grab active:cursor-grabbing',
         className
       )}
       style={{

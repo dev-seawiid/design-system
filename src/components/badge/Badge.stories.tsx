@@ -36,7 +36,7 @@ export const Default: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div className="wg-flex wg-flex-wrap wg-gap-2">
+    <div className="flex flex-wrap gap-2">
       <Badge variant="default">Default</Badge>
       <Badge variant="primary">Primary</Badge>
       <Badge variant="secondary">Secondary</Badge>
@@ -50,7 +50,7 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="wg-flex wg-items-center wg-gap-2">
+    <div className="flex items-center gap-2">
       <Badge size="sm">Small</Badge>
       <Badge size="md">Medium</Badge>
       <Badge size="lg">Large</Badge>
@@ -60,7 +60,7 @@ export const Sizes: Story = {
 
 export const BlogTags: Story = {
   render: () => (
-    <div className="wg-flex wg-flex-wrap wg-gap-2">
+    <div className="flex flex-wrap gap-2">
       <Badge variant="primary">React</Badge>
       <Badge variant="primary">Next.js</Badge>
       <Badge variant="primary">TypeScript</Badge>

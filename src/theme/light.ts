@@ -130,9 +130,9 @@ export const lightTheme: Theme = {
     // Semantic Colors (팔레트에서 가져옴)
     background: '#ffffff',
     foreground: palette['shallow-beach'][900], // shallow-beach 900
-    muted: palette['shallow-beach'][50], // shallow-beach 50
-    'muted-foreground': palette['shallow-beach'][700], // shallow-beach 700
-    border: palette['shallow-beach'][100], // shallow-beach 100
+    muted: palette.fog[50], // fog 50
+    'muted-foreground': palette.fog[700], // fog 700
+    border: palette.fog[200], // fog 200
     ring: palette['shallow-beach'][500], // shallow-beach 500
   },
   gradients: {

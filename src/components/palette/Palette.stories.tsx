@@ -42,7 +42,7 @@ export const ColorDefinitions: Story = {
           title={`Color Definitions (${theme})`}
           description="바다와 관련된 색상명을 사용합니다. 모든 색상은 이 Color Definitions에 정의된 색상만 사용됩니다."
         >
-          <div className="wg-space-y-6">
+          <div className="space-y-6">
             <ColorScaleDisplay
               name="Shallow Beach"
               scale={palette['shallow-beach']}
@@ -76,15 +76,12 @@ export const Roles: Story = {
       <div style={{ minHeight: '100vh', padding: '1rem' }}>
         <Palette theme={theme} title={`Roles (${theme})`}>
           <div>
-            <h3
-              className="wg-text-lg wg-font-semibold wg-mb-4"
-              style={{ color: colors.foreground }}
-            >
+            <h3 className="text-lg font-semibold mb-4" style={{ color: colors.foreground }}>
               Role Mapping (Palette → Role)
             </h3>
-            <div className="wg-space-y-6">
+            <div className="space-y-6">
               <div>
-                <p className="wg-text-sm wg-text-muted-foreground wg-mb-2">
+                <p className="text-sm text-muted-foreground mb-2">
                   Primary = Shallow Beach | Secondary = Deep Sea | Tertiary = Sand | Accent = Sunset
                 </p>
               </div>
@@ -127,15 +124,12 @@ export const StatusColors: Story = {
       <div style={{ minHeight: '100vh', padding: '1rem' }}>
         <Palette theme={theme} title={`Status Colors (${theme})`}>
           <div>
-            <h3
-              className="wg-text-lg wg-font-semibold wg-mb-4"
-              style={{ color: colors.foreground }}
-            >
+            <h3 className="text-lg font-semibold mb-4" style={{ color: colors.foreground }}>
               Status Colors
             </h3>
-            <div className="wg-space-y-6">
+            <div className="space-y-6">
               <div>
-                <p className="wg-text-sm wg-text-muted-foreground wg-mb-2">
+                <p className="text-sm text-muted-foreground mb-2">
                   Success = Algae | Warning = Golden Light | Error = Sunset | Info = Deep Sea
                 </p>
               </div>
@@ -170,23 +164,20 @@ export const SemanticColors: Story = {
       <div style={{ minHeight: '100vh', padding: '1rem' }}>
         <Palette theme={theme} title={`Semantic Colors (${theme})`}>
           <div>
-            <h3
-              className="wg-text-lg wg-font-semibold wg-mb-4"
-              style={{ color: colors.foreground }}
-            >
+            <h3 className="text-lg font-semibold mb-4" style={{ color: colors.foreground }}>
               Semantic Colors
             </h3>
-            <div className="wg-space-y-6">
+            <div className="space-y-6">
               <div>
-                <p className="wg-text-sm wg-text-muted-foreground wg-mb-2">
+                <p className="text-sm text-muted-foreground mb-2">
                   Foreground = Shallow Beach 900 | Muted = Shallow Beach 50 | Muted Foreground =
                   Shallow Beach 700 | Border = Shallow Beach 100 | Ring = Shallow Beach 500
                 </p>
-                <p className="wg-text-xs wg-text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   Background는 직접 정의된 색상입니다 (light: #ffffff, dark: #171717)
                 </p>
               </div>
-              <div className="wg-grid wg-grid-cols-2 md:wg-grid-cols-3 wg-gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <ColorScaleDisplay
                   name="Background"
                   scale={colors.background}
@@ -238,26 +229,20 @@ export const Gradients: Story = {
       <div style={{ minHeight: '100vh', padding: '1rem' }}>
         <Palette theme={theme} title={`Gradients (${theme})`}>
           <div>
-            <h3
-              className="wg-text-sm wg-font-semibold wg-mb-3"
-              style={{ color: colors.foreground }}
-            >
+            <h3 className="text-sm font-semibold mb-3" style={{ color: colors.foreground }}>
               Gradients
             </h3>
-            <div className="wg-grid wg-grid-cols-1 md:wg-grid-cols-2 wg-gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {Object.entries(gradients).map(([name, gradient]) => (
-                <div key={name} className="wg-flex wg-flex-col wg-gap-2">
-                  <h4 className="wg-text-xs wg-font-semibold" style={{ color: colors.foreground }}>
+                <div key={name} className="flex flex-col gap-2">
+                  <h4 className="text-xs font-semibold" style={{ color: colors.foreground }}>
                     {name.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
                   </h4>
                   <div
-                    className="wg-w-full wg-h-24 wg-rounded-lg wg-border"
+                    className="w-full h-24 rounded-lg border"
                     style={{ background: gradient, borderColor: colors.border }}
                   />
-                  <span
-                    className="wg-text-xs wg-font-mono"
-                    style={{ color: colors['muted-foreground'] }}
-                  >
+                  <span className="text-xs font-mono" style={{ color: colors['muted-foreground'] }}>
                     {gradient}
                   </span>
                 </div>

@@ -63,7 +63,7 @@ export function ProjectCard({
       height="32"
       fill="currentColor"
       viewBox="0 0 256 256"
-      className="wg-h-4 wg-w-4 wg-text-gray-400 group-hover:wg-cursor-pointer group-hover:wg-text-primary dark:wg-text-gray-500"
+      className="h-4 w-4 text-definition-fog-400 group-hover:cursor-pointer group-hover:text-role-primary-500 dark:text-definition-fog-500"
     >
       <path d="M192,64V168L88,64Z" opacity="0.2" />
       <path d="M192,56H88a8,8,0,0,0-5.66,13.66L128.69,116,58.34,186.34a8,8,0,0,0,11.32,11.32L140,127.31l46.34,46.35A8,8,0,0,0,200,168V64A8,8,0,0,0,192,56Zm-8,92.69-38.34-38.34h0L107.31,72H184Z" />
@@ -74,59 +74,54 @@ export function ProjectCard({
     <div
       ref={ref}
       className={cn(
-        'wg-group wg-relative wg-flex wg-flex-col wg-gap-3',
-        'wg-rounded-lg wg-border wg-border-gray-200 wg-border-opacity-60',
-        'wg-bg-white wg-p-6',
-        'dark:wg-border-gray-700 dark:wg-bg-gray-800',
-        'wg-transition-all hover:wg-shadow-lg',
+        'group relative flex flex-col gap-3',
+        'rounded-lg border border-semantic-border',
+        'bg-white p-6',
+        'dark:border-semantic-border dark:bg-definition-fog-800',
+        'transition-all hover:shadow-lg',
         className
       )}
       {...props}
     >
       {/* Header: Logo + External Link Icon */}
-      <div className="wg-flex wg-items-start wg-justify-between">
+      <div className="flex items-start justify-between">
         {logo && (
-          <div className="wg-shrink-0">
+          <div className="shrink-0">
             <img
               src={logo}
               alt={logoAlt || title}
-              className="wg-h-12 wg-w-12 wg-rounded-lg wg-object-contain"
+              className="h-12 w-12 rounded-lg object-contain"
             />
           </div>
         )}
         {href && (
-          <div className="wg-shrink-0">
+          <div className="shrink-0">
             <ExternalLinkIcon />
           </div>
         )}
       </div>
 
       {/* Title */}
-      <h2 className="wg-text-xl wg-font-bold wg-leading-tight wg-tracking-tight wg-text-gray-900 dark:wg-text-gray-100">
+      <h2 className="text-xl font-bold leading-tight tracking-tight text-definition-fog-900 dark:text-definition-fog-100">
         {title}
       </h2>
 
       {/* Description */}
-      <div className="wg-text-sm wg-leading-relaxed wg-text-gray-600 dark:wg-text-gray-400">
+      <div className="text-sm leading-relaxed text-definition-fog-600 dark:text-definition-fog-400">
         {typeof description === 'string' ? <p>{description}</p> : description}
       </div>
 
       {/* Tags */}
       {tags && tags.length > 0 && (
-        <div className="wg-mt-auto wg-flex wg-flex-wrap wg-gap-x-2">
+        <div className="mt-auto flex flex-wrap gap-x-2">
           {tags.map((tag, index) => (
-            <div
-              key={index}
-              className="wg-group wg-flex wg-items-center wg-justify-center wg-space-x-0.5"
-            >
+            <div key={index} className="group flex items-center justify-center space-x-0.5">
               {tag.icon ? (
-                <span className="wg-flex wg-items-center">{tag.icon}</span>
+                <span className="flex items-center">{tag.icon}</span>
               ) : (
-                <HashIcon className="wg-h-3 wg-w-3 wg-text-muted-foreground" />
+                <HashIcon className="h-3 w-3 text-muted-foreground" />
               )}
-              <span className="wg-text-xs wg-tracking-tighter wg-text-muted-foreground">
-                {tag.label}
-              </span>
+              <span className="text-xs tracking-tighter text-muted-foreground">{tag.label}</span>
             </div>
           ))}
         </div>
@@ -140,7 +135,7 @@ export function ProjectCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="wg-block wg-no-underline"
+        className="block no-underline"
         aria-label={`Link to ${title}`}
         title={`Link to ${title}`}
       >

@@ -29,10 +29,10 @@ export function Avatar({
   const [imageError, setImageError] = React.useState(false)
 
   const sizeClasses = {
-    sm: 'wg-h-8 wg-w-8 wg-text-xs',
-    md: 'wg-h-10 wg-w-10 wg-text-sm',
-    lg: 'wg-h-12 wg-w-12 wg-text-base',
-    xl: 'wg-h-16 wg-w-16 wg-text-lg',
+    sm: 'h-8 w-8 text-xs',
+    md: 'h-10 w-10 text-sm',
+    lg: 'h-12 w-12 text-base',
+    xl: 'h-16 w-16 text-lg',
   }
 
   const showFallback = !src || imageError
@@ -41,16 +41,16 @@ export function Avatar({
     <div
       ref={ref}
       className={cn(
-        'wg-inline-flex wg-items-center wg-justify-center wg-font-medium wg-bg-neutral-100 wg-text-neutral-600',
-        'dark:wg-bg-neutral-800 dark:wg-text-neutral-300',
+        'inline-flex items-center justify-center font-medium bg-semantic-muted text-neutral-600',
+        'dark:bg-neutral-800 dark:text-neutral-300',
         sizeClasses[size],
-        shape === 'circle' ? 'wg-rounded-full' : 'wg-rounded-md',
+        shape === 'circle' ? 'rounded-full' : 'rounded-md',
         className
       )}
       {...props}
     >
       {showFallback ? (
-        <span className="wg-font-semibold">
+        <span className="font-semibold">
           {fallback || (alt ? alt.charAt(0).toUpperCase() : '?')}
         </span>
       ) : (
@@ -58,8 +58,8 @@ export function Avatar({
           src={src}
           alt={alt}
           className={cn(
-            'wg-h-full wg-w-full wg-object-cover',
-            shape === 'circle' ? 'wg-rounded-full' : 'wg-rounded-md'
+            'h-full w-full object-cover',
+            shape === 'circle' ? 'rounded-full' : 'rounded-md'
           )}
           onError={() => setImageError(true)}
         />

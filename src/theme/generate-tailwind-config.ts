@@ -47,35 +47,45 @@ function generateColorScaleConfig(
  * - 개선 방향: Theme 인터페이스를 더 평탄한 구조로 리팩토링하면 캐스팅 제거 가능
  */
 export function generateTailwindColors(theme: Theme) {
-  const { colors } = theme
+  const { colors, palette } = theme
+
+  // 기존 색상 (하위 호환성 유지)
+  const primary = generateColorScaleConfig(
+    colors.primary as unknown as Record<string | number, string>,
+    'color-primary'
+  )
+  const secondary = generateColorScaleConfig(
+    colors.secondary as unknown as Record<string | number, string>,
+    'color-secondary'
+  )
+  const tertiary = generateColorScaleConfig(
+    colors.tertiary as unknown as Record<string | number, string>,
+    'color-tertiary'
+  )
+  const accent = generateColorScaleConfig(
+    colors.accent as unknown as Record<string | number, string>,
+    'color-accent'
+  )
+  const success = generateColorScaleConfig(colors.success, 'color-success')
+  const warning = generateColorScaleConfig(colors.warning, 'color-warning')
+  const error = generateColorScaleConfig(colors.error, 'color-error')
+  const info = generateColorScaleConfig(colors.info, 'color-info')
+  const neutral = generateColorScaleConfig(
+    colors.neutral as unknown as Record<string | number, string>,
+    'color-neutral'
+  )
 
   return {
-    // ColorScale 색상들 (투명도 지원)
-    primary: generateColorScaleConfig(
-      colors.primary as unknown as Record<string | number, string>,
-      'color-primary'
-    ),
-    secondary: generateColorScaleConfig(
-      colors.secondary as unknown as Record<string | number, string>,
-      'color-secondary'
-    ),
-    tertiary: generateColorScaleConfig(
-      colors.tertiary as unknown as Record<string | number, string>,
-      'color-tertiary'
-    ),
-    accent: generateColorScaleConfig(
-      colors.accent as unknown as Record<string | number, string>,
-      'color-accent'
-    ),
-    success: generateColorScaleConfig(colors.success, 'color-success'),
-    warning: generateColorScaleConfig(colors.warning, 'color-warning'),
-    error: generateColorScaleConfig(colors.error, 'color-error'),
-    info: generateColorScaleConfig(colors.info, 'color-info'),
-    neutral: generateColorScaleConfig(
-      colors.neutral as unknown as Record<string | number, string>,
-      'color-neutral'
-    ),
-    // 단일 색상들 (투명도 지원)
+    // 기존 색상 (하위 호환성)
+    primary,
+    secondary,
+    tertiary,
+    accent,
+    success,
+    warning,
+    error,
+    info,
+    neutral,
     background: 'rgb(var(--wg-color-background) / <alpha-value>)',
     foreground: 'rgb(var(--wg-color-foreground) / <alpha-value>)',
     muted: {
@@ -84,6 +94,41 @@ export function generateTailwindColors(theme: Theme) {
     },
     border: 'rgb(var(--wg-color-border) / <alpha-value>)',
     ring: 'rgb(var(--wg-color-ring) / <alpha-value>)',
+
+    // 카테고리별 prefix 구조
+    // Role (역할/브랜드 색상)
+    'role-primary': primary,
+    'role-secondary': secondary,
+    'role-tertiary': tertiary,
+    'role-accent': accent,
+
+    // Status (상태 색상)
+    'status-success': success,
+    'status-warning': warning,
+    'status-error': error,
+    'status-info': info,
+
+    // Semantic (시맨틱 색상)
+    'semantic-background': 'rgb(var(--wg-color-background) / <alpha-value>)',
+    'semantic-foreground': 'rgb(var(--wg-color-foreground) / <alpha-value>)',
+    'semantic-muted': {
+      DEFAULT: 'rgb(var(--wg-color-muted) / <alpha-value>)',
+      foreground: 'rgb(var(--wg-color-muted-foreground) / <alpha-value>)',
+    },
+    'semantic-border': 'rgb(var(--wg-color-border) / <alpha-value>)',
+    'semantic-ring': 'rgb(var(--wg-color-ring) / <alpha-value>)',
+
+    // Definition (팔레트 원본 색상)
+    ...Object.entries(palette).reduce(
+      (acc, [name, scale]) => {
+        acc[`definition-${name}`] = generateColorScaleConfig(
+          scale as unknown as Record<string | number, string>,
+          `color-${name}`
+        )
+        return acc
+      },
+      {} as Record<string, Record<string, string>>
+    ),
   }
 }
 

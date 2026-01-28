@@ -107,15 +107,15 @@ export function TypingText({
   }
 
   return (
-    <span ref={ref} className={cn('wg-inline-block', className)} {...props}>
+    <span ref={ref} className={cn('inline-block', className)} {...props}>
       <span>{displayText}</span>
       {showCursor && (
         <span
           className={cn(
-            'wg-inline-block wg-w-2 wg-h-[1.375rem] wg-ml-0.5',
-            'wg-text-transparent',
-            'wg-bg-neutral-800 dark:wg-bg-neutral-100',
-            'wg-animate-pulse'
+            'inline-block w-2 h-[1.375rem] ml-0.5',
+            'text-transparent',
+            'bg-neutral-800 dark:bg-neutral-100',
+            'animate-pulse'
           )}
           aria-hidden="true"
         >

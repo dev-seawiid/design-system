@@ -80,7 +80,7 @@ export function GithubContributions({
   }
 
   return (
-    <div ref={ref} className={cn('wg-github-contributions wg-w-full', className)} {...props}>
+    <div ref={ref} className={cn('github-contributions w-full', className)} {...props}>
       <GitHubCalendar
         username={username}
         year={year}

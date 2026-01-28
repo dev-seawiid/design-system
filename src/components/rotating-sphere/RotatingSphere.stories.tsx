@@ -49,7 +49,7 @@ const generateSpherePoints = (count: number): RotatingSphereItem[] => {
     items.push({
       id: i,
       content: (
-        <div className="wg-flex wg-h-12 wg-w-12 wg-items-center wg-justify-center wg-rounded-full wg-bg-primary-500 wg-text-white wg-text-lg wg-font-bold">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-role-primary-500 text-white text-lg font-bold">
           {i + 1}
         </div>
       ),
@@ -70,7 +70,7 @@ export const Default: Story = {
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
+    <div className="h-[600px] w-full">
       <RotatingSphere {...args} />
     </div>
   ),
@@ -79,21 +79,21 @@ export const Default: Story = {
 export const WithIcons: Story = {
   args: {
     items: [
-      { id: 1, content: <span className="wg-text-4xl">⚛️</span>, x: 1, y: 0, z: 0 },
-      { id: 2, content: <span className="wg-text-4xl">⚡</span>, x: -1, y: 0, z: 0 },
-      { id: 3, content: <span className="wg-text-4xl">🎨</span>, x: 0, y: 1, z: 0 },
-      { id: 4, content: <span className="wg-text-4xl">🚀</span>, x: 0, y: -1, z: 0 },
-      { id: 5, content: <span className="wg-text-4xl">💻</span>, x: 0, y: 0, z: 1 },
-      { id: 6, content: <span className="wg-text-4xl">🌟</span>, x: 0, y: 0, z: -1 },
-      { id: 7, content: <span className="wg-text-4xl">🔥</span>, x: 0.7, y: 0.7, z: 0 },
-      { id: 8, content: <span className="wg-text-4xl">✨</span>, x: -0.7, y: -0.7, z: 0 },
+      { id: 1, content: <span className="text-4xl">⚛️</span>, x: 1, y: 0, z: 0 },
+      { id: 2, content: <span className="text-4xl">⚡</span>, x: -1, y: 0, z: 0 },
+      { id: 3, content: <span className="text-4xl">🎨</span>, x: 0, y: 1, z: 0 },
+      { id: 4, content: <span className="text-4xl">🚀</span>, x: 0, y: -1, z: 0 },
+      { id: 5, content: <span className="text-4xl">💻</span>, x: 0, y: 0, z: 1 },
+      { id: 6, content: <span className="text-4xl">🌟</span>, x: 0, y: 0, z: -1 },
+      { id: 7, content: <span className="text-4xl">🔥</span>, x: 0.7, y: 0.7, z: 0 },
+      { id: 8, content: <span className="text-4xl">✨</span>, x: -0.7, y: -0.7, z: 0 },
     ],
     radius: 2,
     speed: 0.5,
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
+    <div className="h-[600px] w-full">
       <RotatingSphere {...args} />
     </div>
   ),
@@ -104,11 +104,8 @@ export const WithText: Story = {
     items: generateSpherePoints(12).map((item, index) => ({
       ...item,
       content: (
-        <div
-          className="wg-rounded-lg wg-px-4 wg-py-2 wg-text-white"
-          style={{ background: 'var(--wg-gradient-shallow-beach-to-deep-sea)' }}
-        >
-          <span className="wg-text-sm wg-font-semibold">Tag {index + 1}</span>
+        <div className="rounded-lg px-4 py-2 text-white bg-shallow-beach-to-deep-sea">
+          <span className="text-sm font-semibold">Tag {index + 1}</span>
         </div>
       ),
     })),
@@ -117,7 +114,7 @@ export const WithText: Story = {
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
+    <div className="h-[600px] w-full">
       <RotatingSphere {...args} />
     </div>
   ),
@@ -131,8 +128,8 @@ export const ManualControl: Story = {
     autoRotate: false,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
-      <div className="wg-mb-4 wg-text-center wg-text-sm wg-text-gray-600 dark:wg-text-gray-400">
+    <div className="h-[600px] w-full">
+      <div className="mb-4 text-center text-sm text-definition-fog-600 dark:text-definition-fog-400">
         마우스로 드래그하여 회전시킬 수 있습니다
       </div>
       <RotatingSphere {...args} />
@@ -148,7 +145,7 @@ export const FastRotation: Story = {
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
+    <div className="h-[600px] w-full">
       <RotatingSphere {...args} />
     </div>
   ),
@@ -162,7 +159,7 @@ export const SlowRotation: Story = {
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
+    <div className="h-[600px] w-full">
       <RotatingSphere {...args} />
     </div>
   ),
@@ -206,7 +203,7 @@ const renderSimpleIcon = (iconKey: string) => {
   if (!icon) {
     console.warn(`Icon not found for key: ${iconKey}`)
     return (
-      <div className="wg-flex wg-h-12 wg-w-12 wg-items-center wg-justify-center wg-rounded-full wg-bg-gray-200 wg-text-gray-600">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-definition-fog-200 text-definition-fog-600">
         {iconKey.substring(2, 4).toUpperCase()}
       </div>
     )
@@ -264,12 +261,12 @@ export const TechStackIcons: Story = {
     autoRotate: true,
   },
   render: (args) => (
-    <div className="wg-h-[600px] wg-w-full">
-      <div className="wg-mb-4 wg-text-center">
-        <h3 className="wg-text-lg wg-font-semibold wg-text-gray-900 dark:wg-text-gray-100">
+    <div className="h-[600px] w-full">
+      <div className="mb-4 text-center">
+        <h3 className="text-lg font-semibold text-definition-fog-900 dark:text-definition-fog-100">
           Technology Stack Icons (wujieli.com style)
         </h3>
-        <p className="wg-mt-2 wg-text-sm wg-text-gray-600 dark:wg-text-gray-400">
+        <p className="mt-2 text-sm text-definition-fog-600 dark:text-definition-fog-400">
           {techIconKeys.length}개의 기술 스택 아이콘이 3D 구 형태로 회전합니다
         </p>
       </div>

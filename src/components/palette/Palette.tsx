@@ -22,20 +22,20 @@ export function Palette({
   return (
     <div
       className={cn(
-        'wg-p-6 wg-rounded-lg wg-border wg-border-border',
-        theme === 'light' ? 'wg-bg-white' : 'wg-bg-gray-900',
+        'p-6 rounded-lg border border-border',
+        theme === 'light' ? 'bg-white' : 'bg-definition-fog-900',
         className
       )}
       data-theme={theme}
     >
       {title && (
-        <h2 className="wg-text-2xl wg-font-bold wg-mb-6" style={{ color: colors.foreground }}>
+        <h2 className="text-2xl font-bold mb-6" style={{ color: colors.foreground }}>
           {title}
         </h2>
       )}
       {description && (
         <p
-          className="wg-text-sm wg-text-muted-foreground wg-mb-4"
+          className="text-sm text-muted-foreground mb-4"
           style={{ color: colors['muted-foreground'] }}
         >
           {description}
@@ -63,20 +63,17 @@ export function ColorScaleDisplay({
 
   if (typeof scale === 'string') {
     return (
-      <div className="wg-mb-6">
-        <h3
-          className="wg-text-sm wg-font-semibold wg-mb-2"
-          style={{ color: themeColors.foreground }}
-        >
+      <div className="mb-6">
+        <h3 className="text-sm font-semibold mb-2" style={{ color: themeColors.foreground }}>
           {name}
         </h3>
-        <div className="wg-flex wg-items-center wg-gap-2">
+        <div className="flex items-center gap-2">
           <div
-            className="wg-w-16 wg-h-16 wg-rounded-md wg-border"
+            className="w-16 h-16 rounded-md border"
             style={{ backgroundColor: scale, borderColor: themeColors.border }}
           />
-          <div className="wg-flex wg-flex-col">
-            <span className="wg-text-xs wg-font-mono" style={{ color: themeColors.foreground }}>
+          <div className="flex flex-col">
+            <span className="text-xs font-mono" style={{ color: themeColors.foreground }}>
               {scale}
             </span>
           </div>
@@ -99,27 +96,21 @@ export function ColorScaleDisplay({
   const scaleRecord = scale as Record<string, string>
 
   return (
-    <div className="wg-mb-6">
-      <h3 className="wg-text-sm wg-font-semibold wg-mb-3" style={{ color: themeColors.foreground }}>
+    <div className="mb-6">
+      <h3 className="text-sm font-semibold mb-3" style={{ color: themeColors.foreground }}>
         {name}
       </h3>
-      <div className="wg-flex wg-flex-wrap wg-gap-2">
+      <div className="flex flex-wrap gap-2">
         {scaleKeys.map((key) => (
-          <div key={key} className="wg-flex wg-flex-col wg-items-center wg-gap-1">
+          <div key={key} className="flex flex-col items-center gap-1">
             <div
-              className="wg-w-12 wg-h-12 wg-rounded-md wg-border wg-shadow-sm"
+              className="w-12 h-12 rounded-md border shadow-sm"
               style={{ backgroundColor: scaleRecord[key], borderColor: themeColors.border }}
             />
-            <span
-              className="wg-text-xs wg-font-mono"
-              style={{ color: themeColors['muted-foreground'] }}
-            >
+            <span className="text-xs font-mono" style={{ color: themeColors['muted-foreground'] }}>
               {key}
             </span>
-            <span
-              className="wg-text-xs wg-font-mono"
-              style={{ color: themeColors['muted-foreground'] }}
-            >
+            <span className="text-xs font-mono" style={{ color: themeColors['muted-foreground'] }}>
               {scaleRecord[key]}
             </span>
           </div>
