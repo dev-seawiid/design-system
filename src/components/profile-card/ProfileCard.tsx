@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/utils/cn'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Avatar } from '../avatar/Avatar'
@@ -81,7 +83,7 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
   }, [onMouseLeave, onMouseMove])
 
   // ref forwarding 처리
-  React.useEffect(() => {
+  useEffect(() => {
     if (ref) {
       if (typeof ref === 'function') {
         ref(cardRef.current)

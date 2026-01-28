@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/utils/cn'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 

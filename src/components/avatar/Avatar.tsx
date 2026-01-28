@@ -1,5 +1,7 @@
+'use client'
+
 import { cn } from '@/utils/cn'
-import React from 'react'
+import React, { useState } from 'react'
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string
@@ -26,7 +28,7 @@ export function Avatar({
   ref,
   ...props
 }: AvatarProps) {
-  const [imageError, setImageError] = React.useState(false)
+  const [imageError, setImageError] = useState(false)
 
   const sizeClasses = {
     sm: 'h-8 w-8 text-xs',

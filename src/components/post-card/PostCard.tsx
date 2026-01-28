@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn'
-import { Slot } from '@radix-ui/react-slot'
 import React from 'react'
 import { Badge } from '../badge/Badge'
+import { ClientSlot } from '../client/ClientSlot'
 
 export interface PostCardProps extends React.HTMLAttributes<HTMLElement> {
   title: string
@@ -65,7 +65,7 @@ export function PostCard({
                 'hover:pt-1 hover:pr-2 hover:pb-2 hover:pl-1'
               )}
             >
-              <Slot className="absolute inset-0 w-full h-full">{imageSlot}</Slot>
+              <ClientSlot className="absolute inset-0 w-full h-full">{imageSlot}</ClientSlot>
               <div
                 className={cn(
                   'absolute top-3 right-0 bottom-0 left-3',
@@ -93,9 +93,9 @@ export function PostCard({
               <h3 className="text-xl leading-6 font-semibold">
                 {titleLinkSlot ? (
                   <div className="relative inline-block">
-                    <Slot className="transition-colors hover:text-role-primary-500">
+                    <ClientSlot className="transition-colors hover:text-role-primary-500">
                       {titleLinkSlot}
-                    </Slot>
+                    </ClientSlot>
                     <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-role-primary-500 transition-all group-hover:w-full" />
                   </div>
                 ) : (
@@ -125,7 +125,7 @@ export function PostCard({
         <div className="flex gap-4 w-full">
           {imageSlot && (
             <div className="shrink-0 w-32 h-24 rounded-lg overflow-hidden relative">
-              <Slot className="w-full h-full">{imageSlot}</Slot>
+              <ClientSlot className="w-full h-full">{imageSlot}</ClientSlot>
             </div>
           )}
           <div className="flex-1 space-y-2">
@@ -142,9 +142,9 @@ export function PostCard({
             </div>
             <h3 className="text-lg font-semibold">
               {titleLinkSlot ? (
-                <Slot className="hover:text-role-primary-500 transition-colors">
+                <ClientSlot className="hover:text-role-primary-500 transition-colors">
                   {titleLinkSlot}
-                </Slot>
+                </ClientSlot>
               ) : (
                 title
               )}
