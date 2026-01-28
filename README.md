@@ -79,6 +79,7 @@ CSS 파일을 생성하고 다음을 추가하세요:
 /* app/globals.css 또는 src/index.css */
 @import 'tailwindcss';
 @import '@wiid-get/design-system/index.css';
+@source '../node_modules/@wiid-get/design-system';
 ```
 
 그리고 layout 파일에서 CSS 파일을 import:
@@ -161,6 +162,7 @@ pnpm add next@^16.0.0 react@^19.0.0 react-dom@^19.0.0 tailwindcss@>=4.0.0
 /* app/globals.css */
 @import 'tailwindcss';
 @import '@wiid-get/design-system/index.css';
+@source '../node_modules/@wiid-get/design-system';
 ```
 
 2. Layout 파일에서 CSS import:
@@ -186,6 +188,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 /* styles/globals.css */
 @import 'tailwindcss';
 @import '@wiid-get/design-system/index.css';
+@source '../node_modules/@wiid-get/design-system';
 ```
 
 2. `_app.tsx`에서 CSS import:
@@ -208,6 +211,7 @@ export default function App({ Component, pageProps }: AppProps) {
 /* src/index.css 또는 src/globals.css */
 @import 'tailwindcss';
 @import '@wiid-get/design-system/index.css';
+@source '../node_modules/@wiid-get/design-system';
 ```
 
 2. 진입점 파일에서 CSS import:
@@ -220,6 +224,7 @@ import './index.css'
 > ⚠️ **중요**:
 >
 > - Tailwind CSS를 **먼저** import한 후 디자인 시스템 CSS를 import해야 합니다.
+> - `@source` 디렉티브는 Tailwind v4에서 외부 패키지의 소스를 지정하는 데 사용됩니다. 디자인 시스템의 Tailwind 유틸리티 클래스를 사용하려면 반드시 필요합니다.
 > - Tailwind v4는 CSS 파일 내에서 `@import "tailwindcss";`를 사용해야 합니다. JavaScript/TypeScript 파일에서 `import 'tailwindcss'`를 직접 사용할 수 없습니다.
 > - PostCSS 플러그인(`@tailwindcss/postcss`)이 필요합니다. `postcss.config.js` 파일을 확인하세요.
 

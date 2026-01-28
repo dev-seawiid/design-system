@@ -8,7 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [react(), dts({ insertTypesEntry: true }), tsconfigPaths(), preserveDirectives()],
   build: {
-    cssCodeSplit: true, // CSS를 별도 파일로 추출하도록 강제
+    cssCodeSplit: false, // CSS 파일을 생성하지 않음 (src/index.css를 직접 사용)
     lib: {
       entry: {
         index: path.resolve(__dirname, 'src/index.ts'),
@@ -28,6 +28,7 @@ export default defineConfig({
         '@react-three/fiber',
         '@react-three/drei',
         'react-github-calendar',
+        /\.css$/, // CSS 파일을 external로 처리하여 dist에 생성되지 않도록 함
       ],
       output: {
         globals: {

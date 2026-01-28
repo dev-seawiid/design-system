@@ -19,10 +19,11 @@
       "types": "./dist/rotating-sphere.d.ts",
       "import": "./dist/rotating-sphere.js"
     },
-    "./index.css": "./dist/index.css"
+    "./index.css": "./src/index.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/index.css"
   ],
   "packageManager": "pnpm@9.15.3",
   "scripts": {
