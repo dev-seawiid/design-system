@@ -26,11 +26,10 @@ export const GridView: Story = {
     date: '2024-12-24',
     readingTime: 5,
     imageSlot: (
-      <a href="/blog/getting-started-nextjs-15" className="w-full h-full">
+      <a href="/blog/getting-started-nextjs-15">
         <img
           src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop"
           alt="Getting Started with Next.js 15"
-          className="w-full h-full rounded-xl shadow-2xl object-cover"
           loading="lazy"
           onError={(e) => {
             const target = e.target as HTMLImageElement
@@ -59,11 +58,10 @@ export const ListView: Story = {
     date: '2024-12-20',
     readingTime: 8,
     imageSlot: (
-      <a href="/blog/building-design-system" className="w-full h-full block">
+      <a href="/blog/building-design-system">
         <img
           src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=600&h=400&fit=crop"
           alt="Building a Design System"
-          className="w-full h-full object-cover rounded-lg"
           loading="lazy"
         />
       </a>
@@ -95,11 +93,10 @@ export const PostGrid: Story = {
         date="2024-12-24"
         readingTime={5}
         imageSlot={
-          <a href="/blog/getting-started-nextjs-15" className="w-full h-full">
+          <a href="/blog/getting-started-nextjs-15">
             <img
               src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop"
               alt="Getting Started with Next.js 15"
-              className="w-full h-full rounded-xl shadow-2xl object-cover"
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement
@@ -120,11 +117,10 @@ export const PostGrid: Story = {
         date="2024-12-20"
         readingTime={8}
         imageSlot={
-          <a href="/blog/building-design-system" className="w-full h-full">
+          <a href="/blog/building-design-system">
             <img
               src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=600&h=400&fit=crop"
               alt="Building a Design System"
-              className="w-full h-full rounded-xl shadow-2xl object-cover"
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement
@@ -143,11 +139,10 @@ export const PostGrid: Story = {
         date="2024-12-15"
         readingTime={6}
         imageSlot={
-          <a href="/blog/typescript-best-practices" className="w-full h-full">
+          <a href="/blog/typescript-best-practices">
             <img
               src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=400&fit=crop"
               alt="TypeScript Best Practices"
-              className="w-full h-full rounded-xl shadow-2xl object-cover"
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement

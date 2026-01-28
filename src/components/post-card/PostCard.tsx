@@ -65,7 +65,9 @@ export function PostCard({
                 'hover:pt-1 hover:pr-2 hover:pb-2 hover:pl-1'
               )}
             >
-              <ClientSlot className="absolute inset-0 w-full h-full">{imageSlot}</ClientSlot>
+              <ClientSlot className="absolute inset-0 w-full h-full [&>*]:w-full [&>*]:h-full [&>img]:rounded-xl [&>img]:shadow-2xl [&>img]:object-cover [&>a]:block [&>a]:w-full [&>a]:h-full [&>a>img]:w-full [&>a>img]:h-full [&>a>img]:rounded-xl [&>a>img]:shadow-2xl [&>a>img]:object-cover">
+                {imageSlot}
+              </ClientSlot>
               <div
                 className={cn(
                   'absolute top-3 right-0 bottom-0 left-3',
@@ -93,7 +95,7 @@ export function PostCard({
               <h3 className="text-xl leading-6 font-semibold">
                 {titleLinkSlot ? (
                   <div className="relative inline-block">
-                    <ClientSlot className="transition-colors hover:text-role-primary-500">
+                    <ClientSlot className="transition-colors hover:text-role-primary-500 [&>a]:no-underline [&>a]:text-inherit">
                       {titleLinkSlot}
                     </ClientSlot>
                     <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-role-primary-500 transition-all group-hover:w-full" />
@@ -125,7 +127,9 @@ export function PostCard({
         <div className="flex gap-4 w-full">
           {imageSlot && (
             <div className="shrink-0 w-32 h-24 rounded-lg overflow-hidden relative">
-              <ClientSlot className="w-full h-full">{imageSlot}</ClientSlot>
+              <ClientSlot className="w-full h-full [&>*]:w-full [&>*]:h-full [&>img]:object-cover [&>a]:block [&>a]:w-full [&>a]:h-full [&>a>img]:w-full [&>a>img]:h-full [&>a>img]:object-cover">
+                {imageSlot}
+              </ClientSlot>
             </div>
           )}
           <div className="flex-1 space-y-2">
@@ -142,7 +146,7 @@ export function PostCard({
             </div>
             <h3 className="text-lg font-semibold">
               {titleLinkSlot ? (
-                <ClientSlot className="hover:text-role-primary-500 transition-colors">
+                <ClientSlot className="hover:text-role-primary-500 transition-colors [&>a]:no-underline [&>a]:text-inherit">
                   {titleLinkSlot}
                 </ClientSlot>
               ) : (
