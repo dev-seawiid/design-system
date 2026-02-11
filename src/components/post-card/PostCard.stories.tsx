@@ -78,6 +78,7 @@ export const WithoutImage: Story = {
     summary: 'Tips and tricks for writing better TypeScript code in your projects.',
     date: '2024-12-15',
     readingTime: 6,
+    imageSlot: null,
     titleLinkSlot: <a href="/blog/typescript-best-practices">TypeScript Best Practices</a>,
     tags: ['TypeScript', 'Programming'],
     variant: 'grid',

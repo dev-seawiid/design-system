@@ -32,6 +32,7 @@ const defaultInfo = {
 export const Default: Story = {
   args: {
     info: defaultInfo,
+    imageSlot: null,
   },
   decorators: [
     (Story) => (
@@ -53,10 +54,14 @@ export const WithSpotify: Story = {
         songUrl: 'https://open.spotify.com/track/0VjIjW4GlUZ9YafZejv2bQ',
       },
     },
-    image: {
-      src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=550&h=350&fit=crop',
-      alt: 'Profile header',
-    },
+    imageSlot: (
+      <img
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=550&h=350&fit=crop"
+        alt="Profile header"
+        className="h-full w-full object-cover"
+        style={{ objectPosition: '50% 15%' }}
+      />
+    ),
   },
   decorators: [
     (Story) => (
@@ -73,10 +78,14 @@ export const WithoutSpotify: Story = {
     spotify: {
       isPlaying: false,
     },
-    image: {
-      src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=550&h=350&fit=crop',
-      alt: 'Profile header',
-    },
+    imageSlot: (
+      <img
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=550&h=350&fit=crop"
+        alt="Profile header"
+        className="h-full w-full object-cover"
+        style={{ objectPosition: '50% 15%' }}
+      />
+    ),
   },
   decorators: [
     (Story) => (

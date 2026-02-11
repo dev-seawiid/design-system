@@ -22,6 +22,8 @@ const HashIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+const LOGO_URL = 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop'
+
 const meta: Meta<typeof ProjectCard> = {
   title: 'Cards/ProjectCard',
   component: ProjectCard,
@@ -30,7 +32,7 @@ const meta: Meta<typeof ProjectCard> = {
     docs: {
       description: {
         component:
-          '프로젝트를 표시하는 카드 컴포넌트입니다. 로고, 제목, 설명, 태그, 외부 링크를 지원합니다. wujie-blog-next의 실제 프로젝트 페이지 디자인을 참고했습니다.',
+          '프로젝트를 표시하는 카드 컴포넌트입니다. 로고·링크는 슬롯(logoSlot, linkSlot)으로 전달하며, Next 프로젝트에서 next/image, next/link 사용이 가능합니다.',
       },
     },
   },
@@ -44,21 +46,15 @@ const meta: Meta<typeof ProjectCard> = {
       control: 'text',
       description: '프로젝트 설명',
     },
-    logo: {
-      control: 'text',
-      description: '로고 이미지 URL',
+    logoSlot: {
+      description: '로고 슬롯 (next/image 사용 가능)',
     },
-    logoAlt: {
-      control: 'text',
-      description: '로고 이미지 alt 텍스트',
+    linkSlot: {
+      description: '카드 전체를 감싸는 링크 슬롯 (next/link 사용 가능)',
     },
     tags: {
       control: 'object',
       description: '태그 배열',
-    },
-    href: {
-      control: 'text',
-      description: '외부 링크 URL',
     },
   },
 }
@@ -70,8 +66,22 @@ export const Default: Story = {
   args: {
     title: 'MakeBanner.ai',
     description: 'The #1 AI Banner Generator. Professional Visuals, Zero Design Skills.',
-    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
-    href: 'https://makebanner.ai',
+    logoSlot: (
+      <img
+        src={LOGO_URL}
+        alt="MakeBanner.ai"
+        className="h-12 w-12 rounded-lg object-contain"
+      />
+    ),
+    linkSlot: (
+      <a
+        href="https://makebanner.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block no-underline"
+        aria-label="Link to MakeBanner.ai"
+      />
+    ),
     tags: [{ label: 'AI' }, { label: 'Banner Generator' }],
   },
 }
@@ -80,8 +90,22 @@ export const WithMultipleTags: Story = {
   args: {
     title: 'Prompt Ultra AI',
     description: 'The AI Prompt Generator That Unlocks Your Creativity',
-    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
-    href: 'https://promptultra.ai',
+    logoSlot: (
+      <img
+        src={LOGO_URL}
+        alt="Prompt Ultra AI"
+        className="h-12 w-12 rounded-lg object-contain"
+      />
+    ),
+    linkSlot: (
+      <a
+        href="https://promptultra.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block no-underline"
+        aria-label="Link to Prompt Ultra AI"
+      />
+    ),
     tags: [{ label: 'AI' }, { label: 'Prompt' }],
   },
 }
@@ -90,8 +114,22 @@ export const WithIconTags: Story = {
   args: {
     title: 'JoyFlix AI',
     description: "The Only AI Video Generator You'll Ever Need",
-    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
-    href: 'https://joyflix.ai',
+    logoSlot: (
+      <img
+        src={LOGO_URL}
+        alt="JoyFlix AI"
+        className="h-12 w-12 rounded-lg object-contain"
+      />
+    ),
+    linkSlot: (
+      <a
+        href="https://joyflix.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block no-underline"
+        aria-label="Link to JoyFlix AI"
+      />
+    ),
     tags: [
       { label: 'AI', icon: <HashIcon className="h-3 w-3" /> },
       { label: 'Video', icon: <HashIcon className="h-3 w-3" /> },
@@ -103,7 +141,14 @@ export const WithoutLink: Story = {
   args: {
     title: 'Sketch To',
     description: 'AI Image Generator',
-    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
+    logoSlot: (
+      <img
+        src={LOGO_URL}
+        alt="Sketch To"
+        className="h-12 w-12 rounded-lg object-contain"
+      />
+    ),
+    linkSlot: null,
     tags: [{ label: 'AI' }, { label: 'Image' }],
   },
 }
@@ -112,7 +157,16 @@ export const WithoutLogo: Story = {
   args: {
     title: 'URL to Any',
     description: 'An All-in-One Web Content Conversion Tool',
-    href: 'https://www.urltoany.com',
+    logoSlot: null,
+    linkSlot: (
+      <a
+        href="https://www.urltoany.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block no-underline"
+        aria-label="Link to URL to Any"
+      />
+    ),
     tags: [{ label: 'Tools' }],
   },
 }
@@ -120,58 +174,95 @@ export const WithoutLogo: Story = {
 export const LongDescription: Story = {
   args: {
     title: '独立开发沉思录',
-    description: '分享关于独立开发技术、产品、设计、营销、个人成长的内容，每周发布一篇周刊',
-    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop',
-    href: 'https://www.hackthinking.com',
+    description:
+      '分享关于独立开发技术、产品、设计、营销、个人成长的内容，每周发布一篇周刊',
+    logoSlot: (
+      <img
+        src={LOGO_URL}
+        alt="独立开发沉思录"
+        className="h-12 w-12 rounded-lg object-contain"
+      />
+    ),
+    linkSlot: (
+      <a
+        href="https://www.hackthinking.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block no-underline"
+        aria-label="Link to 独立开发沉思录"
+      />
+    ),
     tags: [{ label: 'Blog' }],
   },
 }
 
+const projectCards = [
+  {
+    title: 'MakeBanner.ai',
+    description:
+      'The #1 AI Banner Generator. Professional Visuals, Zero Design Skills.',
+    href: 'https://makebanner.ai',
+    tags: [{ label: 'AI' }, { label: 'Banner Generator' }],
+  },
+  {
+    title: 'Ice Breaker Gen',
+    description: 'Free Ice Breaker Generator: Find Perfect Ice Breaker Games',
+    href: 'https://icebreakergen.com',
+    tags: [{ label: 'Ice Breaker Games' }],
+  },
+  {
+    title: 'Prompt Ultra AI',
+    description: 'The AI Prompt Generator That Unlocks Your Creativity',
+    href: 'https://promptultra.ai',
+    tags: [{ label: 'AI' }, { label: 'Prompt' }],
+  },
+  {
+    title: 'JoyFlix AI',
+    description: "The Only AI Video Generator You'll Ever Need",
+    href: 'https://joyflix.ai',
+    tags: [{ label: 'AI' }, { label: 'Video' }],
+  },
+  {
+    title: 'SidePal',
+    description: 'A browser extension to copilot with AI, very fast and safety.',
+    href: 'https://chromewebstore.google.com',
+    tags: [{ label: 'AI' }, { label: 'Browser Extension' }],
+  },
+  {
+    title: 'SVG to 3D',
+    description: 'Transform 2D Designs to 3D Models',
+    href: 'https://www.svgto3d.com',
+    tags: [{ label: '3D' }],
+  },
+]
+
 export const GridLayout: Story = {
   render: () => (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <ProjectCard
-        title="MakeBanner.ai"
-        description="The #1 AI Banner Generator. Professional Visuals, Zero Design Skills."
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://makebanner.ai"
-        tags={[{ label: 'AI' }, { label: 'Banner Generator' }]}
-      />
-      <ProjectCard
-        title="Ice Breaker Gen"
-        description="Free Ice Breaker Generator: Find Perfect Ice Breaker Games"
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://icebreakergen.com"
-        tags={[{ label: 'Ice Breaker Games' }]}
-      />
-      <ProjectCard
-        title="Prompt Ultra AI"
-        description="The AI Prompt Generator That Unlocks Your Creativity"
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://promptultra.ai"
-        tags={[{ label: 'AI' }, { label: 'Prompt' }]}
-      />
-      <ProjectCard
-        title="JoyFlix AI"
-        description="The Only AI Video Generator You'll Ever Need"
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://joyflix.ai"
-        tags={[{ label: 'AI' }, { label: 'Video' }]}
-      />
-      <ProjectCard
-        title="SidePal"
-        description="A browser extension to copilot with AI, very fast and safety."
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://chromewebstore.google.com"
-        tags={[{ label: 'AI' }, { label: 'Browser Extension' }]}
-      />
-      <ProjectCard
-        title="SVG to 3D"
-        description="Transform 2D Designs to 3D Models"
-        logo="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop"
-        href="https://www.svgto3d.com"
-        tags={[{ label: '3D' }]}
-      />
+      {projectCards.map((project) => (
+        <ProjectCard
+          key={project.href}
+          title={project.title}
+          description={project.description}
+          logoSlot={
+            <img
+              src={LOGO_URL}
+              alt={project.title}
+              className="h-12 w-12 rounded-lg object-contain"
+            />
+          }
+          linkSlot={
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full no-underline"
+              aria-label={`Link to ${project.title}`}
+            />
+          }
+          tags={project.tags}
+        />
+      ))}
     </div>
   ),
 }

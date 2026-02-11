@@ -10,8 +10,10 @@ export interface PostCardProps extends React.HTMLAttributes<HTMLElement> {
   readingTime?: number
   tags?: string[]
   variant?: 'grid' | 'list'
-  imageSlot?: React.ReactNode
-  titleLinkSlot?: React.ReactNode
+  /** 이미지 슬롯 (next/image 사용 가능). 이미지 없으면 null */
+  imageSlot: React.ReactNode
+  /** 제목 링크 슬롯 (next/link 사용 가능). 링크 없으면 null이면 제목만 표시 */
+  titleLinkSlot: React.ReactNode
   ref?: React.Ref<HTMLElement>
 }
 

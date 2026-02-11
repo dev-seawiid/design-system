@@ -3,6 +3,7 @@
 import { cn } from '@/utils/cn'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Avatar } from '../avatar/Avatar'
+import { ClientSlot } from '../client/ClientSlot'
 import { SpotifyNowPlaying } from '../spotify-now-playing/SpotifyNowPlaying'
 
 export interface ProfileCardInfo {
@@ -28,10 +29,13 @@ export interface ProfileCardProps extends React.HTMLAttributes<HTMLDivElement> {
       songUrl?: string
     }
   }
-  image?: {
-    src: string
-    alt: string
-  }
+  /**
+   * 헤더 이미지 슬롯. 외부 Next 프로젝트에서는 next/image, next/link를 사용해 전달할 수 있습니다.
+   * 이미지 없으면 null.
+   * @example imageSlot={<Image src={...} alt="..." width={383} height={240} className="..." />}
+   * @example imageSlot={null}
+   */
+  imageSlot: React.ReactNode
   ref?: React.Ref<HTMLDivElement>
 }
 
@@ -41,7 +45,15 @@ export interface ProfileCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * 프로필 정보를 표시하는 카드 컴포넌트입니다.
  * leohuynh.dev의 프로필 카드 디자인을 참고했습니다.
  */
-export function ProfileCard({ info, spotify, image, className, ref, ...props }: ProfileCardProps) {
+export function ProfileCard({
+  info,
+  spotify,
+  imageSlot,
+  className,
+  ref,
+  ...props
+}: ProfileCardProps) {
+  const hasImage = imageSlot != null && imageSlot !== ''
   const cardRef = useRef<HTMLDivElement>(null)
   const [style, setStyle] = useState<React.CSSProperties>({})
 
@@ -115,15 +127,18 @@ export function ProfileCard({ info, spotify, image, className, ref, ...props }: 
           'dark:outline-neutral-700'
         )}
       >
-        {/* Header Image */}
-        {image && (
-          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '383/240' }}>
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="h-full w-full object-cover"
+        {/* Header Image: slot으로 next/image, next/link 사용 가능 */}
+        {hasImage && (
+          <div
+            className="relative w-full overflow-hidden [&>img]:h-full [&>img]:w-full [&>img]:object-cover [&>a]:block [&>a]:h-full [&>a]:w-full [&>a>img]:h-full [&>a>img]:w-full [&>a>img]:object-cover"
+            style={{ aspectRatio: '383/240' }}
+          >
+            <ClientSlot
+              className="h-full w-full *:h-full *:w-full [&>img]:object-cover [&>img]:object-[50%_15%] [&>a]:block [&>a]:h-full [&>a]:w-full [&>a>img]:h-full [&>a>img]:w-full [&>a>img]:object-cover [&>a>img]:object-[50%_15%]"
               style={{ objectPosition: '50% 15%' }}
-            />
+            >
+              {imageSlot}
+            </ClientSlot>
           </div>
         )}
 
