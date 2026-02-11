@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from './Avatar'
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Foundation/Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
   parameters: {
     layout: 'padded',
@@ -34,12 +34,35 @@ export const Default: Story = {
   },
 }
 
+/** imageSlot으로 이미지 전달. Next 앱에서는 next/image 사용: imageSlot={<Image src={url} width={48} height={48} alt="..." />} */
 export const WithImage: Story = {
-  args: {
-    src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John',
-    alt: 'John Doe',
-    fallback: 'JD',
-  },
+  render: () => (
+    <div className="flex items-center gap-4">
+      <Avatar
+        size="lg"
+        fallback="JD"
+        alt="John Doe"
+        imageSlot={
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=John"
+            alt="John Doe"
+            className="h-full w-full object-cover rounded-full"
+          />
+        }
+      />
+      <Avatar
+        size="lg"
+        fallback="JD"
+        imageSlot={
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jane"
+            alt="Jane"
+            className="h-full w-full object-cover rounded-full"
+          />
+        }
+      />
+    </div>
+  ),
 }
 
 export const Sizes: Story = {

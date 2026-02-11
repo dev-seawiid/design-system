@@ -1,10 +1,10 @@
 import { cn } from '@/utils/cn'
-import React from 'react'
+import type { HTMLAttributes, Ref } from 'react'
 import type { Props as GitHubCalendarProps } from 'react-github-calendar'
 import { GitHubCalendar } from 'react-github-calendar'
 
 export interface GithubContributionsProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
+  HTMLAttributes<HTMLDivElement>,
   'children'
 > {
   /**
@@ -30,7 +30,7 @@ export interface GithubContributionsProps extends Omit<
     data: Array<{ date: string; count: number; level: 0 | 1 | 2 | 3 | 4 }>
   ) => Array<{ date: string; count: number; level: 0 | 1 | 2 | 3 | 4 }>
   /**
-   * Color scheme
+   * 캘린더 색상 테마. 'auto'면 시스템 설정(prefers-color-scheme) 따름.
    */
   colorScheme?: 'light' | 'dark' | 'auto'
   /**
@@ -40,7 +40,7 @@ export interface GithubContributionsProps extends Omit<
     GitHubCalendarProps,
     'username' | 'year' | 'errorMessage' | 'throwOnError' | 'transformData'
   >
-  ref?: React.Ref<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 /**
@@ -51,33 +51,29 @@ export interface GithubContributionsProps extends Omit<
  *
  * @example
  * ```tsx
- * <GithubContributions username="wujieli0207" />
+ * <GithubContributions username="your-username" />
  * ```
  */
+const GITHUB_THEME = {
+  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+}
+
 export function GithubContributions({
   username,
   year = 'last',
   errorMessage,
   throwOnError = false,
   transformData,
+  colorScheme = 'auto',
   calendarProps,
   className,
   ref,
   ...props
 }: GithubContributionsProps) {
-  // Determine color scheme based on theme
-  const getTheme = () => {
-    // GitHub's default contribution colors
-    const githubTheme = {
-      light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-      dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-    }
-
-    return {
-      light: githubTheme.light,
-      dark: githubTheme.dark,
-    }
-  }
+  // 'auto'면 colorScheme 미전달 → 라이브러리가 시스템 설정(prefers-color-scheme) 따름
+  const calendarColorScheme =
+    colorScheme === 'auto' ? undefined : (colorScheme as 'light' | 'dark')
 
   return (
     <div ref={ref} className={cn('github-contributions w-full', className)} {...props}>
@@ -87,7 +83,8 @@ export function GithubContributions({
         errorMessage={errorMessage}
         throwOnError={throwOnError}
         transformData={transformData}
-        theme={getTheme()}
+        theme={GITHUB_THEME}
+        colorScheme={calendarColorScheme}
         {...calendarProps}
       />
     </div>

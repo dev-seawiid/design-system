@@ -8,7 +8,8 @@ const meta: Meta<typeof ProfileCard> = {
     layout: 'padded',
     docs: {
       description: {
-        component: '프로필 정보를 표시하는 카드 컴포넌트입니다. leohuynh.dev의 프로필 카드 디자인을 참고했습니다.',
+        component:
+          '프로필 정보를 표시하는 카드 컴포넌트입니다. leohuynh.dev의 프로필 카드 디자인을 참고했습니다. **imageSlot**은 필수 prop이며, Next에서는 next/image를 전달할 수 있습니다. 헤더 이미지가 없으면 `imageSlot={null}`을 넘깁니다.',
       },
     },
   },
@@ -49,9 +50,11 @@ export const WithSpotify: Story = {
     spotify: {
       isPlaying: true,
       song: {
-        title: 'Blinding Lights',
-        artist: 'The Weeknd',
-        songUrl: 'https://open.spotify.com/track/0VjIjW4GlUZ9YafZejv2bQ',
+        title: 'Letter To Teo',
+        artist: 'seawiid',
+        songUrl: 'https://open.spotify.com/track/40KI0wagmeuyHxBALolhDL',
+        albumImageUrl:
+          'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a20c45c816b0670f30c01ae5',
       },
     },
     imageSlot: (

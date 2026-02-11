@@ -19,19 +19,18 @@ const meta: Meta<typeof SpotifyLastPlayed> = {
 export default meta
 type Story = StoryObj<typeof SpotifyLastPlayed>
 
-// Using placeholder images that are more reliable
-const sampleTrack = {
-  title: 'Blinding Lights',
-  artist: 'The Weeknd',
+const defaultTrack = {
+  title: 'Letter To Teo',
+  artist: 'seawiid',
   albumImageUrl:
-    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop',
-  songUrl: 'https://open.spotify.com/track/0VjIjW4GlUZ9YafZejv2bQ',
+    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a20c45c816b0670f30c01ae5',
+  songUrl: 'https://open.spotify.com/track/40KI0wagmeuyHxBALolhDL',
   playedAt: new Date(Date.now() - 30 * 60 * 1000).toISOString(), // 30 minutes ago
 }
 
 export const CurrentlyPlaying: Story = {
   args: {
-    track: sampleTrack,
+    track: defaultTrack,
     isPlaying: true,
   },
 }
@@ -39,7 +38,7 @@ export const CurrentlyPlaying: Story = {
 export const LastPlayed: Story = {
   args: {
     track: {
-      ...sampleTrack,
+      ...defaultTrack,
       playedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(), // 2 hours ago
     },
     isPlaying: false,
@@ -48,7 +47,7 @@ export const LastPlayed: Story = {
 
 export const WithoutExternalLink: Story = {
   args: {
-    track: sampleTrack,
+    track: defaultTrack,
     isPlaying: false,
     showExternalLink: false,
   },
@@ -56,7 +55,7 @@ export const WithoutExternalLink: Story = {
 
 export const CustomExternalLink: Story = {
   args: {
-    track: sampleTrack,
+    track: defaultTrack,
     isPlaying: false,
     externalLinkUrl: 'https://open.spotify.com/user/custom',
   },
@@ -72,16 +71,7 @@ export const InActivitiesSection: Story = {
       </div>
       <div className="border-t border-neutral-200 dark:border-neutral-700" />
       <div className="pt-2 md:pt-0 space-y-6">
-        <SpotifyLastPlayed
-          track={{
-            title: 'As It Was',
-            artist: 'Harry Styles',
-            albumImageUrl:
-              'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop',
-            songUrl: 'https://open.spotify.com/track/4LRPiXqCikLlN15c3yImP7',
-          }}
-          isPlaying={true}
-        />
+        <SpotifyLastPlayed track={defaultTrack} isPlaying={true} />
       </div>
     </div>
   ),

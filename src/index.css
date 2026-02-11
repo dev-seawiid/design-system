@@ -421,3 +421,27 @@
   --background-image-golden-light-to-sand: var(--wg-gradient-golden-light-to-sand);
   --background-image-golden-light-to-sunset: var(--wg-gradient-golden-light-to-sunset);
 }
+
+/* 컴포넌트 내 포커스 링 (a11y). 디자인 시스템 컴포넌트에서만 사용 */
+@layer components {
+  .wg-focus-ring:focus-visible {
+    outline: 2px solid rgb(var(--wg-color-primary-500));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* 형광펜 닦아내기 애니메이션 (배경이 왼쪽→오른쪽으로 드러남) */
+  .wg-highlighter-link {
+    background-image: linear-gradient(
+      rgb(var(--wg-color-primary-100)),
+      rgb(var(--wg-color-primary-100))
+    );
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.35s ease-out, color 0.2s;
+  }
+  .wg-highlighter-link:hover {
+    background-size: 100% 100%;
+  }
+}

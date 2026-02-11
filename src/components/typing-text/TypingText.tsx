@@ -1,9 +1,10 @@
 'use client'
 
 import { cn } from '@/utils/cn'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import type { HTMLAttributes, Ref } from 'react'
 
-export interface TypingTextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TypingTextProps extends HTMLAttributes<HTMLSpanElement> {
   strings: string[]
   typeSpeed?: number
   backSpeed?: number
@@ -12,7 +13,7 @@ export interface TypingTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   startDelay?: number
   showCursor?: boolean
   cursorChar?: string
-  ref?: React.Ref<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 /**
@@ -109,17 +110,23 @@ export function TypingText({
   }
 
   return (
-    <span ref={ref} className={cn('inline-block', className)} {...props}>
+    <span
+      ref={ref}
+      className={cn('inline-block', className)}
+      aria-live="polite"
+      aria-label="Typing text"
+      {...props}
+    >
       <span>{displayText}</span>
       {showCursor && (
         <span
           className={cn(
-            'inline-block w-2 h-[1.375rem] ml-0.5',
+            'inline-block w-2 h-5.5 ml-0.5',
             'text-transparent',
             'bg-neutral-800 dark:bg-neutral-100',
             'animate-pulse'
           )}
-          aria-hidden="true"
+          aria-hidden
         >
           {cursorChar}
         </span>

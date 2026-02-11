@@ -25,15 +25,17 @@ export const NotPlaying: Story = {
   },
 }
 
+const defaultSong = {
+  title: 'Letter To Teo',
+  artist: 'seawiid',
+  songUrl: 'https://open.spotify.com/track/40KI0wagmeuyHxBALolhDL',
+  albumImageUrl: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a20c45c816b0670f30c01ae5',
+}
+
 export const Playing: Story = {
   args: {
     isPlaying: true,
-    song: {
-      title: 'Blinding Lights',
-      artist: 'The Weeknd',
-      songUrl: 'https://open.spotify.com/track/0VjIjW4GlUZ9YafZejv2bQ',
-      albumImageUrl: 'https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb26',
-    },
+    song: defaultSong,
   },
 }
 
@@ -42,10 +44,9 @@ export const WithCover: Story = {
     isPlaying: true,
     showCover: true,
     song: {
-      title: 'As It Was',
-      artist: 'Harry Styles',
-      songUrl: 'https://open.spotify.com/track/4LRPiXqCikLlN15c3yImP7',
-      albumImageUrl: 'https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0',
+      ...defaultSong,
+      albumImageUrl:
+        'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a20c45c816b0670f30c01ae5',
     },
   },
 }

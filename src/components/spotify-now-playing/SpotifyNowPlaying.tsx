@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn'
-import React from 'react'
+import type { HTMLAttributes, Ref } from 'react'
 
-export interface SpotifyNowPlayingProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SpotifyNowPlayingProps extends HTMLAttributes<HTMLDivElement> {
   song?: {
     title: string
     artist: string
@@ -10,7 +10,7 @@ export interface SpotifyNowPlayingProps extends React.HTMLAttributes<HTMLDivElem
   }
   isPlaying?: boolean
   showCover?: boolean
-  ref?: React.Ref<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 /**
@@ -27,7 +27,7 @@ export function SpotifyNowPlaying({
   ref,
   ...props
 }: SpotifyNowPlayingProps) {
-  const SpotifyIcon = () => (
+    const SpotifyIcon = () => (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
@@ -42,6 +42,8 @@ export function SpotifyNowPlaying({
     return (
       <div
         ref={ref}
+        role="region"
+        aria-label="Now playing on Spotify"
         className={cn(
           'flex items-center gap-2 px-3 py-1.5',
           'bg-neutral-900 text-neutral-200',
@@ -52,7 +54,7 @@ export function SpotifyNowPlaying({
         <SpotifyIcon />
         <div className="flex items-center gap-2">
           <p className="font-medium">Not Playing</p>
-          <span className="text-neutral-400">–</span>
+          <span className="text-neutral-400" aria-hidden>–</span>
           <p className="text-neutral-400">Spotify</p>
         </div>
       </div>
@@ -64,6 +66,8 @@ export function SpotifyNowPlaying({
   return (
     <div
       ref={ref}
+      role="region"
+      aria-label="Now playing on Spotify"
       className={cn(
         'flex items-center gap-2 px-3 py-1.5',
         'bg-neutral-900 text-neutral-200',
@@ -93,7 +97,8 @@ export function SpotifyNowPlaying({
             href={songUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium truncate hover:underline"
+            className="font-medium truncate hover:underline wg-focus-ring"
+            aria-label={`Listen to ${title} by ${artist} on Spotify`}
           >
             {title}
           </a>

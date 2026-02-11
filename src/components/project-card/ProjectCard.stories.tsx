@@ -32,7 +32,7 @@ const meta: Meta<typeof ProjectCard> = {
     docs: {
       description: {
         component:
-          '프로젝트를 표시하는 카드 컴포넌트입니다. 로고·링크는 슬롯(logoSlot, linkSlot)으로 전달하며, Next 프로젝트에서 next/image, next/link 사용이 가능합니다.',
+          '프로젝트를 표시하는 카드 컴포넌트입니다. wujie-blog-next의 실제 프로젝트 페이지 디자인을 참고했습니다. **logoSlot**, **linkSlot**은 필수 prop입니다. Next에서는 next/image·next/link를 전달할 수 있습니다. 로고가 없으면 `logoSlot={null}`, 링크가 없으면 `linkSlot={null}`을 넘깁니다.',
       },
     },
   },

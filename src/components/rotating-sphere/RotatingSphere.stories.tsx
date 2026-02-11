@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as si from 'simple-icons'
-import { RotatingSphere, RotatingSphereItem } from './RotatingSphere'
+import type { RotatingSphereItemInput } from './RotatingSphere'
+import { RotatingSphere } from './RotatingSphere'
 
 const meta: Meta<typeof RotatingSphere> = {
   title: 'Effects/RotatingSphere',
@@ -10,12 +11,17 @@ const meta: Meta<typeof RotatingSphere> = {
     docs: {
       description: {
         component:
-          '3D 구 형태로 아이템들이 회전하는 애니메이션 컴포넌트입니다. wujie-blog-next의 홈페이지 3D 회전 애니메이션을 참고했습니다.',
+          '3D 구 형태로 아이템들이 회전하는 애니메이션. items prop으로 전달하면 RSC에서도 그대로 사용 가능합니다.',
       },
     },
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['circle', 'rectangle'],
+      description: '아이템 모양 (전체 통일)',
+    },
     radius: {
       control: { type: 'number', min: 1, max: 5, step: 0.1 },
       description: '구의 반지름 (3D 단위)',
@@ -34,37 +40,14 @@ const meta: Meta<typeof RotatingSphere> = {
 export default meta
 type Story = StoryObj<typeof RotatingSphere>
 
-// Generate sphere points using Fibonacci sphere algorithm
-const generateSpherePoints = (count: number): RotatingSphereItem[] => {
-  const items: RotatingSphereItem[] = []
-  const goldenAngle = Math.PI * (3 - Math.sqrt(5))
-
-  for (let i = 0; i < count; i++) {
-    const y = 1 - (i / (count - 1)) * 2
-    const radius = Math.sqrt(1 - y * y)
-    const theta = goldenAngle * i
-    const x = Math.cos(theta) * radius
-    const z = Math.sin(theta) * radius
-
-    items.push({
-      id: i,
-      content: (
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-role-primary-500 text-white text-lg font-bold">
-          {i + 1}
-        </div>
-      ),
-      x,
-      y,
-      z,
-    })
-  }
-
-  return items
-}
+/** 숫자 원형 (circle 기본) */
+const defaultItems: RotatingSphereItemInput[] = Array.from({ length: 20 }, (_, i) => ({
+  content: i + 1,
+}))
 
 export const Default: Story = {
   args: {
-    items: generateSpherePoints(20),
+    items: defaultItems,
     radius: 2,
     speed: 0.5,
     autoRotate: true,
@@ -75,19 +58,18 @@ export const Default: Story = {
     </div>
   ),
 }
+
+/** 이모지/커스텀 노드 */
+const iconItems: RotatingSphereItemInput[] = [
+  '⚛️', '⚡', '🎨', '🚀', '💻', '🌟', '🔥', '✨', '🎯', '📦',
+  '🔧', '🌐', '📱', '🎮', '🧩', '🔒', '📊', '🎵', '🌈',
+].map((emoji) => ({
+  content: <span className="text-4xl">{emoji}</span>,
+}))
 
 export const WithIcons: Story = {
   args: {
-    items: [
-      { id: 1, content: <span className="text-4xl">⚛️</span>, x: 1, y: 0, z: 0 },
-      { id: 2, content: <span className="text-4xl">⚡</span>, x: -1, y: 0, z: 0 },
-      { id: 3, content: <span className="text-4xl">🎨</span>, x: 0, y: 1, z: 0 },
-      { id: 4, content: <span className="text-4xl">🚀</span>, x: 0, y: -1, z: 0 },
-      { id: 5, content: <span className="text-4xl">💻</span>, x: 0, y: 0, z: 1 },
-      { id: 6, content: <span className="text-4xl">🌟</span>, x: 0, y: 0, z: -1 },
-      { id: 7, content: <span className="text-4xl">🔥</span>, x: 0.7, y: 0.7, z: 0 },
-      { id: 8, content: <span className="text-4xl">✨</span>, x: -0.7, y: -0.7, z: 0 },
-    ],
+    items: iconItems,
     radius: 2,
     speed: 0.5,
     autoRotate: true,
@@ -99,16 +81,15 @@ export const WithIcons: Story = {
   ),
 }
 
+/** variant="rectangle" 태그형 (컴포넌트 레벨에서 한 번만 지정) */
+const tagItems: RotatingSphereItemInput[] = Array.from({ length: 12 }, (_, i) => ({
+  content: `Tag ${i + 1}`,
+}))
+
 export const WithText: Story = {
   args: {
-    items: generateSpherePoints(12).map((item, index) => ({
-      ...item,
-      content: (
-        <div className="rounded-lg px-4 py-2 text-white bg-shallow-beach-to-deep-sea">
-          <span className="text-sm font-semibold">Tag {index + 1}</span>
-        </div>
-      ),
-    })),
+    items: tagItems,
+    variant: 'rectangle',
     radius: 2.5,
     speed: 0.3,
     autoRotate: true,
@@ -120,9 +101,10 @@ export const WithText: Story = {
   ),
 }
 
+/** autoRotate 끄고 마우스 드래그로 회전 */
 export const ManualControl: Story = {
   args: {
-    items: generateSpherePoints(20),
+    items: defaultItems,
     radius: 2,
     speed: 0.5,
     autoRotate: false,
@@ -139,7 +121,7 @@ export const ManualControl: Story = {
 
 export const FastRotation: Story = {
   args: {
-    items: generateSpherePoints(30),
+    items: defaultItems,
     radius: 2,
     speed: 1.5,
     autoRotate: true,
@@ -153,7 +135,7 @@ export const FastRotation: Story = {
 
 export const SlowRotation: Story = {
   args: {
-    items: generateSpherePoints(15),
+    items: defaultItems.slice(0, 15),
     radius: 2,
     speed: 0.2,
     autoRotate: true,
@@ -165,97 +147,41 @@ export const SlowRotation: Story = {
   ),
 }
 
-// wujieli.com에서 사용하는 기술 스택 아이콘들
-// simple-icons의 실제 키 이름으로 매핑
 const techIconKeys = [
-  'siHtml5',
-  'siCss', // siCss3가 없으므로 siCss 사용
-  'siJavascript',
-  'siTypescript',
-  'siReact',
-  'siVuedotjs',
-  'siNextdotjs',
-  'siMysql',
-  'siPostgresql',
-  'siDrizzle',
-  'siNodedotjs',
-  'siOpenjdk', // siJava가 없으므로 siOpenjdk 사용
-  'siPython',
-  'siNginx',
-  'siVercel',
-  'siDocker',
-  'siGit',
-  'siGithub',
-  'siSupabase',
-  'siCloudflare',
-  'siAndroidstudio',
-  'siIos',
-  'siApple',
-  'siWechat',
+  'siHtml5', 'siCss', 'siJavascript', 'siTypescript', 'siReact', 'siVuedotjs',
+  'siNextdotjs', 'siMysql', 'siPostgresql', 'siDrizzle', 'siNodedotjs',
+  'siOpenjdk', 'siPython', 'siNginx', 'siVercel', 'siDocker', 'siGit',
+  'siGithub', 'siSupabase', 'siCloudflare', 'siAndroidstudio', 'siIos',
+  'siApple', 'siWechat',
 ] as const
 
-// Simple Icons를 사용하여 아이콘 렌더링
 const renderSimpleIcon = (iconKey: string) => {
   const icon = si[iconKey as keyof typeof si] as
     | { path: string; hex: string; title: string }
     | undefined
-
   if (!icon) {
-    console.warn(`Icon not found for key: ${iconKey}`)
     return (
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-definition-fog-200 text-definition-fog-600">
         {iconKey.substring(2, 4).toUpperCase()}
       </div>
     )
   }
-
-  const svgPath = icon.path
-  const hex = icon.hex
-
   return (
     <svg
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      style={{
-        width: '48px',
-        height: '48px',
-        fill: `#${hex}`,
-      }}
+      style={{ width: '48px', height: '48px', fill: `#${icon.hex}` }}
     >
       <title>{icon.title}</title>
-      <path d={svgPath} />
+      <path d={icon.path} />
     </svg>
   )
 }
 
-// 기술 스택 아이콘으로 구 생성
-const generateTechSpherePoints = (): RotatingSphereItem[] => {
-  const items: RotatingSphereItem[] = []
-  const goldenAngle = Math.PI * (3 - Math.sqrt(5))
-
-  techIconKeys.forEach((iconKey, i) => {
-    const y = 1 - (i / (techIconKeys.length - 1)) * 2
-    const radius = Math.sqrt(1 - y * y)
-    const theta = goldenAngle * i
-    const x = Math.cos(theta) * radius
-    const z = Math.sin(theta) * radius
-
-    items.push({
-      id: iconKey,
-      content: renderSimpleIcon(iconKey),
-      x,
-      y,
-      z,
-    })
-  })
-
-  return items
-}
-
 export const TechStackIcons: Story = {
   args: {
-    items: generateTechSpherePoints(),
+    items: techIconKeys.map((key) => ({ content: renderSimpleIcon(key) })),
     radius: 2,
     speed: 0.5,
     autoRotate: true,
@@ -264,7 +190,7 @@ export const TechStackIcons: Story = {
     <div className="h-[600px] w-full">
       <div className="mb-4 text-center">
         <h3 className="text-lg font-semibold text-definition-fog-900 dark:text-definition-fog-100">
-          Technology Stack Icons (wujieli.com style)
+          Technology Stack Icons
         </h3>
         <p className="mt-2 text-sm text-definition-fog-600 dark:text-definition-fog-400">
           {techIconKeys.length}개의 기술 스택 아이콘이 3D 구 형태로 회전합니다

@@ -1,20 +1,22 @@
 import { cn } from '@/utils/cn'
-import React from 'react'
+import type { HTMLAttributes, ReactNode, Ref } from 'react'
 import { Badge } from '../badge/Badge'
 import { ClientSlot } from '../client/ClientSlot'
 
-export interface PostCardProps extends React.HTMLAttributes<HTMLElement> {
+export interface PostCardProps extends HTMLAttributes<HTMLElement> {
   title: string
   summary?: string
   date: string
   readingTime?: number
   tags?: string[]
   variant?: 'grid' | 'list'
+  /** true면 새 포스트 뱃지를 표시 */
+  isNew?: boolean
   /** 이미지 슬롯 (next/image 사용 가능). 이미지 없으면 null */
-  imageSlot: React.ReactNode
+  imageSlot: ReactNode
   /** 제목 링크 슬롯 (next/link 사용 가능). 링크 없으면 null이면 제목만 표시 */
-  titleLinkSlot: React.ReactNode
-  ref?: React.Ref<HTMLElement>
+  titleLinkSlot: ReactNode
+  ref?: Ref<HTMLElement>
 }
 
 /**
@@ -30,6 +32,7 @@ export function PostCard({
   readingTime,
   tags,
   variant = 'grid',
+  isNew = false,
   imageSlot,
   titleLinkSlot,
   className,
@@ -37,17 +40,18 @@ export function PostCard({
   ...props
 }: PostCardProps) {
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
+    const dateObj = new Date(dateString)
+    return dateObj.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     })
   }
 
-  const content = (
+  return (
     <article
       ref={ref}
+      aria-label={title}
       className={cn(
         variant === 'grid' && 'flex flex-col',
         variant === 'list' && 'flex flex-row gap-4',
@@ -57,62 +61,74 @@ export function PostCard({
     >
       {variant === 'grid' && (
         <div className="flex flex-col items-start justify-between gap-4 md:gap-6">
-          {imageSlot && (
+          {imageSlot != null && imageSlot !== '' && (
             <div
               className={cn(
                 'relative block shrink-0 w-full',
-                'aspect-[3/2]',
                 'pt-0 pr-3 pb-3 pl-0',
-                'transition-all ease-in-out',
+                'transition-all duration-150 ease-in-out',
                 'hover:pt-1 hover:pr-2 hover:pb-2 hover:pl-1'
               )}
             >
-              <ClientSlot className="absolute inset-0 w-full h-full [&>*]:w-full [&>*]:h-full [&>img]:rounded-xl [&>img]:shadow-2xl [&>img]:object-cover [&>a]:block [&>a]:w-full [&>a]:h-full [&>a>img]:w-full [&>a>img]:h-full [&>a>img]:rounded-xl [&>a>img]:shadow-2xl [&>a>img]:object-cover">
-                {imageSlot}
-              </ClientSlot>
+              {/* 보더 박스: 원본(leohuynh.dev)처럼 z-[-1]로 이미지 뒤에 두어 테두리가 이미지 주변을 감싸도록 함 */}
               <div
                 className={cn(
-                  'absolute top-3 right-0 bottom-0 left-3',
-                  'rounded-xl border-2 border-neutral-800 dark:border-neutral-400',
-                  'bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,.1)_25%,rgba(0,0,0,.1)_50%,transparent_50%,transparent_75%,rgba(0,0,0,.1)_75%,rgba(0,0,0,.1))]',
-                  'bg-[length:20px_20px] opacity-20',
+                  'absolute top-3 right-0 bottom-0 left-3 z-0',
+                  'rounded-xl border-2 border-gray-800 dark:border-gray-200',
                   'pointer-events-none'
                 )}
               />
+              <div className="relative z-10 w-full aspect-[3/2] overflow-hidden rounded-xl border border-gray-800/5 dark:border-white/10 shadow-2xl">
+                <ClientSlot className="block w-full h-full object-cover [&>img]:w-full [&>img]:h-full [&>img]:object-cover">
+                  {imageSlot}
+                </ClientSlot>
+                {isNew && (
+                  <span className="absolute top-2 right-2 z-10" aria-label="새 포스트">
+                    <Badge variant="error" size="xs" className="animate-pulse">
+                      New
+                    </Badge>
+                  </span>
+                )}
+              </div>
             </div>
           )}
           <div className="w-full space-y-3">
-            <div className="flex flex-wrap items-center gap-x-1.5 text-sm text-neutral-600 dark:text-neutral-400">
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-neutral-600 dark:text-neutral-400">
               <time dateTime={date} className="whitespace-nowrap">
                 {formatDate(date)}
               </time>
-              {readingTime && (
+              {readingTime != null && readingTime > 0 && (
                 <>
                   <span className="text-neutral-400 whitespace-nowrap">/</span>
                   <span className="whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
+              {isNew && (imageSlot == null || imageSlot === '') && (
+                <>
+                  <span className="text-neutral-400" aria-hidden>·</span>
+                  <Badge variant="error" size="xs" className="shrink-0 animate-pulse" aria-label="새 포스트">
+                    New
+                  </Badge>
+                </>
+              )}
             </div>
-            <div className="group relative">
+            <div className="group">
               <h3 className="text-xl leading-6 font-semibold">
-                {titleLinkSlot ? (
-                  <div className="relative inline-block">
-                    <ClientSlot className="transition-colors hover:text-role-primary-500 [&>a]:no-underline [&>a]:text-inherit">
-                      {titleLinkSlot}
-                    </ClientSlot>
-                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-role-primary-500 transition-all group-hover:w-full" />
-                  </div>
+                {titleLinkSlot != null && titleLinkSlot !== '' ? (
+                  <ClientSlot className="no-underline text-inherit wg-focus-ring wg-highlighter-link hover:text-role-primary-600 rounded-sm">
+                    {titleLinkSlot}
+                  </ClientSlot>
                 ) : (
                   title
                 )}
               </h3>
-              {summary && (
+              {summary != null && summary !== '' && (
                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-neutral-600 dark:text-neutral-500 md:mt-3">
                   {summary}
                 </p>
               )}
             </div>
-            {tags && tags.length > 0 && (
+            {tags != null && tags.length > 0 && (
               <div className="flex gap-2 flex-wrap">
                 {tags.map((tag) => (
                   <Badge key={tag} variant="primary" size="sm">
@@ -127,40 +143,51 @@ export function PostCard({
 
       {variant === 'list' && (
         <div className="flex gap-4 w-full">
-          {imageSlot && (
+          {imageSlot != null && imageSlot !== '' && (
             <div className="shrink-0 w-32 h-24 rounded-lg overflow-hidden relative">
               <ClientSlot className="w-full h-full [&>*]:w-full [&>*]:h-full [&>img]:object-cover [&>a]:block [&>a]:w-full [&>a]:h-full [&>a>img]:w-full [&>a>img]:h-full [&>a>img]:object-cover">
                 {imageSlot}
               </ClientSlot>
+              {isNew && (
+                <span className="absolute top-1 right-1 z-10" aria-label="새 포스트">
+                  <Badge variant="error" size="xs" className="animate-pulse">New</Badge>
+                </span>
+              )}
             </div>
           )}
           <div className="flex-1 space-y-2">
-            <div className="flex flex-wrap items-center gap-x-1.5 text-xs text-neutral-600 dark:text-neutral-400">
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-neutral-600 dark:text-neutral-400">
               <time dateTime={date} className="whitespace-nowrap">
                 {formatDate(date)}
               </time>
-              {readingTime && (
+              {readingTime != null && readingTime > 0 && (
                 <>
                   <span className="text-neutral-400 whitespace-nowrap">/</span>
                   <span className="whitespace-nowrap">{Math.ceil(readingTime)} mins read</span>
                 </>
               )}
+              {isNew && (imageSlot == null || imageSlot === '') && (
+                <>
+                  <span className="text-neutral-400" aria-hidden>·</span>
+                  <Badge variant="error" size="xs" className="shrink-0 animate-pulse" aria-label="새 포스트">New</Badge>
+                </>
+              )}
             </div>
             <h3 className="text-lg font-semibold">
-              {titleLinkSlot ? (
-                <ClientSlot className="hover:text-role-primary-500 transition-colors [&>a]:no-underline [&>a]:text-inherit">
+              {titleLinkSlot != null && titleLinkSlot !== '' ? (
+                <ClientSlot className="no-underline text-inherit wg-focus-ring wg-highlighter-link hover:text-role-primary-600 rounded-sm">
                   {titleLinkSlot}
                 </ClientSlot>
               ) : (
                 title
               )}
             </h3>
-            {summary && (
+            {summary != null && summary !== '' && (
               <p className="text-sm text-neutral-600 dark:text-neutral-500 line-clamp-2">
                 {summary}
               </p>
             )}
-            {tags && tags.length > 0 && (
+            {tags != null && tags.length > 0 && (
               <div className="flex gap-2 flex-wrap">
                 {tags.map((tag) => (
                   <Badge key={tag} variant="primary" size="sm">
@@ -174,6 +201,4 @@ export function PostCard({
       )}
     </article>
   )
-
-  return content
 }

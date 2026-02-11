@@ -263,7 +263,7 @@ import {
   PostCard,
   ProfileCard,
   ProjectCard,
-  ParallaxTags,
+  ParallaxText,
   SpotifyNowPlaying,
   SpotifyLastPlayed,
   TypingText,
@@ -340,7 +340,7 @@ const theme: Theme = lightTheme
 - `PostCard` - 블로그 포스트 카드
 - `ProfileCard` - 프로필 카드
 - `ProjectCard` - 프로젝트 카드
-- `ParallaxTags` - 패럴랙스 효과 태그
+- `ParallaxText` - 패럴랙스 스크롤 텍스트
 - `SpotifyNowPlaying` - Spotify 현재 재생 중 표시
 - `SpotifyLastPlayed` - Spotify 최근 재생 목록
 - `TypingText` - 타이핑 효과 텍스트

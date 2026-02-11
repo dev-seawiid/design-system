@@ -1,41 +1,27 @@
 'use client'
 
 import { cn } from '@/utils/cn'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Ref } from 'react'
+import type { ParallaxTextItem } from './ParallaxText'
 
-export interface ParallaxTagItem {
-  text: string
-  href?: string
-}
-
-export interface ParallaxTagsProps extends React.HTMLAttributes<HTMLDivElement> {
-  tags: string[] | ParallaxTagItem[]
-  baseVelocity?: number
-  tagsPerRow?: number
-  pauseOnHover?: boolean
-  className?: string
-  ref?: React.Ref<HTMLDivElement>
-}
-
-/**
- * ParallaxTagsRow 컴포넌트
- *
- * 단일 row의 parallax 태그를 렌더링합니다.
- */
-interface ParallaxTagsRowProps {
-  tags: string[] | ParallaxTagItem[]
+export interface ParallaxTextRowProps {
+  items: ParallaxTextItem[]
   baseVelocity: number
   direction: number
   pauseOnHover: boolean
 }
 
-function ParallaxTagsRow({
-  tags,
+/**
+ * 단일 row의 parallax 텍스트 애니메이션. 스크롤/requestAnimationFrame 등 클라이언트 전용 로직만 담당합니다.
+ */
+export function ParallaxTextRow({
+  items,
   baseVelocity,
   direction,
   pauseOnHover,
   ref,
-}: ParallaxTagsRowProps & { ref?: React.Ref<HTMLDivElement> }) {
+}: ParallaxTextRowProps & { ref?: Ref<HTMLDivElement> }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const animationFrameRef = useRef<number | null>(null)
   const baseXRef = useRef(0)
@@ -47,26 +33,22 @@ function ParallaxTagsRow({
   const [isHovered, setIsHovered] = useState(false)
   const lastTimeRef = useRef(performance.now())
 
-  // Smooth velocity calculation (damping effect)
   const smoothVelocity = useCallback((target: number, current: number): number => {
     const damping = 0.1
     return current + (target - current) * damping
   }, [])
 
-  // Wrap function for seamless looping
   const wrap = useCallback((min: number, max: number, value: number): number => {
     const range = max - min
     return ((((value - min) % range) + range) % range) + min
   }, [])
 
   useEffect(() => {
-    if (!scrollRef.current || tags.length === 0) return
+    if (!scrollRef.current || items.length === 0) return
 
-    // Initialize: baseVelocity * direction gives the base direction
-    // direction = 1 means right, -1 means left
     currentVelocityRef.current = baseVelocity * direction
     prevVelocityRef.current = baseVelocity * direction
-    directionFactorRef.current = 1 // Will change based on scroll direction
+    directionFactorRef.current = 1
 
     let lastScrollY = window.scrollY
     let lastTime = performance.now()
@@ -78,17 +60,11 @@ function ParallaxTagsRow({
       const deltaScroll = currentScrollY - lastScrollY
 
       if (deltaTime > 0) {
-        // Calculate scroll velocity (pixels per millisecond, keep sign)
         const velocity = (deltaScroll / deltaTime) * 1000
         scrollVelocityRef.current = Math.abs(velocity)
-
-        // Update direction factor based on scroll direction
-        // This affects acceleration direction, but base direction is from baseVelocity * direction
         if (velocity < 0) {
-          // Scrolling up - reverse acceleration
           directionFactorRef.current = -1
         } else if (velocity > 0) {
-          // Scrolling down - normal acceleration
           directionFactorRef.current = 1
         }
       }
@@ -103,16 +79,13 @@ function ParallaxTagsRow({
       const deltaTime = currentTime - lastTimeRef.current
       lastTimeRef.current = currentTime
 
-      // Smooth velocity
       smoothVelocityRef.current = smoothVelocity(
         scrollVelocityRef.current,
         smoothVelocityRef.current
       )
 
-      // Calculate velocity factor (0 to 50 based on scroll speed)
       const velocityFactor = Math.min(smoothVelocityRef.current / 20, 5)
 
-      // Handle hover pause
       if (isHovered && pauseOnHover) {
         prevVelocityRef.current = currentVelocityRef.current
         currentVelocityRef.current = 0
@@ -120,22 +93,11 @@ function ParallaxTagsRow({
         currentVelocityRef.current = prevVelocityRef.current || baseVelocity * direction
       }
 
-      // Calculate movement
-      // baseVelocity * direction gives the base direction (positive = right, negative = left)
-      // directionFactor adjusts acceleration based on scroll direction (1 or -1)
-      // velocityFactor adds acceleration based on scroll speed
-      // The base direction is preserved: if direction=1 (right), it always goes right
-      // directionFactor only affects acceleration, not the base direction
       let moveBy = currentVelocityRef.current * (deltaTime / 1000)
-
-      // Add acceleration based on scroll speed and direction
-      // directionFactor affects how much the scroll speed accelerates the movement
       moveBy += directionFactorRef.current * moveBy * velocityFactor
 
       baseXRef.current += moveBy
 
-      // Wrap position for seamless loop
-      // Using -20% to -45% range (25% per duplicate, 4 duplicates = 100%)
       const wrappedX = wrap(-45, -20, baseXRef.current)
 
       if (scrollRef.current) {
@@ -153,18 +115,16 @@ function ParallaxTagsRow({
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [baseVelocity, direction, isHovered, pauseOnHover, tags.length, smoothVelocity, wrap])
+  }, [baseVelocity, direction, isHovered, pauseOnHover, items.length, smoothVelocity, wrap])
 
-  if (tags.length === 0) {
+  if (items.length === 0) {
     return null
   }
 
-  // Duplicate tags for seamless loop (4 times for smooth scrolling)
-  const duplicatedTags = [...tags, ...tags, ...tags, ...tags]
+  const duplicatedItems = [...items, ...items, ...items, ...items]
 
-  const renderTag = (tag: string | ParallaxTagItem, index: number) => {
-    const text = typeof tag === 'string' ? tag : tag.text
-    const href = typeof tag === 'string' ? undefined : tag.href
+  const renderItem = (item: ParallaxTextItem, index: number) => {
+    const { text, href } = item
 
     const content = (
       <span
@@ -222,68 +182,8 @@ function ParallaxTagsRow({
           transform: 'translateX(0%)',
         }}
       >
-        {duplicatedTags.map((tag, index) => renderTag(tag, index))}
+        {duplicatedItems.map((item, index) => renderItem(item, index))}
       </div>
-    </div>
-  )
-}
-
-/**
- * ParallaxTags 컴포넌트
- *
- * 스크롤 시 태그들이 parallax 효과로 움직이는 애니메이션 컴포넌트입니다.
- * 여러 row로 나뉘어 각 row마다 반대 방향으로 흐릅니다.
- * Azurtelier.com의 ParallaxText 컴포넌트를 참고했습니다.
- */
-export function ParallaxTags({
-  tags,
-  baseVelocity = 1,
-  tagsPerRow = 3,
-  pauseOnHover = true,
-  className,
-  ref,
-  ...props
-}: ParallaxTagsProps) {
-  // Split tags into rows
-  const rows: (string[] | ParallaxTagItem[])[] = []
-
-  for (let i = 0; i < tags.length; i += tagsPerRow) {
-    const rowTags = tags.slice(i, i + tagsPerRow)
-    if (rowTags.length > 0) {
-      rows.push(rowTags)
-    }
-  }
-
-  // Wrap remaining tags into the last row if needed
-  if (rows.length > 0 && tags.length > rows.length * tagsPerRow) {
-    const remaining = tags.slice(rows.length * tagsPerRow)
-    if (remaining.length > 0) {
-      const lastRow = rows[rows.length - 1]
-      if (Array.isArray(lastRow)) {
-        rows[rows.length - 1] = [...lastRow, ...remaining] as string[] | ParallaxTagItem[]
-      }
-    }
-  }
-
-  return (
-    <div
-      ref={ref}
-      className={cn('space-y-2 overflow-hidden', 'py-4', 'bg-algae-to-shallow-beach', className)}
-      {...props}
-    >
-      {rows.map((rowTags, index) => {
-        const rowDirection = index % 2 === 0 ? 1 : -1
-
-        return (
-          <ParallaxTagsRow
-            key={index}
-            tags={rowTags}
-            baseVelocity={baseVelocity}
-            direction={rowDirection}
-            pauseOnHover={pauseOnHover}
-          />
-        )
-      })}
     </div>
   )
 }

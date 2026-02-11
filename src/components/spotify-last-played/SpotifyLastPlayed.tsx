@@ -1,5 +1,7 @@
+'use client'
+
 import { cn } from '@/utils/cn'
-import React from 'react'
+import type { HTMLAttributes, Ref } from 'react'
 
 export interface SpotifyTrack {
   title: string
@@ -9,19 +11,19 @@ export interface SpotifyTrack {
   playedAt?: string
 }
 
-export interface SpotifyLastPlayedProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SpotifyLastPlayedProps extends HTMLAttributes<HTMLDivElement> {
   track: SpotifyTrack
   isPlaying?: boolean
   showExternalLink?: boolean
   externalLinkUrl?: string
-  ref?: React.Ref<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 /**
  * SpotifyLastPlayed 컴포넌트
  *
  * 현재 재생 중이거나 최근 재생한 Spotify 트랙을 표시하는 컴포넌트입니다.
- * leohuynh.dev의 "Side quests and activities" 섹션의 LastPlayed 컴포넌트를 참고했습니다.
+ * leohuynh.dev의 "Side quests and activities" 섹션 LastPlayed 컴포넌트를 참고했습니다.
  */
 export function SpotifyLastPlayed({
   track,
@@ -72,6 +74,7 @@ export function SpotifyLastPlayed({
       strokeLinecap="round"
       strokeLinejoin="round"
       className="h-4 w-4"
+      aria-hidden
     >
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <polyline points="15 3 21 3 21 9" />
@@ -88,11 +91,17 @@ export function SpotifyLastPlayed({
   )
 
   return (
-    <div ref={ref} className={cn('flex items-center gap-4', className)} {...props}>
+    <div
+      ref={ref}
+      role="region"
+      aria-label={`Spotify track: ${track.title} by ${track.artist}`}
+      className={cn('flex items-center gap-4', className)}
+      {...props}
+    >
       {/* Album Art */}
       <div className="relative shrink-0">
         <img
-          alt={track.title}
+          alt={`Album cover for ${track.title}`}
           src={track.albumImageUrl}
           className={cn(
             'h-16 w-16 md:h-20 md:w-20 rounded-lg object-cover',
@@ -123,7 +132,8 @@ export function SpotifyLastPlayed({
                   href={track.songUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold transition-colors hover:text-role-primary-500"
+                  className="font-semibold transition-colors hover:text-role-primary-500 wg-focus-ring"
+                  aria-label={`Listen to ${track.title} by ${track.artist} on Spotify`}
                 >
                   <span className="relative inline-block">
                     {track.title}
@@ -140,7 +150,8 @@ export function SpotifyLastPlayed({
                   href={track.songUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold transition-colors hover:text-role-primary-500"
+                  className="font-semibold transition-colors hover:text-role-primary-500 wg-focus-ring"
+                  aria-label={`Listen to ${track.title} by ${track.artist} on Spotify`}
                 >
                   <span className="relative inline-block">
                     {track.title}
@@ -173,7 +184,8 @@ export function SpotifyLastPlayed({
               href={externalLinkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded p-2 text-neutral-700 transition-colors hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-700"
+              className="p-2 text-neutral-700 transition-colors hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-700 wg-focus-ring"
+              aria-label="Open Spotify"
             >
               <ExternalLinkIcon />
             </a>

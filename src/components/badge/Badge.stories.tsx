@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Badge } from './Badge'
 
 const meta: Meta<typeof Badge> = {
-  title: 'Foundation/Badge',
+  title: 'Components/Badge',
   component: Badge,
   parameters: {
     layout: 'padded',
@@ -20,7 +20,7 @@ const meta: Meta<typeof Badge> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['xs', 'sm', 'md', 'lg'],
     },
   },
 }
@@ -51,6 +51,7 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex items-center gap-2">
+      <Badge size="xs">Extra small</Badge>
       <Badge size="sm">Small</Badge>
       <Badge size="md">Medium</Badge>
       <Badge size="lg">Large</Badge>

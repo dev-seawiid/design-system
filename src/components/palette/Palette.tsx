@@ -1,12 +1,13 @@
 import { darkTheme, lightTheme } from '@/theme'
 import { cn } from '@/utils/cn'
+import type { ReactNode } from 'react'
 
 interface PaletteProps {
   theme?: 'light' | 'dark'
   className?: string
   title?: string
   description?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export function Palette({

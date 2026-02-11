@@ -5,6 +5,11 @@ import './storybook.css'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['Foundation', 'Components', 'Cards', 'Effects', 'Media'],
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
